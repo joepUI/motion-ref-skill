@@ -1,0 +1,382 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img{vertical-align:bottom
+}
+
+
+
+
+#loader-bg {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background: #121212;
+  z-index: 1;
+}
+#loader {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}
+
+
+
+
+
+body{
+	background-color:#464343;
+	width:100%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.body001{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.hedder{
+	
+	height:70px;
+	background-color:#2A2A2A;
+}
+.fotter{
+	height:70px;
+	margin-top:30px;
+	background-color:#2A2A2A;
+
+}
+
+.main{
+	width:auto;
+	
+}
+
+.mainimage{
+	float:left;
+	border:solid 1px;
+	border-color:#5B5B5B;
+	margin-top:30px;
+	margin-bottom:30px;
+	margin-right:30px;
+	
+	
+
+}
+
+
+
+.maintext{
+	float:left;
+	width:70%;
+}
+
+.maintitle{
+	font-size:65px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	width:70%;
+	float:left;
+}
+
+
+
+.maintitle H2{
+	font:Georgia, "Times New Roman", Times, serif;
+	margin:0;
+	margin-top:40px;
+	margin-bottom:20px;
+
+}
+
+
+H2{
+	font:Georgia, "Times New Roman", Times, serif;
+	font-size:65px;
+	color:#FFFFFF;
+}
+
+p{
+	color:#BFBFBF;
+	font-family: "KozGoPro-ExtraLight", "小塚ゴシック Pro EL", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+	
+}
+
+
+h4{
+	color:#FFFFFF;
+	font-size:12px;
+
+
+	text-align:center;
+	padding-top:30px;
+	font-family: "KozGoPro-ExtraLight", "小塚ゴシック Pro EL", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+	
+}
+
+
+
+
+p2{
+	font-size:24px;
+	font-family: "KozGoPro-ExtraLight", "小塚ゴシック Pro EL", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+	
+}
+
+.clear{
+	clear:both;
+	
+}
+
+
+
+
+
+H1{
+	color:#FFFFFF;
+	font-family: "KozGoPro-ExtraLight", "小塚ゴシック Pro EL", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+	font-size:25px;
+}
+	
+h3{	
+color:#BFBFBF;
+font-size:16px;
+	font-family: "KozGoPro-ExtraLight", "小塚ゴシック Pro EL", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+}
+
+
+.maintitle h1{
+	color:white;
+	font-size:20px;
+	margin-top:-10px;
+	margin-left:10px;
+}
+
+.sample img{
+	border:solid 1px;
+	margin:0;
+	padding:0;
+	border-color:#5B5B5B;
+	float:left;
+	margin-right:10px;
+	
+	display:block;
+	
+	}
+	
+	
+.sample span img{
+	margin-bottom:10px;
+}
+
+	
+	
+img.plus{
+	border:none;
+	padding-right:20px;
+	padding-left:20px;
+	padding-top:104.5px;
+	padding-bottom:104.5px;
+}
+	
+
+
+
+
+
+
+
+
+
+
+.form-group {
+  margin-bottom: 15px;
+  text-align:right;
+}
+
+.form-groupL {
+  margin-bottom: 15px;
+  float:left;
+  margin-left:15px
+}
+
+.button {
+    display: inline-block;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 40px;
+	outline: none;
+	margin-top:15px;
+	margin-right:15px;
+	border-radius:2px;
+	border:solid 1px;
+	border-color:#5B5B5B;
+	
+	background-color: #333;
+	color: #fff;
+}
+
+.button img{
+	margin-bottom:7px;
+}
+
+
+.button::before,
+.button::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';
+}
+.button,
+.button::before,
+.button::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+.button:hover {
+	background-color: #59b1eb;
+}
+
+
+
+
+
+
+h5{
+	color:#FFFFFF;
+	font-size:12px;
+
+
+	text-align:center;
+	font-family: "KozGoPro-ExtraLight", "小塚ゴシック Pro EL", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+}
+
+
+
+h6{
+	color:#464646;
+	font-size:12px;
+	padding-top:15px;
+	text-align:center;
+	font-family: "KozGoPro-ExtraLight", "小塚ゴシック Pro EL", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+}
+
+
+
+
+
+
+a:hover img{
+    cursor:pointer;
+    filter: alpha(opacity=60);        /* ie lt 8 */
+    -ms-filter: "alpha(opacity=60)";  /* ie 8 */
+    -moz-opacity:0.6;                 /* FF lt 1.5, Netscape */
+    -khtml-opacity: 0.6;              /* Safari 1.x */
+    opacity:0.6;
+    zoom:1;
+	-webkit-transition: 0.3s ease-in-out;
+	   -moz-transition: 0.3s ease-in-out;
+	     -o-transition: 0.3s ease-in-out;
+	        transition: 0.3s ease-in-out;
+			
+	
+}
+
+
+a{
+    background-color:#FFBE00;
+    display:block;	
+	
+	
+	
+	
+}
+
+
+
+
+.sample a{
+	float:left;
+	display:block;
+	margin-right:10px;
+	
+}
+
+.sample a img{
+	margin-right:-1px;
+}
+
+
+
+
+

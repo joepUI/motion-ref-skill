@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion Ref — 动效参考</title>
+  <link rel="stylesheet" href="design.css" type="text/css">
+  <script src="jquery-2.1.4.min.js"></script>
+  <script>
+    $(function() {
+      var h = $(window).height();
+      $('#wrap').css('display', 'none');
+      $('#loader-bg, #loader').height(h).css('display', 'block');
+    });
+
+    $(window).load(function() {
+      $('#loader-bg').delay(900).fadeOut(800);
+      $('#loader').delay(600).fadeOut(300);
+      $('#wrap').css('display', 'block');
+    });
+
+    $(function() {
+      setTimeout('stopload()', 10000);
+    });
+
+    function stopload() {
+      $('#wrap').css('display', 'block');
+      $('#loader-bg').delay(900).fadeOut(800);
+      $('#loader').delay(600).fadeOut(300);
+    }
+  </script>
+</head>
+
+<body>
+
+  <div id="loader-bg">
+    <div id="loader">
+      <img src="gif/Load002.gif" width="80" height="80" alt="Now Loading...">
+      <p>Now Loading...</p>
+    </div>
+  </div>
+
+  <div id="wrap">
+
+    <header class="site-header">
+      <h1 class="site-title">Motion Ref</h1>
+      <p class="site-subtitle">动效参考 — 73 种动效，按类别浏览</p>
+      <div class="site-links">
+        <a href="https://github.com/joepUI/motion-ref-skill" class="header-btn" target="_blank">GitHub</a>
+      </div>
+    </header>
+
+    <main class="categories">
+
+      <section class="category">
+        <div class="category-header">
+          <h2>移动系</h2>
+          <span class="category-desc">位置变化 · 入场出场 · 引导视线</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/Move.html" class="card"><img src="gif/Move.gif"><span>Move 移动</span></a>
+          <a href="effects/SymMove.html" class="card"><img src="gif/SymMove.gif"><span>SymMove 对称移动</span></a>
+          <a href="effects/RepeatMove.html" class="card"><img src="gif/RepeatMove.gif"><span>RepeatMove 重复移动</span></a>
+          <a href="effects/WiggleMove.html" class="card"><img src="gif/WiggleMove.gif"><span>WiggleMove 摆动移动</span></a>
+          <a href="effects/DelayMove.html" class="card"><img src="gif/DelayMove.gif"><span>DelayMove 延迟</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>旋转系</h2>
+          <span class="category-desc">自转 · 公转 · 对称旋转</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/Rotate.html" class="card"><img src="gif/Rotate.gif"><span>Rotate 旋转</span></a>
+          <a href="effects/SymRotate.html" class="card"><img src="gif/SymRotate.gif"><span>SymRotate 对称旋转</span></a>
+          <a href="effects/RepeatRotate.html" class="card"><img src="gif/RepeatRotate.gif"><span>RepeatRotate 重复旋转</span></a>
+          <a href="effects/WiggleRotate.html" class="card"><img src="gif/WiggleRotate.gif"><span>WiggleRotate 摆动旋转</span></a>
+          <a href="effects/SolidRotation.html" class="card"><img src="gif/SolidRotation.gif"><span>SolidRotation Z轴旋转</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>缩放系</h2>
+          <span class="category-desc">大小变化 · 弹性 · 强调</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/Scale.html" class="card"><img src="gif/Scale.gif"><span>Scale 缩放</span></a>
+          <a href="effects/SymScale.html" class="card"><img src="gif/SymScale.gif"><span>SymScale 对称缩放</span></a>
+          <a href="effects/RepeatScale.html" class="card"><img src="gif/RepeatScale.gif"><span>RepeatScale 重复缩放</span></a>
+          <a href="effects/WiggleScale.html" class="card"><img src="gif/WiggleScale.gif"><span>WiggleScale 摆动缩放</span></a>
+          <a href="effects/Dot.html" class="card"><img src="gif/Dot.gif"><span>Dot 网点</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>裁剪系</h2>
+          <span class="category-desc">线条伸展 · 进度环 · 路径绘制</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/TrimLine.html" class="card"><img src="gif/TrimLine.gif"><span>TrimLine 线条裁剪</span></a>
+          <a href="effects/TrimCircle.html" class="card"><img src="gif/TrimCircle.gif"><span>TrimCircle 圆形裁剪</span></a>
+          <a href="effects/RepeatTrim.html" class="card"><img src="gif/RepeatTrim.gif"><span>RepeatTrim 重复裁剪</span></a>
+          <a href="effects/TrimPie.html" class="card"><img src="gif/TrimPie.gif"><span>TrimPie 扇形裁剪</span></a>
+          <a href="effects/FlowingLine.html" class="card"><img src="gif/FlowingLine.gif"><span>FlowingLine 流动线条</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>模糊·光效系</h2>
+          <span class="category-desc">虚化 · 发光 · 景深 · 聚焦</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/Blur.html" class="card"><img src="gif/Blur.gif"><span>Blur 模糊</span></a>
+          <a href="effects/Opacity.html" class="card"><img src="gif/Opacity.gif"><span>Opacity 透明度</span></a>
+          <a href="effects/FieldOfDepth.html" class="card"><img src="gif/FieldOfDepth.gif"><span>FieldOfDepth 景深</span></a>
+          <a href="effects/MotionBlur.html" class="card"><img src="gif/MotionBlur.gif"><span>MotionBlur 运动模糊</span></a>
+          <a href="effects/CrossBlur.html" class="card"><img src="gif/CrossBlur.gif"><span>CrossBlur 交叉模糊</span></a>
+          <a href="effects/RadialBlur.html" class="card"><img src="gif/RadialBlur.gif"><span>RadialBlur 缩放模糊</span></a>
+          <a href="effects/Glow.html" class="card"><img src="gif/Glow.gif"><span>Glow 发光</span></a>
+          <a href="effects/Flare.html" class="card"><img src="gif/Flare.gif"><span>Flare 镜头光晕</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>偏移·轨道系</h2>
+          <span class="category-desc">路径运动 · 轨道 · 循环</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/Orbit.html" class="card"><img src="gif/Orbit.gif"><span>Orbit 轨道旋转</span></a>
+          <a href="effects/Offset.html" class="card"><img src="gif/Offset.gif"><span>Offset 偏移</span></a>
+          <a href="effects/Vegas.html" class="card"><img src="gif/Vegas.gif"><span>Vegas 勾画光线</span></a>
+          <a href="effects/Loop.html" class="card"><img src="gif/Loop.gif"><span>Loop 循环</span></a>
+          <a href="effects/Tiler.html" class="card"><img src="gif/Tiler.gif"><span>Tiler 平铺</span></a>
+          <a href="effects/PolarCoordinates.html" class="card"><img src="gif/PolarCoordinates.gif"><span>PolarCoordinates 极坐标</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>变形系</h2>
+          <span class="category-desc">图形变形 · 形状变换 · 线宽变化</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/ShapeTransform.html" class="card"><img src="gif/ShapeTransform.gif"><span>ShapeTransform 图形变形</span></a>
+          <a href="effects/RepeatTransform.html" class="card"><img src="gif/RepeatTransform.gif"><span>RepeatTransform 重复变换</span></a>
+          <a href="effects/LineWeight.html" class="card"><img src="gif/LineWeight.gif"><span>LineWeight 线宽</span></a>
+          <a href="effects/Shade.html" class="card"><img src="gif/Shade.gif"><span>Shade 阴影</span></a>
+          <a href="effects/Reshape.html" class="card"><img src="gif/Reshape.gif"><span>Reshape 整形</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>时间操作系</h2>
+          <span class="category-desc">缓动 · 节奏 · 定格 · 时间扭曲</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/Easing.html" class="card"><img src="gif/Easing.gif"><span>Easing 缓动</span></a>
+          <a href="effects/Rhythm.html" class="card"><img src="gif/Rhythm.gif"><span>Rhythm 节奏</span></a>
+          <a href="effects/Integar.html" class="card"><img src="gif/Integar.gif"><span>Integar 时间取整</span></a>
+          <a href="effects/TimeDisplace.html" class="card"><img src="gif/TimeDisplace.gif"><span>TimeDisplace 时间置换</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>扭曲系</h2>
+          <span class="category-desc">漩涡 · 波形扭曲 · 弯曲</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/Bend.html" class="card"><img src="gif/Bend.gif"><span>Bend 弯曲</span></a>
+          <a href="effects/WaveWarp.html" class="card"><img src="gif/WaveWarp.gif"><span>WaveWarp 波形扭曲</span></a>
+          <a href="effects/Twirl.html" class="card"><img src="gif/Twirl.gif"><span>Twirl 旋转扭曲</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>扩散系</h2>
+          <span class="category-desc">粉碎 · 晕染 · 马赛克</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/Scatter.html" class="card"><img src="gif/Scatter.gif"><span>Scatter 扩散</span></a>
+          <a href="effects/Median.html" class="card"><img src="gif/Median.gif"><span>Median 中间值</span></a>
+          <a href="effects/Mosaic.html" class="card"><img src="gif/Mosaic.gif"><span>Mosaic 马赛克</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>分形系</h2>
+          <span class="category-desc">噪波纹理 · 湍流 · 粗糙边缘</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/FractalNoise.html" class="card"><img src="gif/FractalNoise3.gif"><span>FractalNoise 分形噪波</span></a>
+          <a href="effects/TurbulentDisplace.html" class="card"><img src="gif/TurbulentDisplace.gif"><span>TurbulentDisplace 湍流置换</span></a>
+          <a href="effects/RoughEdge.html" class="card"><img src="gif/RoughEdge.gif"><span>RoughEdge 粗糙边缘</span></a>
+          <a href="effects/NoiseAlpha.html" class="card"><img src="gif/NoiseAlpha.gif"><span>NoiseAlpha 噪波透明</span></a>
+          <a href="effects/WigglePath.html" class="card"><img src="gif/WigglePath.gif"><span>WigglePath 摆动路径</span></a>
+          <a href="effects/Lightning.html" class="card"><img src="gif/Lightning.gif"><span>Lightning 闪电</span></a>
+        </div>
+      </section>
+
+      <section class="category">
+        <div class="category-header">
+          <h2>特殊效果</h2>
+          <span class="category-desc">粒子 · 蒙版 · 百叶窗 · 文字 · 连接</span>
+        </div>
+        <div class="category-grid">
+          <a href="effects/TipShape.html" class="card"><img src="gif/TipShape.gif"><span>TipShape 端点图形</span></a>
+          <a href="effects/Link.html" class="card"><img src="gif/Link.gif"><span>Link 连接</span></a>
+          <a href="effects/MaskWipe.html" class="card"><img src="gif/MaskWipe.gif"><span>MaskWipe 蒙版擦除</span></a>
+          <a href="effects/SpinFade.html" class="card"><img src="gif/SpinFade.gif"><span>SpinFade 旋转淡出</span></a>
+          <a href="effects/Scribble.html" class="card"><img src="gif/Scribble.gif"><span>Scribble 涂鸦</span></a>
+          <a href="effects/Text.html" class="card"><img src="gif/Text.gif"><span>Text 文字</span></a>
+          <a href="effects/AudioWave.html" class="card"><img src="gif/AudioWave.gif"><span>AudioWave 音频波形</span></a>
+          <a href="effects/Particle.html" class="card"><img src="gif/Particle.gif"><span>Particle 粒子</span></a>
+          <a href="effects/Shatter.html" class="card"><img src="gif/Shatter.gif"><span>Shatter 碎裂</span></a>
+          <a href="effects/Slide.html" class="card"><img src="gif/Slide.gif"><span>Slide 滑动</span></a>
+          <a href="effects/Blind.html" class="card"><img src="gif/Blind.gif"><span>Blind 百叶窗</span></a>
+          <a href="effects/RandomMove.html" class="card"><img src="gif/RandomMove.gif"><span>RandomMove 随机</span></a>
+          <a href="effects/Wave.html" class="card"><img src="gif/Wave.gif"><span>Wave 波</span></a>
+          <a href="effects/Grid.html" class="card"><img src="gif/Grid.gif"><span>Grid 网格</span></a>
+          <a href="effects/CardDance.html" class="card"><img src="gif/CardDance.gif"><span>CardDance 卡片舞动</span></a>
+          <a href="effects/OutlineBlur.html" class="card"><img src="gif/OutlineBlur.gif"><span>OutlineBlur 轮廓检测</span></a>
+          <a href="effects/LineSweep.html" class="card"><img src="gif/LineSweep.gif"><span>LineSweep 扫描线</span></a>
+          <a href="effects/Sin.html" class="card"><img src="gif/Sin.gif"><span>Sin 正弦波</span></a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
