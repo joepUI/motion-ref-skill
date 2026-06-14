@@ -38,16 +38,18 @@ git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion
 
 ```
 /motion-ref 按钮点击后弹一下
-/motion-ref 登录成功后给个舒服的反馈
-/motion-ref 数据大屏的数字跳动起来
-/motion-ref 产品从模糊变清晰出现
-/motion-ref 做一个加载动画
-/motion-ref 让页面有高级感
+/motion-ref 数字从 0 跳到目标值
+/motion-ref 输入错误时输入框抖一下
+/motion-ref 图标像被一笔一笔画出来
+/motion-ref 光沿着按钮边框跑一圈
+/motion-ref 背景加一层流动的噪波纹理
+/motion-ref 产品图从模糊变清晰出现
+/motion-ref 点击后像水波纹一样扩散开
+/motion-ref 页面切换用碎片飞散的效果
+/motion-ref 做一个粒子上升的背景动画
 ```
 
 也可以直接用自然语言描述，技能会自动激活。
-
-**模糊描述也能用。** 说"让页面有高级感" → 技能会展示 2-3 个方向让你选，确认后再输出完整方案。
 
 ## 动效类别
 

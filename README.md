@@ -37,17 +37,19 @@ Restart Claude Code after installing.
 ## Usage
 
 ```
-/motion-ref button bounce on click
-/motion-ref product reveal from blur to sharp
-/motion-ref loading spinner animation
-/motion-ref make the page feel premium
-/motion-ref number counting up on a dashboard
-/motion-ref smooth page transition
+/motion-ref bounce effect on button click
+/motion-ref number counting up from zero
+/motion-ref input field shake on error
+/motion-ref icon drawing itself line by line
+/motion-ref light tracing along a button border
+/motion-ref flowing noise texture for background
+/motion-ref product image appearing from blur to sharp
+/motion-ref ripple expanding outward on click
+/motion-ref page transition with shattering fragments
+/motion-ref particles rising in the background
 ```
 
 Or describe what you want in natural language — the skill activates automatically.
-
-**Vague input works too.** Say "make it feel premium" → the skill shows 2–3 directions and lets you choose before outputting full specs.
 
 ## Effect Categories
 
