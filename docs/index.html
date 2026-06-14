@@ -202,10 +202,10 @@ a{color:var(--accent);text-decoration:none}
 .glow-btn{animation:glowHint 2.5s ease-in-out infinite}
 .glow-btn:hover{box-shadow:0 0 24px var(--accent-glow),0 0 48px rgba(99,102,241,.12);animation:none}
 @keyframes glowHint{0%,100%{box-shadow:none}50%{box-shadow:0 0 16px var(--accent-glow)}}
-.bounce-btn{animation:bounceHint 2s ease-in-out infinite}
-.bounce-btn:active{animation:bounceTap .4s ease}
-@keyframes bounceHint{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
-@keyframes bounceTap{0%{transform:scale(1)}40%{transform:scale(.85)}70%{transform:scale(1.08)}100%{transform:scale(1)}}
+.bounce-btn{animation:bounceHint 2.5s ease-in-out infinite}
+.bounce-btn:active{animation:bounceTap .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes bounceHint{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes bounceTap{0%{transform:scale(1) translateY(0)}30%{transform:scale(.88,.96) translateY(4px)}50%{transform:scale(1.08,1) translateY(-8px)}70%{transform:scale(.98,1.02) translateY(-2px)}100%{transform:scale(1) translateY(0)}}
 
 .fill-btn{position:relative;overflow:hidden}
 .fill-btn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(129,140,248,.3);animation:fillLoop 3s ease infinite}
@@ -300,12 +300,12 @@ a{color:var(--accent);text-decoration:none}
 .vt-b{background:#7c3aed;clip-path:circle(0% at 50% 50%);animation:vtCircle 3.5s ease infinite}
 @keyframes vtCircle{0%,30%{clip-path:circle(0% at 50% 50%)}50%,80%{clip-path:circle(75% at 50% 50%)}100%{clip-path:circle(0% at 50% 50%)}}
 
-.stack-demo{width:70px;height:90px;position:relative}
-.stack-card{position:absolute;width:70px;height:90px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:600}
-.stack-card:nth-child(1){background:#4f46e5;z-index:1;animation:stackUp 3s ease-in-out infinite}
-.stack-card:nth-child(2){background:#6366f1;z-index:2;transform:scale(.95);top:4px}
-.stack-card:nth-child(3){background:#818cf8;z-index:3;transform:scale(.9);top:8px}
-@keyframes stackUp{0%,30%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(.9);opacity:.5}70%{transform:translateY(20px) scale(.95);z-index:0}100%{transform:translateY(0) scale(1)}}
+.stack-demo{width:80px;height:100px;position:relative}
+.stack-card{position:absolute;width:70px;height:85px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:600;left:50%;transform:translateX(-50%)}
+.stack-card:nth-child(1){background:#818cf8;z-index:3;top:0;animation:stackSwipe 3s ease-in-out infinite}
+.stack-card:nth-child(2){background:#6366f1;z-index:2;top:6px;transform:translateX(-50%) scale(.94)}
+.stack-card:nth-child(3){background:#4f46e5;z-index:1;top:12px;transform:translateX(-50%) scale(.88)}
+@keyframes stackSwipe{0%,20%{transform:translateX(-50%) rotate(0) scale(1);opacity:1}40%{transform:translateX(60%) rotate(12deg) scale(.95);opacity:.6}55%{transform:translateX(80%) rotate(15deg) scale(.9);opacity:0}56%{transform:translateX(-50%) scale(.88);z-index:0;opacity:0}70%{opacity:1}100%{transform:translateX(-50%) scale(1);opacity:1}}
 
 /* ═══ 6. 表单与输入 ═══ */
 .focus-input{width:75%;padding:8px 12px;background:var(--bg);border:1.5px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;outline:none;transition:border-color .15s,box-shadow .15s}
@@ -540,8 +540,8 @@ a{color:var(--accent);text-decoration:none}
 /* new effects */
 .lissajous-loader{width:60px;height:60px;position:relative}
 .lissajous-loader svg{width:100%;height:100%}
-.lissajous-path{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-dasharray:120;stroke-dashoffset:120;animation:lissaDraw 2.5s ease-in-out infinite}
-@keyframes lissaDraw{0%{stroke-dashoffset:120}50%{stroke-dashoffset:0}100%{stroke-dashoffset:-120}}
+.lissajous-path{fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-dasharray:336;stroke-dashoffset:336;animation:lissaDraw 3s ease-in-out infinite}
+@keyframes lissaDraw{0%{stroke-dashoffset:336}50%{stroke-dashoffset:0}100%{stroke-dashoffset:-336}}
 
 .shimmer-text{font-size:18px;font-weight:700;background:linear-gradient(90deg,var(--text) 40%,var(--accent) 50%,var(--text) 60%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerText 2.5s linear infinite}
 @keyframes shimmerText{0%{background-position:100% 0}100%{background-position:-100% 0}}
@@ -706,6 +706,69 @@ a{color:var(--accent);text-decoration:none}
 .celebrate-particle{position:absolute;pointer-events:none;animation:celebFly 1.2s ease-out forwards}
 @keyframes celebFly{0%{transform:translate(0,0) rotate(0deg) scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) rotate(var(--rot)) scale(0);opacity:0}}
 
+/* Wave Bars */
+.wave-bars{display:flex;align-items:flex-end;gap:3px;height:32px}
+.wave-bars span{width:4px;background:var(--accent);border-radius:2px;animation:waveBar 1.2s ease-in-out infinite}
+.wave-bars span:nth-child(1){animation-delay:0s;height:12px}
+.wave-bars span:nth-child(2){animation-delay:.1s;height:20px}
+.wave-bars span:nth-child(3){animation-delay:.2s;height:28px}
+.wave-bars span:nth-child(4){animation-delay:.3s;height:16px}
+.wave-bars span:nth-child(5){animation-delay:.4s;height:24px}
+@keyframes waveBar{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+
+/* Typing Indicator */
+.typing-demo{display:flex;align-items:center;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px 14px}
+.typing-demo span{width:6px;height:6px;border-radius:50%;background:var(--text3);animation:typingDot 1.4s ease-in-out infinite}
+.typing-demo span:nth-child(2){animation-delay:.2s}
+.typing-demo span:nth-child(3){animation-delay:.4s}
+@keyframes typingDot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-6px);opacity:1}}
+
+/* Hourglass Rotate */
+.hourglass-demo{display:flex;align-items:center;justify-content:center}
+.hourglass-svg{animation:hourglassFlip 2s ease-in-out infinite}
+@keyframes hourglassFlip{0%{transform:rotate(0deg)}50%{transform:rotate(180deg)}50.01%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}
+
+/* Online Status */
+.online-demo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.status-dot-wrap{position:relative;width:12px;height:12px}
+.status-dot{width:12px;height:12px;border-radius:50%;background:#10b981;transition:background .3s ease}
+.status-pulse{position:absolute;top:0;left:0;width:12px;height:12px;border-radius:50%;background:#10b981;animation:statusPulse 2s ease-out infinite;opacity:0}
+.online-demo.offline .status-dot{background:var(--text3)}
+.online-demo.offline .status-pulse{animation:none}
+.online-demo .status-label{font-size:12px;color:var(--text2);transition:color .3s}
+@keyframes statusPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.5);opacity:0}}
+
+/* Favorite Star */
+.fav-star-demo{display:flex;align-items:center;justify-content:center;cursor:pointer}
+.fav-star-demo svg{transition:transform .3s cubic-bezier(.34,1.56,.64,1);fill:none;stroke:var(--text3);stroke-width:1.5}
+.fav-star-demo.active svg{fill:#fbbf24;stroke:#fbbf24;transform:scale(1.2)}
+.fav-star-demo.pop svg{animation:starPop .4s ease}
+@keyframes starPop{0%{transform:scale(1)}30%{transform:scale(.7)}60%{transform:scale(1.3)}100%{transform:scale(1.2)}}
+
+/* Success / Fail */
+.sf-demo{display:flex;align-items:center;justify-content:center;cursor:pointer}
+.sf-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .4s ease}
+.sf-icon.pending{background:var(--border)}
+.sf-icon.success{background:#10b981}
+.sf-icon.fail{background:var(--error)}
+.sf-icon svg{stroke:#fff;stroke-width:2;stroke-linecap:round;fill:none}
+.sf-icon svg path{stroke-dasharray:20;stroke-dashoffset:20;animation:sfDraw .4s ease forwards}
+@keyframes sfDraw{to{stroke-dashoffset:0}}
+
+/* Lock / Unlock */
+.lock-demo{display:flex;align-items:center;justify-content:center;cursor:pointer}
+.lock-demo svg{stroke:var(--text2);stroke-width:1.5;fill:none;transition:stroke .3s}
+.lock-demo .lock-shackle{transition:transform .3s ease;transform-origin:center bottom}
+.lock-demo.unlocked .lock-shackle{transform:translateY(-3px) rotate(15deg)}
+.lock-demo.unlocked svg{stroke:var(--accent)}
+
+/* Read / Unread */
+.read-demo{display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 10px;border-radius:8px;transition:background .3s}
+.read-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.read-demo .read-text{font-size:12px;color:var(--text1);transition:color .3s,font-weight .3s}
+.read-demo.read .read-dot{transform:scale(0);opacity:0}
+.read-demo.read .read-text{color:var(--text3)}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.01ms!important;
@@ -725,25 +788,25 @@ a{color:var(--accent);text-decoration:none}
     </div>
     <nav>
       <a href="#s1"><span class="num">01</span>加载与等待</a>
-      <a href="#s2"><span class="num">02</span>入场与退场</a>
-      <a href="#s3"><span class="num">03</span>按钮与反馈</a>
-      <a href="#s4"><span class="num">04</span>弹层与浮层</a>
-      <a href="#s5"><span class="num">05</span>导航与转场</a>
-      <a href="#s6"><span class="num">06</span>表单与输入</a>
-      <a href="#s7"><span class="num">07</span>文字与数据</a>
-      <a href="#s8"><span class="num">08</span>滚动驱动</a>
-      <a href="#s9"><span class="num">09</span>图标与标识</a>
-      <a href="#s10"><span class="num">10</span>轮播与列表</a>
-      <a href="#s11"><span class="num">11</span>状态切换</a>
-      <a href="#s12"><span class="num">12</span>氛围与背景</a>
-      <a href="#s13"><span class="num">13</span>数据可视化</a>
+      <a href="#s2"><span class="num">02</span>按钮与反馈</a>
+      <a href="#s3"><span class="num">03</span>弹层与浮层</a>
+      <a href="#s4"><span class="num">04</span>导航与转场</a>
+      <a href="#s5"><span class="num">05</span>表单与输入</a>
+      <a href="#s6"><span class="num">06</span>文字与数据</a>
+      <a href="#s7"><span class="num">07</span>滚动驱动</a>
+      <a href="#s8"><span class="num">08</span>图标与标识</a>
+      <a href="#s9"><span class="num">09</span>轮播与列表</a>
+      <a href="#s10"><span class="num">10</span>状态切换</a>
+      <a href="#s11"><span class="num">11</span>氛围与背景</a>
+      <a href="#s12"><span class="num">12</span>数据可视化</a>
+      <a href="#s13"><span class="num">13</span>入场与退场</a>
     </nav>
   </aside>
 
   <main class="main">
     <div class="hero">
       <h2>Modern UI Motion Reference</h2>
-      <p>106 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
+      <p>112 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
     </div>
     <!-- 1 -->
     <section class="section" id="s1">
@@ -757,28 +820,16 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="breath"></div></div><div class="info"><h3>Breath Pulse</h3><p>呼吸感缩放</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="skel-pulse-box"><div class="skel-pulse-line"></div><div class="skel-pulse-line"></div><div class="skel-pulse-line"></div></div></div><div class="info"><h3>Skeleton Pulse</h3><p>骨架明暗交替</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="spin-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="info"><h3>Spinner Dots</h3><p>圆点围环依次高亮</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="lissajous-loader"><svg viewBox="0 0 60 60"><path class="lissajous-path" d="M30 5 C45 5 55 15 55 30 C55 45 45 55 30 55 C15 55 5 45 5 30 C5 15 15 5 30 5 C38 5 45 12 48 20 C51 28 48 38 42 44 C36 50 26 52 18 48 C10 44 6 34 8 26 C10 18 18 12 26 10"/></svg></div></div><div class="info"><h3>Lissajous Loader</h3><p>数学曲线描边加载</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="wave-bars"><span></span><span></span><span></span><span></span><span></span></div></div><div class="info"><h3>Wave Bars</h3><p>音频波形跳动</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="typing-demo"><span></span><span></span><span></span></div></div><div class="info"><h3>Typing Indicator</h3><p>聊天输入中提示</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="hourglass-demo"><svg class="hourglass-svg" width="28" height="36" viewBox="0 0 28 36" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><path d="M4 2h20M4 34h20"/><path d="M6 2v8l8 8-8 8v8M22 2v8l-8 8 8 8v8"/></svg></div></div><div class="info"><h3>Hourglass Rotate</h3><p>沙漏翻转等待</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="lissajous-loader"><svg viewBox="0 0 60 60"><path class="lissajous-path" d="M30 30 L34.1 32.8 L38.1 35.5 L41.8 38.1 L45.1 40.6 L47.8 42.9 L49.9 45.1 L51.3 47 L52 48.6 L51.8 49.9 L50.9 50.9 L49.3 51.6 L47 52 L44 52 L40.6 51.6 L36.8 50.9 L32.8 49.9 L28.6 48.6 L24.5 47 L20.6 45.1 L17.1 42.9 L14 40.6 L11.4 38.1 L9.5 35.5 L8.4 32.8 L8 30 L8.4 27.2 L9.5 24.5 L11.4 21.9 L14 19.4 L17.1 17.1 L20.6 14.9 L24.5 13 L28.6 11.4 L32.8 10.1 L36.8 9.1 L40.6 8.4 L44 8 L47 8 L49.3 8.4 L50.9 9.1 L51.8 10.1 L52 11.4 L51.3 13 L49.9 14.9 L47.8 17.1 L45.1 19.4 L41.8 21.9 L38.1 24.5 L34.1 27.2 L30 30 L25.9 32.8 L21.9 35.5 L18.2 38.1 L14.9 40.6 L12.2 42.9 L10.1 45.1 L8.7 47 L8 48.6 L8.2 49.9 L9.1 50.9 L10.7 51.6 L13 52 L16 52 L19.4 51.6 L23.2 50.9 L27.2 49.9 L31.4 48.6 L35.5 47 L39.4 45.1 L42.9 42.9 L46 40.6 L48.6 38.1 L50.5 35.5 L51.6 32.8 L52 30 L51.6 27.2 L50.5 24.5 L48.6 21.9 L46 19.4 L42.9 17.1 L39.4 14.9 L35.5 13 L31.4 11.4 L27.2 10.1 L23.2 9.1 L19.4 8.4 L16 8 L13 8 L10.7 8.4 L9.1 9.1 L8.2 10.1 L8 11.4 L8.7 13 L10.1 14.9 L12.2 17.1 L14.9 19.4 L18.2 21.9 L21.9 24.5 L25.9 27.2 L30 30"/></svg></div></div><div class="info"><h3>Lissajous Loader</h3><p>数学曲线描边加载</p><span class="tag">SVG</span></div></div>
       </div>
     </section>
 
     <!-- 2 -->
     <section class="section" id="s2">
-      <div class="section-head"><h2>02 · 入场与退场</h2><p>元素如何出现和消失</p></div>
-      <div class="grid">
-        <div class="card"><div class="preview"><div class="fade-demo"></div></div><div class="info"><h3>Fade In</h3><p>透明到不透明</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="slide-up-demo"></div></div><div class="info"><h3>Slide Up</h3><p>从下方滑入淡入</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="scale-in-demo"></div></div><div class="info"><h3>Scale In</h3><p>缩放放大淡入</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="spring-demo"></div></div><div class="info"><h3>Spring In</h3><p>弹性回弹入场</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="stagger-demo"><span></span><span></span><span></span><span></span><span></span></div></div><div class="info"><h3>Stagger</h3><p>多元素依次入场</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="blur-demo"></div></div><div class="info"><h3>Blur In</h3><p>模糊到清晰淡入</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="slide-h-demo"></div></div><div class="info"><h3>Slide In</h3><p>横向滑入淡入</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="collapse-demo"><div class="collapse-bar">Header <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="vertical-align:middle"><path d="M2 3.5L5 6.5L8 3.5"/></svg></div><div class="collapse-body"><div class="collapse-body-inner">Expanded content</div></div></div></div><div class="info"><h3>Collapse</h3><p>高度折叠展开</p><span class="tag">CSS</span></div></div>
-      </div>
-    </section>
-
-    <!-- 3 -->
-    <section class="section" id="s3">
-      <div class="section-head"><h2>03 · 按钮与点击反馈</h2><p>点击要"应一声"</p></div>
+      <div class="section-head"><h2>02 · 按钮与点击反馈</h2><p>点击要"应一声"</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><button class="demo-btn press-btn">Press Me</button></div><div class="info"><h3>Press Scale</h3><p>按下缩小松开回弹</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><button class="demo-btn ripple-btn" onclick="createRipple(event)">Ripple</button></div><div class="info"><h3>Ripple</h3><p>点击处扩散波纹</p><span class="tag">JS</span></div></div>
@@ -792,9 +843,9 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 4 -->
-    <section class="section" id="s4">
-      <div class="section-head"><h2>04 · 弹层与浮层</h2><p>独立于页面的"新层"</p></div>
+    <!-- 3 -->
+    <section class="section" id="s3">
+      <div class="section-head"><h2>03 · 弹层与浮层</h2><p>独立于页面的"新层"</p></div>
       <div class="grid">
         <div class="card"><div class="preview modal-trigger" onclick="this.classList.toggle('show')"><div class="mini-modal-overlay"><div class="mini-modal-box">确认删除？<br><span style="color:var(--accent);cursor:pointer">OK</span></div></div></div><div class="info"><h3>Modal</h3><p>弹窗 scale + overlay</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview" onclick="this.querySelector('.sheet-area').classList.toggle('show')"><div class="sheet-area"><div class="mini-sheet"><div class="handle"></div><div class="sheet-row"></div><div class="sheet-row"></div><div class="sheet-row"></div></div></div></div><div class="info"><h3>Bottom Sheet</h3><p>从底部滑上来</p><span class="tag">CSS</span></div></div>
@@ -809,9 +860,9 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 5 -->
-    <section class="section" id="s5">
-      <div class="section-head"><h2>05 · 导航与转场</h2><p>页面间的切换动画</p></div>
+    <!-- 4 -->
+    <section class="section" id="s4">
+      <div class="section-head"><h2>04 · 导航与转场</h2><p>页面间的切换动画</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="page-slide-demo"><div class="pg pg-a">Page A</div><div class="pg pg-b">Page B</div></div></div><div class="info"><h3>Page Slide</h3><p>新页面从右推入</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="fade-switch-demo"><div class="fs fs-a">Tab 1</div><div class="fs fs-b">Tab 2</div></div></div><div class="info"><h3>Fade Switch</h3><p>淡入淡出切换</p><span class="tag">CSS</span></div></div>
@@ -824,9 +875,9 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 6 -->
-    <section class="section" id="s6">
-      <div class="section-head"><h2>06 · 表单与输入</h2><p>引导和确认</p></div>
+    <!-- 5 -->
+    <section class="section" id="s5">
+      <div class="section-head"><h2>05 · 表单与输入</h2><p>引导和确认</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><input class="focus-input" type="text" placeholder="点击聚焦..."></div><div class="info"><h3>Focus Ring</h3><p>聚焦边框高亮</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="float-label-wrap"><input class="float-input" type="text" placeholder=" "><span class="float-label">Email</span></div></div><div class="info"><h3>Label Float</h3><p>标签上浮变小</p><span class="tag">CSS</span></div></div>
@@ -841,15 +892,15 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 7 -->
-    <section class="section" id="s7">
-      <div class="section-head"><h2>07 · 文字与数据</h2><p>让静态信息动起来</p></div>
+    <!-- 6 -->
+    <section class="section" id="s6">
+      <div class="section-head"><h2>06 · 文字与数据</h2><p>让静态信息动起来</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="typewriter">Hello World!</div></div><div class="info"><h3>Typewriter</h3><p>逐字打出 + 光标</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="fade-words"><span>Design</span><span>is</span><span>how</span><span>it</span></div></div><div class="info"><h3>Fade Up Words</h3><p>逐词淡入上升</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="num-counter" data-target="12847">0</div></div><div class="info"><h3>Number Counter</h3><p>数字从 0 滚动到目标</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><span class="highlight-text">重点内容高亮</span></div><div class="info"><h3>Text Highlight</h3><p>荧光笔划过文字</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>106 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>106 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>112 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>112 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="scramble-text">MOTION</div></div><div class="info"><h3>Scramble Text</h3><p>字符打散重组</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="flip-counter"><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>3</span></div><div class="flip-digit"><span>:</span></div><div class="flip-digit"><span>4</span></div><div class="flip-digit"><span>2</span></div></div></div><div class="info"><h3>Flip Counter</h3><p>翻牌计数器</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="shimmer-text">Shimmer Effect</div></div><div class="info"><h3>Shimmer Text</h3><p>渐变光扫过文字</p><span class="tag">CSS</span></div></div>
@@ -858,9 +909,9 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 8 -->
-    <section class="section" id="s8">
-      <div class="section-head"><h2>08 · 滚动驱动</h2><p>滚动变成讲故事工具</p></div>
+    <!-- 7 -->
+    <section class="section" id="s7">
+      <div class="section-head"><h2>07 · 滚动驱动</h2><p>滚动变成讲故事工具</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="scroll-reveal-demo" id="srDemo"><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div></div></div><div class="info"><h3>Scroll Reveal</h3><p>滚入视口时淡入</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="read-progress-demo"><div class="rp-bar"></div><div class="rp-lines"><div class="rp-line"></div><div class="rp-line"></div><div class="rp-line"></div></div></div></div><div class="info"><h3>Progress Indicator</h3><p>阅读进度条</p><span class="tag">CSS</span></div></div>
@@ -869,9 +920,9 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="img-reveal-demo"></div></div><div class="info"><h3>Image Reveal</h3><p>clip-path 揭示图片</p><span class="tag">CSS</span></div></div>
       </div>
     </section>
-    <!-- 9 -->
-    <section class="section" id="s9">
-      <div class="section-head"><h2>09 · 图标与标识</h2><p>小图标的微动效</p></div>
+    <!-- 8 -->
+    <section class="section" id="s8">
+      <div class="section-head"><h2>08 · 图标与标识</h2><p>小图标的微动效</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="hamburger" onclick="this.classList.toggle('open')"><span></span><span></span><span></span></div></div><div class="info"><h3>Hamburger / Close</h3><p>三线变叉号</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="icon-swap" onclick="this.classList.toggle('swapped')"><div class="ico ico-a"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="12" r="5"/><g stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg></div><div class="ico ico-b"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div></div></div><div class="info"><h3>Icon Swap</h3><p>图标交叉切换</p><span class="tag">CSS</span></div></div>
@@ -886,9 +937,9 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 10 -->
-    <section class="section" id="s10">
-      <div class="section-head"><h2>10 · 轮播与列表</h2><p>内容容器级动画</p></div>
+    <!-- 9 -->
+    <section class="section" id="s9">
+      <div class="section-head"><h2>09 · 轮播与列表</h2><p>内容容器级动画</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="carousel-demo"><div class="carousel-track"><div class="carousel-slide">Slide 1</div><div class="carousel-slide">Slide 2</div><div class="carousel-slide">Slide 3</div></div></div></div><div class="info"><h3>Carousel Slide</h3><p>轮播横向滑动</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="card-stack-demo"><div class="cs-card">A</div><div class="cs-card">B</div><div class="cs-card">C</div></div></div><div class="info"><h3>Card Stack</h3><p>卡片堆叠翻页</p><span class="tag">CSS</span></div></div>
@@ -901,22 +952,25 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 11 -->
-    <section class="section" id="s11">
-      <div class="section-head"><h2>11 · 状态切换</h2><p>全局状态变化过渡</p></div>
+    <!-- 10 -->
+    <section class="section" id="s10">
+      <div class="section-head"><h2>10 · 状态切换</h2><p>全局状态变化过渡</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="theme-demo" onclick="this.classList.toggle('light')"><div class="theme-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div><div class="theme-light"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div></div></div><div class="info"><h3>Theme Toggle</h3><p>圆形扩散主题切换</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="empty-demo"><div class="empty-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="1.2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/><path d="M12 14v.01"/></svg></div><div class="empty-text">暂无数据</div></div></div><div class="info"><h3>Empty State</h3><p>空状态淡入动画</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="skel-content-demo" onclick="this.classList.toggle('loaded')"><div class="skel-layer"><span></span><span></span></div><div class="content-layer"><span></span><span></span></div></div></div><div class="info"><h3>Skeleton → Content</h3><p>骨架到内容过渡</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="empty-demo"><div class="empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></div><div class="empty-text">暂无数据</div></div></div><div class="info"><h3>Empty State</h3><p>空状态淡入动画</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="err-recovery-demo"><div class="err-recovery-bar" onclick="this.classList.toggle('ok')">Error -- click to recover</div></div></div><div class="info"><h3>Error → Recovery</h3><p>错误到恢复过渡</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="expand-detail-demo" onclick="this.classList.toggle('open')"><div class="ed-summary"><div class="ed-avatar"></div><div class="ed-text">User Name</div></div><div class="ed-detail"><div class="ed-detail-inner">展开后的详细信息内容区域</div></div></div></div><div class="info"><h3>Expand Detail</h3><p>摘要展开为详情</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="celebration-demo"><button class="celebrate-btn" onclick="demoCelebrate(this.parentElement)">Success!</button></div></div><div class="info"><h3>Confetti Celebration</h3><p>成功庆祝粒子动画</p><span class="tag">JS</span></div></div>
+        <div class="card"><div class="preview"><div class="online-demo" onclick="this.classList.toggle('offline')"><div class="status-dot-wrap"><div class="status-dot"></div><div class="status-pulse"></div></div><span class="status-label">Online</span></div></div><div class="info"><h3>Online Status</h3><p>在线离线脉冲指示</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="fav-star-demo" onclick="demoStar(this)"><svg width="28" height="28" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div><div class="info"><h3>Favorite Star</h3><p>收藏星标弹性切换</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="sf-demo" onclick="demoSF(this)"><div class="sf-icon pending"><svg width="18" height="18" viewBox="0 0 24 24"><path class="sf-path" d="M5 13l4 4L19 7"/></svg></div></div></div><div class="info"><h3>Success / Fail</h3><p>成功失败状态切换</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="lock-demo" onclick="this.classList.toggle('unlocked')"><svg width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path class="lock-shackle" d="M7 11V7a5 5 0 0110 0v4"/></svg></div></div><div class="info"><h3>Lock / Unlock</h3><p>锁定解锁切换</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="read-demo" onclick="this.classList.toggle('read')"><div class="read-dot"></div><span class="read-text">New message arrived</span></div></div><div class="info"><h3>Read / Unread</h3><p>已读未读标记切换</p><span class="tag">CSS</span></div></div>
       </div>
     </section>
 
-    <!-- 12 -->
-    <section class="section" id="s12">
-      <div class="section-head"><h2>12 · 氛围与背景</h2><p>提升调性的装饰动效</p></div>
+    <!-- 11 -->
+    <section class="section" id="s11">
+      <div class="section-head"><h2>11 · 氛围与背景</h2><p>提升调性的装饰动效</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="gradient-flow-demo"></div></div><div class="info"><h3>Gradient Flow</h3><p>渐变背景缓慢流动</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="glow-pulse-demo"></div></div><div class="info"><h3>Glow Pulse</h3><p>呼吸发光效果</p><span class="tag">CSS</span></div></div>
@@ -929,15 +983,30 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 13 -->
-    <section class="section" id="s13">
-      <div class="section-head"><h2>13 · 数据可视化</h2><p>图表与数据展示动效</p></div>
+    <!-- 12 -->
+    <section class="section" id="s12">
+      <div class="section-head"><h2>12 · 数据可视化</h2><p>图表与数据展示动效</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="bar-chart"><div class="bar-col" style="--h:70%"></div><div class="bar-col" style="--h:45%"></div><div class="bar-col" style="--h:85%"></div><div class="bar-col" style="--h:55%"></div><div class="bar-col" style="--h:90%"></div><div class="bar-col" style="--h:40%"></div></div></div><div class="info"><h3>Bar Chart Rise</h3><p>柱状图从底部升起</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><svg class="donut-chart" viewBox="0 0 48 48"><circle class="donut-bg" cx="24" cy="24" r="18"/><circle class="donut-fg" cx="24" cy="24" r="18"/><circle class="donut-fg2" cx="24" cy="24" r="18" stroke-dashoffset="73"/></svg></div><div class="info"><h3>Donut Chart</h3><p>环形图弧线绘制</p><span class="tag">SVG</span></div></div>
         <div class="card"><div class="preview"><div class="gauge-demo"><svg viewBox="0 0 80 50"><path class="gauge-arc-bg" d="M8 40 A32 32 0 0 1 72 40"/><path class="gauge-arc-fg" d="M8 40 A32 32 0 0 1 72 40"/><line class="gauge-needle-line" x1="40" y1="40" x2="40" y2="10"/><circle class="gauge-needle-dot" cx="40" cy="40" r="3"/></svg></div></div><div class="info"><h3>Gauge Meter</h3><p>仪表盘指针旋转</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="sparkline-demo"><svg viewBox="0 0 120 40" preserveAspectRatio="none"><defs><linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent)" stop-opacity=".4"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs><path class="sparkline-area" d="M0 40 L0 28 L15 22 L30 30 L45 12 L60 18 L75 8 L90 14 L105 6 L120 10 L120 40 Z"/><path class="sparkline-path" d="M0 28 L15 22 L30 30 L45 12 L60 18 L75 8 L90 14 L105 6 L120 10"/></svg></div></div><div class="info"><h3>Sparkline Draw</h3><p>迷你折线图描边</p><span class="tag">SVG</span></div></div>
         <div class="card"><div class="preview"><div class="counter-card"><div class="counter-val" id="counterCard">0</div><div class="counter-lbl">Active Users</div><div class="counter-trend">+12.5%</div></div></div><div class="info"><h3>Counter Card</h3><p>统计卡片数字滚动</p><span class="tag">JS</span></div></div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="section" id="s13">
+      <div class="section-head"><h2>13 · 入场与退场</h2><p>元素如何出现和消失</p></div>
+      <div class="grid">
+        <div class="card"><div class="preview"><div class="fade-demo"></div></div><div class="info"><h3>Fade In</h3><p>透明到不透明</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="slide-up-demo"></div></div><div class="info"><h3>Slide Up</h3><p>从下方滑入淡入</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="scale-in-demo"></div></div><div class="info"><h3>Scale In</h3><p>缩放放大淡入</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="spring-demo"></div></div><div class="info"><h3>Spring In</h3><p>弹性回弹入场</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="stagger-demo"><span></span><span></span><span></span><span></span><span></span></div></div><div class="info"><h3>Stagger</h3><p>多元素依次入场</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="blur-demo"></div></div><div class="info"><h3>Blur In</h3><p>模糊到清晰淡入</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="slide-h-demo"></div></div><div class="info"><h3>Slide In</h3><p>横向滑入淡入</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="collapse-demo"><div class="collapse-bar">Header <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="vertical-align:middle"><path d="M2 3.5L5 6.5L8 3.5"/></svg></div><div class="collapse-body"><div class="collapse-body-inner">Expanded content</div></div></div></div><div class="info"><h3>Collapse</h3><p>高度折叠展开</p><span class="tag">CSS</span></div></div>
       </div>
     </section>
 
@@ -1156,6 +1225,29 @@ function demoBell(el){
   el.addEventListener('animationend',()=>el.classList.remove('ringing'),{once:true});
 }
 
+function demoStar(el){
+  el.classList.toggle('active');
+  el.classList.add('pop');
+  el.addEventListener('animationend',()=>el.classList.remove('pop'),{once:true});
+}
+function demoSF(el){
+  const icon=el.querySelector('.sf-icon');
+  const path=el.querySelector('.sf-path');
+  if(icon.classList.contains('pending')){
+    icon.classList.remove('pending');icon.classList.add('success');
+    path.setAttribute('d','M5 13l4 4L19 7');
+    path.style.strokeDashoffset='20';void path.offsetWidth;path.style.strokeDashoffset='0';
+  } else if(icon.classList.contains('success')){
+    icon.classList.remove('success');icon.classList.add('fail');
+    path.setAttribute('d','M6 6l12 12M18 6l-12 12');
+    path.style.strokeDashoffset='20';void path.offsetWidth;path.style.strokeDashoffset='0';
+  } else {
+    icon.classList.remove('fail');icon.classList.add('pending');
+    path.setAttribute('d','M5 13l4 4L19 7');
+    path.style.strokeDashoffset='20';
+  }
+}
+
 // ── Confetti Celebration ──
 function demoCelebrate(container){
   const colors=['#818cf8','#f0abfc','#fbbf24','#34d399','#f87171','#fb923c'];
@@ -1296,9 +1388,13 @@ const codeSnippets={
   // ── 11. State ──
   'Theme Toggle':`.theme-toggle {\n  position: relative;\n  overflow: hidden;\n}\n.icon-dark, .icon-light {\n  transition: all 350ms ease;\n}\n[data-theme="light"] .icon-dark {\n  opacity: 0;\n  transform: rotate(90deg) scale(0);\n}\n[data-theme="dark"] .icon-light {\n  opacity: 0;\n  transform: rotate(-90deg) scale(0);\n}`,
   'Empty State':`.empty {\n  animation: emptyFade 500ms ease;\n}\n@keyframes emptyFade {\n  from {\n    opacity: 0;\n    transform: translateY(8px);\n  }\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n.empty svg {\n  animation: emptyFloat 3s\n    ease-in-out infinite;\n}\n@keyframes emptyFloat {\n  0%, 100% { transform: translateY(0) }\n  50% { transform: translateY(-6px) }\n}`,
-  'Skeleton → Content':`.skeleton-layer,\n.content-layer {\n  grid-area: 1/1;\n  transition: opacity 400ms ease;\n}\n.loaded .skeleton-layer {\n  opacity: 0;\n}\n.loaded .content-layer {\n  opacity: 1;\n}`,
   'Error → Recovery':`.status-bar {\n  transition: all 350ms ease;\n  background: var(--error);\n}\n.status-bar.ok {\n  background: var(--success);\n}\n.status-bar .icon {\n  transition: transform 300ms\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.status-bar.ok .icon {\n  transform: rotate(360deg);\n}`,
   'Expand Detail':`.detail {\n  display: grid;\n  grid-template-rows: 0fr;\n  transition: grid-template-rows\n    400ms cubic-bezier(.32, .72, 0, 1);\n}\n.detail > div {\n  overflow: hidden;\n}\n.open .detail {\n  grid-template-rows: 1fr;\n}\n.summary {\n  cursor: pointer;\n  transition: padding 300ms ease;\n}\n.open .summary {\n  padding-bottom: 12px;\n}`,
+  'Online Status':`.status-dot {\n  width: 12px; height: 12px;\n  border-radius: 50%;\n  background: #10b981;\n  position: relative;\n}\n.status-dot::after {\n  content: "";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background: inherit;\n  animation: statusPulse 2s\n    ease-out infinite;\n}\n@keyframes statusPulse {\n  0%   { transform: scale(1); opacity: .6 }\n  100% { transform: scale(2.5); opacity: 0 }\n}\n.offline .status-dot {\n  background: #9ca3af;\n}\n.offline .status-dot::after {\n  animation: none;\n}`,
+  'Favorite Star':`.star {\n  cursor: pointer;\n  fill: none;\n  stroke: var(--text3);\n  transition: transform .3s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.star.active {\n  fill: #fbbf24;\n  stroke: #fbbf24;\n  transform: scale(1.2);\n}\n@keyframes starPop {\n  0%   { transform: scale(1) }\n  30%  { transform: scale(.7) }\n  60%  { transform: scale(1.3) }\n  100% { transform: scale(1.2) }\n}\n.star.pop {\n  animation: starPop .4s ease;\n}`,
+  'Success / Fail':`.icon {\n  width: 36px; height: 36px;\n  border-radius: 50%;\n  transition: background .4s ease;\n}\n.icon.success {\n  background: #10b981;\n}\n.icon.fail {\n  background: var(--error);\n}\n.icon svg path {\n  stroke-dasharray: 20;\n  stroke-dashoffset: 20;\n  animation: sfDraw .4s\n    ease forwards;\n}\n@keyframes sfDraw {\n  to { stroke-dashoffset: 0 }\n}`,
+  'Lock / Unlock':`.lock-shackle {\n  transition: transform .3s ease;\n  transform-origin: center bottom;\n}\n.unlocked .lock-shackle {\n  transform: translateY(-3px)\n    rotate(15deg);\n}\n.unlocked svg {\n  stroke: var(--accent);\n  transition: stroke .3s;\n}`,
+  'Read / Unread':`.read-dot {\n  width: 8px; height: 8px;\n  border-radius: 50%;\n  background: var(--accent);\n  transition: all .3s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.read .read-dot {\n  transform: scale(0);\n  opacity: 0;\n}\n.read .text {\n  color: var(--text3);\n}`,
 
   // ── 12. Ambient ──
   'Glow Pulse':`.glow {\n  width: 100px; height: 100px;\n  border-radius: 50%;\n  background: var(--accent);\n  filter: blur(40px);\n  animation: glowPulse 3s\n    ease-in-out infinite;\n}\n@keyframes glowPulse {\n  0%, 100% { opacity: .3; transform: scale(1) }\n  50%      { opacity: .6; transform: scale(1.2) }\n}`,
@@ -1307,6 +1403,9 @@ const codeSnippets={
   'Glow Trace':`.glow-card {\n  --mx: 50%; --my: 50%;\n  position: relative;\n}\n.glow-card::before {\n  content: "";\n  position: absolute;\n  inset: -1px;\n  border-radius: inherit;\n  background: radial-gradient(\n    300px circle at var(--mx) var(--my),\n    rgba(129,140,248,.3),\n    transparent 60%\n  );\n  z-index: -1;\n}\n/* JS: update --mx, --my on mousemove */`,
 
   // ── New effects ──
+  'Wave Bars':`.wave-bars {\n  display: flex;\n  align-items: flex-end;\n  gap: 3px;\n}\n.wave-bars span {\n  width: 4px;\n  background: var(--accent);\n  border-radius: 2px;\n  animation: waveBar 1.2s\n    ease-in-out infinite;\n}\n.wave-bars span:nth-child(2) {\n  animation-delay: .1s;\n}\n@keyframes waveBar {\n  0%, 100% { transform: scaleY(.4) }\n  50% { transform: scaleY(1) }\n}`,
+  'Typing Indicator':`.typing span {\n  width: 6px; height: 6px;\n  border-radius: 50%;\n  background: var(--text3);\n  animation: typingDot 1.4s\n    ease-in-out infinite;\n}\n.typing span:nth-child(2) {\n  animation-delay: .2s;\n}\n.typing span:nth-child(3) {\n  animation-delay: .4s;\n}\n@keyframes typingDot {\n  0%, 60%, 100% {\n    transform: translateY(0);\n    opacity: .4;\n  }\n  30% {\n    transform: translateY(-6px);\n    opacity: 1;\n  }\n}`,
+  'Hourglass Rotate':`.hourglass {\n  animation: hourglassFlip 2s\n    ease-in-out infinite;\n}\n@keyframes hourglassFlip {\n  0%    { transform: rotate(0deg) }\n  50%   { transform: rotate(180deg) }\n  100%  { transform: rotate(360deg) }\n}`,
   'Lissajous Loader':`svg .path {\n  fill: none;\n  stroke: var(--accent);\n  stroke-width: 2;\n  stroke-linecap: round;\n  stroke-dasharray: 120;\n  stroke-dashoffset: 120;\n  animation: draw 2.5s ease-in-out infinite;\n}\n@keyframes draw {\n  0%   { stroke-dashoffset: 120 }\n  50%  { stroke-dashoffset: 0 }\n  100% { stroke-dashoffset: -120 }\n}`,
   'Tooltip':`.tooltip {\n  position: relative;\n}\n.tooltip .bubble {\n  opacity: 0;\n  transform: translateY(4px);\n  transition:\n    opacity .2s ease,\n    transform .2s ease;\n  /* show delay, no hide delay */\n}\n.tooltip:hover .bubble {\n  opacity: 1;\n  transform: translateY(0);\n  transition-delay: .4s;\n}\n.tooltip:not(:hover) .bubble {\n  transition-delay: 0s;\n}`,
   'Drawer':`.drawer {\n  position: fixed;\n  right: 0; top: 0;\n  height: 100%;\n  width: 320px;\n  transform: translateX(100%);\n  transition: transform 300ms\n    cubic-bezier(.32, .72, 0, 1);\n}\n.drawer.open {\n  transform: translateX(0);\n}`,
@@ -1329,7 +1428,6 @@ const codeSnippets={
   'Copy Check':`.copy-check {\n  position: relative;\n  cursor: pointer;\n}\n.copy-check .icon-copy,\n.copy-check .icon-check {\n  position: absolute;\n  transition: all .2s ease;\n}\n.copy-check .icon-check {\n  opacity: 0;\n  transform: scale(.5);\n  stroke: var(--accent);\n}\n.copy-check.copied .icon-copy {\n  opacity: 0;\n  transform: scale(.5);\n}\n.copy-check.copied .icon-check {\n  opacity: 1;\n  transform: scale(1);\n}`,
   'Bell Shake':`.bell {\n  cursor: pointer;\n  transform-origin: top center;\n}\n@keyframes bellRing {\n  0%,100% { transform: rotate(0) }\n  10%  { transform: rotate(14deg) }\n  20%  { transform: rotate(-14deg) }\n  30%  { transform: rotate(10deg) }\n  40%  { transform: rotate(-10deg) }\n  50%  { transform: rotate(6deg) }\n  60%  { transform: rotate(-4deg) }\n  70%  { transform: rotate(2deg) }\n  80%  { transform: rotate(0) }\n}\n.bell.ringing {\n  animation: bellRing .8s ease;\n}`,
   'Swipe Action':`.swipe-content {\n  position: relative;\n  z-index: 1;\n  transition: transform .3s\n    cubic-bezier(.32, .72, 0, 1);\n}\n.swipe-actions {\n  position: absolute;\n  right: 0; top: 0; bottom: 0;\n}\n.swiped .swipe-content {\n  transform: translateX(-80px);\n}`,
-  'Confetti Celebration':`function celebrate(container) {\n  const colors = ['#818cf8','#f0abfc','#fbbf24'];\n  for (let i = 0; i < 25; i++) {\n    const p = document.createElement('div');\n    const angle = Math.random() * Math.PI * 2;\n    const dist = 50 + Math.random() * 60;\n    p.style.cssText = \`\n      --tx: \${Math.cos(angle)*dist}px;\n      --ty: \${Math.sin(angle)*dist-30}px;\n      --rot: \${Math.random()*720}deg;\n      width: \${4+Math.random()*6}px;\n      height: \${4+Math.random()*6}px;\n      background: \${colors[i%3]};\n    \`;\n    container.appendChild(p);\n  }\n}`,
   'Bar Chart Rise':`.bar-col {\n  border-radius: 3px 3px 0 0;\n  animation: barRise 1s ease\n    forwards;\n}\n@keyframes barRise {\n  from { height: 0 }\n  to   { height: var(--h) }\n}\n\n/* stagger with delay */\n.bar-col:nth-child(2) {\n  animation-delay: .1s;\n}\n.bar-col:nth-child(3) {\n  animation-delay: .2s;\n}`,
   'Donut Chart':`<svg viewBox="0 0 48 48">\n  <circle cx="24" cy="24" r="22"\n    fill="none" stroke="#2a2a32"\n    stroke-width="6"/>\n  <circle cx="24" cy="24" r="22"\n    fill="none" stroke="var(--accent)"\n    stroke-width="6"\n    stroke-linecap="round"\n    stroke-dasharray="138.2"\n    stroke-dashoffset="138.2"\n    transform="rotate(-90 24 24)">\n    <animate attributeName="stroke-dashoffset"\n      to="48" dur="1.5s" fill="freeze"/>\n  </circle>\n</svg>`,
   'Gauge Meter':`.gauge-needle {\n  transform-origin: bottom center;\n  animation: needle 2.5s\n    ease-in-out infinite alternate;\n}\n@keyframes needle {\n  from { transform: rotate(-60deg) }\n  to   { transform: rotate(60deg) }\n}\n\n/* JS: set rotation based on value */\nconst deg = -60 + (value / max) * 120;\nneedle.style.transform =\n  \`rotate(\${deg}deg)\`;`,

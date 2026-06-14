@@ -20,7 +20,7 @@
 
 ---
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for modern UI motion design. 105 production-ready animation effects across 13 categories — describe the interaction, get CSS/JS code you can ship.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for modern UI motion design. 112 production-ready animation effects across 13 categories — describe the interaction, get CSS/JS code you can ship.
 
 ## Install
 
@@ -74,23 +74,23 @@ Describe an interaction scenario in natural language. The skill matches the best
 
 | # | Category | Count | Highlights |
 |---|----------|-------|------------|
-| 1 | Loading & Waiting | 9 | Spinner, Skeleton Shimmer, Circular Progress, Breath Pulse |
-| 2 | Enter & Exit | 8 | Fade In, Slide Up, Spring In, Stagger, Blur In |
-| 3 | Button & Click Feedback | 9 | Press Scale, Ripple, Success Check, Error Shake, Confetti |
-| 4 | Overlay & Popup | 10 | Modal, Bottom Sheet, Toast, Tooltip, Drawer, Command Palette |
-| 5 | Navigation & Transition | 8 | Page Slide, Shared Element, Tab Slide, Dock Nav |
-| 6 | Form & Input | 10 | Focus Ring, Label Float, Toggle Switch, OTP Input, Range Slider, Step Indicator |
-| 7 | Text & Data | 10 | Typewriter, Number Counter, Flip Counter, Shimmer Text, Gradient Text |
-| 8 | Scroll-driven | 7 | Scroll Reveal, Parallax, Progress Indicator, Scroll Snap |
-| 9 | Icon & Badge | 7 | Hamburger/Close, SVG Draw, Badge Bounce, Morphing Icon |
-| 10 | Carousel & List | 8 | Carousel, Card Stack, Drag Reorder, Accordion, Avatar Stack, Swipe Action |
-| 11 | State Change | 6 | Theme Toggle, Skeleton-to-Content, Error Recovery, Confetti Celebration |
-| 12 | Atmosphere & Background | 8 | Gradient Flow, Particles, Magnetic Cursor, 3D Card Hover, Meteor Shower |
-| 13 | Data Visualization | 5 | Bar Chart Rise, Donut Chart, Gauge Meter, Sparkline Draw, Counter Card |
+| 1 | Loading & Waiting | 12 | Spinner, Skeleton Shimmer, Wave Bars, Typing Indicator, Hourglass, Lissajous |
+| 2 | Button & Click Feedback | 9 | Press Scale, Ripple, Success Check, Error Shake, Confetti |
+| 3 | Overlay & Popup | 10 | Modal, Bottom Sheet, Toast, Tooltip, Drawer, Command Palette |
+| 4 | Navigation & Transition | 8 | Page Slide, Shared Element, Tab Slide, Dock Nav |
+| 5 | Form & Input | 10 | Focus Ring, Label Float, Toggle Switch, OTP Input, Range Slider, Step Indicator |
+| 6 | Text & Data | 10 | Typewriter, Number Counter, Flip Counter, Shimmer Text, Gradient Text |
+| 7 | Scroll-driven | 5 | Scroll Reveal, Progress Indicator, Scroll Text Reveal |
+| 8 | Icon & Badge | 10 | Hamburger/Close, SVG Draw, Badge Bounce, Heart Like, Bell Shake, Copy Check |
+| 9 | Carousel & List | 8 | Carousel, Card Stack, Drag Reorder, Accordion, Avatar Stack, Swipe Action |
+| 10 | State Change | 9 | Theme Toggle, Empty State, Online Status, Favorite Star, Lock/Unlock |
+| 11 | Atmosphere & Background | 8 | Gradient Flow, Particles, Magnetic Cursor, 3D Card Hover, Meteor Shower |
+| 12 | Data Visualization | 5 | Bar Chart Rise, Donut Chart, Gauge Meter, Sparkline Draw, Counter Card |
+| 13 | Enter & Exit | 8 | Fade In, Slide Up, Spring In, Stagger, Blur In, Collapse |
 
 ## Live Preview
 
-Browse all 105 effects with live demos: **https://joepui.github.io/motion-ref-skill/**
+Browse all 112 effects with live demos: **https://joepui.github.io/motion-ref-skill/**
 
 ## License
 
