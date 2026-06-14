@@ -1,7 +1,7 @@
-<h1 align="center">motion-ref</h1>
+<h1 align="center">motion-ref-skill</h1>
 
 <p align="center">
-  <strong>Describe what you want. Get the right motion effect.</strong>
+  <strong>Describe what you want. Get production-ready animation code.</strong>
 </p>
 
 <p align="center">
@@ -13,18 +13,14 @@
 <p align="center">
   <a href="#install">Install</a> •
   <a href="#usage">Usage</a> •
-  <a href="#effect-categories">Categories</a> •
+  <a href="#categories">Categories</a> •
   <a href="https://joepui.github.io/motion-ref-skill/">Live Preview</a> •
   <a href="README_zh.md">中文文档</a>
 </p>
 
 ---
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that matches plain-language descriptions to motion effects. 73 effects across 12 categories — describe the feeling, get the technique.
-
-Two output modes (auto-detected):
-- **Code** — CSS / JS animation parameters for frontend development
-- **Video** — English motion prompts for Sora / Runway / Kling
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for modern UI motion design. 105 production-ready animation effects across 13 categories — describe the interaction, get CSS/JS code you can ship.
 
 ## Install
 
@@ -36,41 +32,65 @@ Restart Claude Code after installing.
 
 ## Usage
 
+Describe an interaction scenario in natural language. The skill matches the best effect(s) from its reference library and outputs complete, production-ready code.
+
 ```
-/motion-ref bounce effect on button click
-/motion-ref number counting up from zero
-/motion-ref input field shake on error
-/motion-ref icon drawing itself line by line
-/motion-ref light tracing along a button border
-/motion-ref flowing noise texture for background
-/motion-ref product image appearing from blur to sharp
-/motion-ref ripple expanding outward on click
-/motion-ref page transition with shattering fragments
-/motion-ref particles rising in the background
+/motion-ref I have a dashboard page that loads several stat cards.
+            I want them to appear one by one instead of all at once.
 ```
 
-Or describe what you want in natural language — the skill activates automatically.
+```
+/motion-ref Users submit a form and wait 2-3 seconds for the server response.
+            The submit button should show a loading state.
+```
 
-## Effect Categories
+```
+/motion-ref I'm building a settings panel as a side drawer.
+            It needs to slide in from the right with a backdrop.
+```
 
-| Category | Count | Includes |
-|----------|-------|----------|
-| Movement | 5 | Move, SymMove, RepeatMove, WiggleMove, DelayMove |
-| Rotation | 5 | Rotate, SymRotate, RepeatRotate, WiggleRotate, SolidRotation |
-| Scale | 5 | Scale, SymScale, RepeatScale, WiggleScale, Dot |
-| Trim | 5 | TrimLine, TrimCircle, RepeatTrim, TrimPie, FlowingLine |
-| Blur & Light | 8 | Blur, Opacity, FieldOfDepth, MotionBlur, CrossBlur, RadialBlur, Glow, Flare |
-| Offset & Orbit | 6 | Orbit, Offset, Vegas, Loop, Tiler, PolarCoordinates |
-| Transform | 5 | ShapeTransform, RepeatTransform, LineWeight, Shade, Reshape |
-| Time | 4 | Easing, Rhythm, Integar, TimeDisplace |
-| Distortion | 3 | Bend, WaveWarp, Twirl |
-| Diffusion | 3 | Scatter, Median, Mosaic |
-| Fractal | 6 | FractalNoise, TurbulentDisplace, RoughEdge, NoiseAlpha, WigglePath, Lightning |
-| Special FX | 18 | Particle, Shatter, MaskWipe, CardDance, Wave, Grid, Text, and more |
+```
+/motion-ref My mobile app has a message list.
+            I want swipe-left-to-delete like iOS Mail.
+```
+
+```
+/motion-ref I have a pricing toggle between Monthly and Annual.
+            The prices should animate when switching, not just swap.
+```
+
+```
+/motion-ref The landing page hero has a tagline.
+            I want it to have a subtle shimmer effect for a premium feel.
+```
+
+```
+/motion-ref I'm building a multi-step checkout flow.
+            I need a progress indicator that shows which step
+            the user is on and animates between steps.
+```
+
+## Categories
+
+| # | Category | Count | Highlights |
+|---|----------|-------|------------|
+| 1 | Loading & Waiting | 9 | Spinner, Skeleton Shimmer, Circular Progress, Breath Pulse |
+| 2 | Enter & Exit | 8 | Fade In, Slide Up, Spring In, Stagger, Blur In |
+| 3 | Button & Click Feedback | 9 | Press Scale, Ripple, Success Check, Error Shake, Confetti |
+| 4 | Overlay & Popup | 10 | Modal, Bottom Sheet, Toast, Tooltip, Drawer, Command Palette |
+| 5 | Navigation & Transition | 8 | Page Slide, Shared Element, Tab Slide, Dock Nav |
+| 6 | Form & Input | 10 | Focus Ring, Label Float, Toggle Switch, OTP Input, Range Slider, Step Indicator |
+| 7 | Text & Data | 10 | Typewriter, Number Counter, Flip Counter, Shimmer Text, Gradient Text |
+| 8 | Scroll-driven | 7 | Scroll Reveal, Parallax, Progress Indicator, Scroll Snap |
+| 9 | Icon & Badge | 7 | Hamburger/Close, SVG Draw, Badge Bounce, Morphing Icon |
+| 10 | Carousel & List | 8 | Carousel, Card Stack, Drag Reorder, Accordion, Avatar Stack, Swipe Action |
+| 11 | State Change | 6 | Theme Toggle, Skeleton-to-Content, Error Recovery, Confetti Celebration |
+| 12 | Atmosphere & Background | 8 | Gradient Flow, Particles, Magnetic Cursor, 3D Card Hover, Meteor Shower |
+| 13 | Data Visualization | 5 | Bar Chart Rise, Donut Chart, Gauge Meter, Sparkline Draw, Counter Card |
 
 ## Live Preview
 
-Browse all 73 effects with GIF previews: **https://joepui.github.io/motion-ref-skill/**
+Browse all 105 effects with live demos: **https://joepui.github.io/motion-ref-skill/**
 
 ## License
 
