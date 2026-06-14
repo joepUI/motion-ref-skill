@@ -302,10 +302,12 @@ a{color:var(--accent);text-decoration:none}
 
 .stack-demo{width:80px;height:100px;position:relative}
 .stack-card{position:absolute;width:70px;height:85px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:600;left:50%;transform:translateX(-50%)}
-.stack-card:nth-child(1){background:#818cf8;z-index:3;top:0;animation:stackSwipe 3s ease-in-out infinite}
-.stack-card:nth-child(2){background:#6366f1;z-index:2;top:6px;transform:translateX(-50%) scale(.94)}
-.stack-card:nth-child(3){background:#4f46e5;z-index:1;top:12px;transform:translateX(-50%) scale(.88)}
-@keyframes stackSwipe{0%,20%{transform:translateX(-50%) rotate(0) scale(1);opacity:1}40%{transform:translateX(60%) rotate(12deg) scale(.95);opacity:.6}55%{transform:translateX(80%) rotate(15deg) scale(.9);opacity:0}56%{transform:translateX(-50%) scale(.88);z-index:0;opacity:0}70%{opacity:1}100%{transform:translateX(-50%) scale(1);opacity:1}}
+.stack-card:nth-child(1){background:#818cf8;z-index:3;top:0;animation:stackTop 4s ease-in-out infinite}
+.stack-card:nth-child(2){background:#6366f1;z-index:2;top:6px;transform:translateX(-50%) scale(.94);animation:stackMid 4s ease-in-out infinite}
+.stack-card:nth-child(3){background:#4f46e5;z-index:1;top:12px;transform:translateX(-50%) scale(.88);animation:stackBot 4s ease-in-out infinite}
+@keyframes stackTop{0%,20%{transform:translateX(-50%) rotate(0) scale(1);opacity:1}40%{transform:translateX(80%) rotate(12deg) scale(.95);opacity:0}41%,75%{transform:translateX(-50%) scale(.88);opacity:0}76%{opacity:0}90%,100%{transform:translateX(-50%) scale(1);opacity:1}}
+@keyframes stackMid{0%,20%{top:6px;transform:translateX(-50%) scale(.94)}40%,75%{top:0;transform:translateX(-50%) scale(1)}90%,100%{top:6px;transform:translateX(-50%) scale(.94)}}
+@keyframes stackBot{0%,20%{top:12px;transform:translateX(-50%) scale(.88)}40%,75%{top:6px;transform:translateX(-50%) scale(.94)}90%,100%{top:12px;transform:translateX(-50%) scale(.88)}}
 
 /* ═══ 6. 表单与输入 ═══ */
 .focus-input{width:75%;padding:8px 12px;background:var(--bg);border:1.5px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;outline:none;transition:border-color .15s,box-shadow .15s}
