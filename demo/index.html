@@ -70,6 +70,9 @@ a{color:var(--accent);text-decoration:none}
 .card.show-code .code-panel{opacity:1;pointer-events:auto}
 .code-panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .code-panel-head span{font-size:11px;font-weight:600;color:var(--accent)}
+.code-copy{width:20px;height:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.code-copy svg{width:14px;height:14px;stroke:var(--text3);stroke-width:2}
+.code-copy:hover svg{stroke:var(--accent)}
 .code-close{width:20px;height:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .code-close svg{width:14px;height:14px;stroke:var(--text3);stroke-width:2}
 .code-close:hover svg{stroke:var(--text)}
@@ -1322,8 +1325,18 @@ document.querySelectorAll('.card').forEach(card=>{
   // add code panel
   const panel=document.createElement('div');
   panel.className='code-panel';
-  panel.innerHTML=`<div class="code-panel-head"><span>Code</span><div class="code-close" onclick="this.closest('.card').classList.remove('show-code')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></div></div><pre>${code.replace(/</g,'&lt;')}</pre>`;
+  panel.innerHTML=`<div class="code-panel-head"><span>Code</span><div style="display:flex;gap:8px;align-items:center"><div class="code-copy" data-code="${encodeURIComponent(code)}"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div><div class="code-close" onclick="this.closest('.card').classList.remove('show-code')"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></div></div></div><pre>${code.replace(/</g,'&lt;')}</pre>`;
   card.appendChild(panel);
+});
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('.code-copy');
+  if(!btn)return;
+  const code=decodeURIComponent(btn.dataset.code);
+  navigator.clipboard.writeText(code).then(()=>{
+    btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+    btn.querySelector('svg').style.cssText='width:14px;height:14px;stroke:var(--accent);stroke-width:2';
+    setTimeout(()=>{btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';btn.querySelector('svg').style.cssText='width:14px;height:14px;stroke:var(--text3);stroke-width:2'},1500);
+  });
 });
 
 // ── Flip Counter real animation ──
