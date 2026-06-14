@@ -29,7 +29,7 @@
 ## 安装
 
 ```bash
-git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion-ref
+git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion-ref-skill
 ```
 
 安装后重启 Claude Code 即可使用。

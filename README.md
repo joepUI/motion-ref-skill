@@ -29,7 +29,7 @@ Two output modes (auto-detected):
 ## Install
 
 ```bash
-git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion-ref
+git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion-ref-skill
 ```
 
 Restart Claude Code after installing.
