@@ -381,14 +381,6 @@ a{color:var(--accent);text-decoration:none}
 .sr-item{height:28px;margin-bottom:6px;background:var(--accent2);border-radius:4px;opacity:0;transform:translateY(10px);transition:all .4s ease}
 .sr-item.visible{opacity:1;transform:translateY(0)}
 
-.parallax-demo{width:90%;height:100px;position:relative;overflow:hidden;border-radius:8px;background:linear-gradient(180deg,#1a1040 0%,#0d0d1a 100%)}
-.plx-bg{position:absolute;bottom:-10px;width:100%;height:60px;background:linear-gradient(0deg,rgba(99,102,241,.3),transparent);border-radius:50% 50% 0 0;animation:plxMove 3s ease-in-out infinite}
-.plx-fg{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:18px;height:18px;background:var(--accent);border-radius:4px;animation:plxFg 3s ease-in-out infinite}
-.plx-stars{position:absolute;top:0;left:0;width:100%;height:100%}
-.plx-star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:plxStar 3s ease-in-out infinite}
-@keyframes plxMove{0%,100%{transform:translateY(0)}50%{transform:translateY(-25px)}}
-@keyframes plxFg{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
-@keyframes plxStar{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 
 .read-progress-demo{width:85%}
 .rp-bar{width:0%;height:3px;background:var(--accent);border-radius:2px;animation:rpGrow 4s ease-in-out infinite;margin-bottom:8px}
@@ -661,8 +653,8 @@ a{color:var(--accent);text-decoration:none}
 .range-demo{width:75%;display:flex;flex-direction:column;align-items:center;gap:6px}
 .range-track{width:100%;height:4px;background:var(--border);border-radius:2px;position:relative;cursor:pointer}
 .range-fill{height:100%;background:var(--accent);border-radius:2px;width:60%;transition:width .1s}
-.range-thumb{position:absolute;top:50%;right:0;width:16px;height:16px;background:var(--accent);border:2px solid #fff;border-radius:50%;transform:translate(50%,-50%);transition:box-shadow .15s,transform .15s;cursor:grab;left:60%}
-.range-thumb:hover{box-shadow:0 0 0 6px var(--accent-glow);transform:translate(50%,-50%) scale(1.1)}
+.range-thumb{position:absolute;top:50%;width:16px;height:16px;background:var(--accent);border:2px solid #fff;border-radius:50%;transform:translate(-50%,-50%);transition:box-shadow .15s,transform .15s;cursor:grab;left:60%}
+.range-thumb:hover{box-shadow:0 0 0 6px var(--accent-glow);transform:translate(-50%,-50%) scale(1.1)}
 .range-val{font-size:14px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
 
 .steps-demo{display:flex;align-items:center;gap:0}
@@ -676,13 +668,25 @@ a{color:var(--accent);text-decoration:none}
 .gradient-text{font-size:20px;font-weight:800;background:linear-gradient(90deg,#818cf8,#f0abfc,#fbbf24,#818cf8);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradText 4s linear infinite}
 @keyframes gradText{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 
-.scroll-snap-demo{width:90%;height:80px;overflow-x:auto;scroll-snap-type:x mandatory;display:flex;gap:0;border-radius:8px;border:1px solid var(--border);scrollbar-width:none}
-.scroll-snap-demo::-webkit-scrollbar{display:none}
-.snap-panel{min-width:100%;height:100%;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600;flex-shrink:0}
-.snap-panel:nth-child(1){background:#4f46e5}
-.snap-panel:nth-child(2){background:#7c3aed}
-.snap-panel:nth-child(3){background:#2563eb}
-.snap-panel:nth-child(4){background:#0891b2}
+
+.heart-like{cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center}
+.heart-like svg{transition:transform .3s cubic-bezier(.34,1.56,.64,1);fill:var(--text3)}
+.heart-like.liked svg{fill:#ef4444;transform:scale(1.25)}
+.heart-like:not(.liked) svg{transform:scale(1)}
+@keyframes heartPop{0%{transform:scale(1)}15%{transform:scale(.7)}40%{transform:scale(1.3)}60%{transform:scale(.95)}100%{transform:scale(1.1)}}
+.heart-like.pop svg{animation:heartPop .45s ease forwards;fill:#ef4444}
+
+.copy-check{cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;position:relative}
+.copy-check svg{width:22px;height:22px;stroke:var(--text2);stroke-width:1.5;fill:none;transition:all .2s}
+.copy-check .cc-copy{position:absolute}
+.copy-check .cc-check{position:absolute;opacity:0;transform:scale(.5);stroke:var(--accent)}
+.copy-check.copied .cc-copy{opacity:0;transform:scale(.5)}
+.copy-check.copied .cc-check{opacity:1;transform:scale(1)}
+
+.bell-shake{cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center}
+.bell-shake svg{width:22px;height:22px;stroke:var(--text2);stroke-width:1.5;fill:none;transform-origin:top center}
+@keyframes bellRing{0%,100%{transform:rotate(0)}10%{transform:rotate(14deg)}20%{transform:rotate(-14deg)}30%{transform:rotate(10deg)}40%{transform:rotate(-10deg)}50%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}70%{transform:rotate(2deg)}80%{transform:rotate(0)}}
+.bell-shake.ringing svg{animation:bellRing .8s ease}
 
 .morph-icon{cursor:pointer;transition:transform .15s}
 .morph-icon:hover{transform:scale(1.1)}
@@ -739,7 +743,7 @@ a{color:var(--accent);text-decoration:none}
   <main class="main">
     <div class="hero">
       <h2>Modern UI Motion Reference</h2>
-      <p>105 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
+      <p>106 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
     </div>
     <!-- 1 -->
     <section class="section" id="s1">
@@ -845,7 +849,7 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="fade-words"><span>Design</span><span>is</span><span>how</span><span>it</span></div></div><div class="info"><h3>Fade Up Words</h3><p>逐词淡入上升</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="num-counter" data-target="12847">0</div></div><div class="info"><h3>Number Counter</h3><p>数字从 0 滚动到目标</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><span class="highlight-text">重点内容高亮</span></div><div class="info"><h3>Text Highlight</h3><p>荧光笔划过文字</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>105 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>105 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>106 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>106 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="scramble-text">MOTION</div></div><div class="info"><h3>Scramble Text</h3><p>字符打散重组</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="flip-counter"><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>3</span></div><div class="flip-digit"><span>:</span></div><div class="flip-digit"><span>4</span></div><div class="flip-digit"><span>2</span></div></div></div><div class="info"><h3>Flip Counter</h3><p>翻牌计数器</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="shimmer-text">Shimmer Effect</div></div><div class="info"><h3>Shimmer Text</h3><p>渐变光扫过文字</p><span class="tag">CSS</span></div></div>
@@ -859,12 +863,10 @@ a{color:var(--accent);text-decoration:none}
       <div class="section-head"><h2>08 · 滚动驱动</h2><p>滚动变成讲故事工具</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="scroll-reveal-demo" id="srDemo"><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div></div></div><div class="info"><h3>Scroll Reveal</h3><p>滚入视口时淡入</p><span class="tag">JS</span></div></div>
-        <div class="card"><div class="preview"><div class="parallax-demo"><div class="plx-stars"><span class="plx-star" style="top:12%;left:20%;opacity:.6;animation-delay:0s"></span><span class="plx-star" style="top:30%;left:65%;opacity:.4;animation-delay:.5s"></span><span class="plx-star" style="top:18%;left:80%;opacity:.5;animation-delay:1s"></span><span class="plx-star" style="top:40%;left:35%;opacity:.3;animation-delay:1.5s"></span><span class="plx-star" style="top:8%;left:50%;opacity:.7;animation-delay:.8s"></span></div><div class="plx-bg"></div><div class="plx-fg"></div></div></div><div class="info"><h3>Parallax</h3><p>前后景不同速移动</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="read-progress-demo"><div class="rp-bar"></div><div class="rp-lines"><div class="rp-line"></div><div class="rp-line"></div><div class="rp-line"></div></div></div></div><div class="info"><h3>Progress Indicator</h3><p>阅读进度条</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="sticky-demo"><div class="sticky-header">Header (sticky)</div><div class="sticky-body"><p>Content line 1</p><p>Content line 2</p><p>Content line 3</p><p>Content line 4</p><p>Content line 5</p><p>Content line 6</p><p>Content line 7</p></div></div></div><div class="info"><h3>Sticky Shrink</h3><p>吸顶缩小导航</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="line-reveal-demo"><span>第一行文字逐行</span><span>第二行高亮显示</span><span>第三行渐次点亮</span></div></div><div class="info"><h3>Line Reveal</h3><p>逐行文字高亮</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="img-reveal-demo"></div></div><div class="info"><h3>Image Reveal</h3><p>clip-path 揭示图片</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="scroll-snap-demo"><div class="snap-panel">Panel 1</div><div class="snap-panel">Panel 2</div><div class="snap-panel">Panel 3</div><div class="snap-panel">Panel 4</div></div></div><div class="info"><h3>Scroll Snap</h3><p>滚动吸附定位</p><span class="tag">CSS</span></div></div>
       </div>
     </section>
     <!-- 9 -->
@@ -878,6 +880,9 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="logo-draw"><svg viewBox="0 0 60 60"><path class="logo-stroke" d="M30 5 L55 50 L5 50 Z"/><path class="logo-fill" d="M30 5 L55 50 L5 50 Z"/></svg></div></div><div class="info"><h3>Logo Entrance</h3><p>描边 + 填充入场</p><span class="tag">SVG</span></div></div>
         <div class="card"><div class="preview"><span class="arrow-flip" onclick="this.classList.toggle('flipped')">▼</span></div><div class="info"><h3>Arrow Flip</h3><p>箭头旋转 180°</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><svg class="morph-icon" width="36" height="36" viewBox="0 0 24 24" onclick="demoMorph(this)"><path d="M8 5v14l11-7z" fill="var(--accent)"/></svg></div><div class="info"><h3>Morphing Icon</h3><p>图标路径平滑变形</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="heart-like" onclick="demoHeart(this)"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div></div><div class="info"><h3>Heart Like</h3><p>爱心点赞动画</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="copy-check" onclick="demoCopyCheck(this)"><svg class="cc-copy" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><svg class="cc-check" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><div class="info"><h3>Copy Check</h3><p>复制成功打勾</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="bell-shake" onclick="demoBell(this)"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></div></div><div class="info"><h3>Bell Shake</h3><p>通知铃铛摇摆</p><span class="tag">CSS</span></div></div>
       </div>
     </section>
 
@@ -1131,6 +1136,26 @@ function demoMorph(svg){
   path.setAttribute('d',next);
 }
 
+// ── Heart Like ──
+function demoHeart(el){
+  if(el.classList.contains('liked')){el.classList.remove('liked','pop');return}
+  el.classList.add('pop');
+  el.addEventListener('animationend',()=>{el.classList.remove('pop');el.classList.add('liked')},{once:true});
+}
+// ── Copy Check ──
+function demoCopyCheck(el){
+  if(el.classList.contains('copied'))return;
+  el.classList.add('copied');
+  setTimeout(()=>el.classList.remove('copied'),1500);
+}
+// ── Bell Shake ──
+function demoBell(el){
+  el.classList.remove('ringing');
+  void el.offsetWidth;
+  el.classList.add('ringing');
+  el.addEventListener('animationend',()=>el.classList.remove('ringing'),{once:true});
+}
+
 // ── Confetti Celebration ──
 function demoCelebrate(container){
   const colors=['#818cf8','#f0abfc','#fbbf24','#34d399','#f87171','#fb923c'];
@@ -1248,7 +1273,6 @@ const codeSnippets={
 
   // ── 8. Scroll ──
   'Scroll Reveal':`.reveal {\n  opacity: 0;\n  transform: translateY(20px);\n  transition: all 600ms ease;\n}\n.reveal.visible {\n  opacity: 1;\n  transform: none;\n}\n\n/* JS */\nconst obs = new IntersectionObserver(\n  entries => entries.forEach(e => {\n    e.target.classList.toggle(\n      "visible", e.isIntersecting\n    );\n  }), { threshold: .3 }\n);\ndocument.querySelectorAll(".reveal")\n  .forEach(el => obs.observe(el));`,
-  'Parallax':`.parallax {\n  transform: translateY(\n    calc(var(--scroll) * -0.3)\n  );\n  will-change: transform;\n}\n\n/* JS */\nwindow.addEventListener("scroll", () => {\n  document.documentElement\n    .style.setProperty(\n      "--scroll", window.scrollY + "px"\n    );\n}, { passive: true });`,
   'Progress Indicator':`.progress-bar {\n  position: fixed;\n  top: 0; left: 0;\n  height: 3px;\n  background: var(--accent);\n  transform-origin: left;\n  transform: scaleX(0);\n  transition: transform 100ms linear;\n}\n\n/* JS */\nwindow.addEventListener("scroll", () => {\n  const pct = scrollY /\n    (document.body.scrollHeight - innerHeight);\n  bar.style.transform =\n    \`scaleX(\${pct})\`;\n}, { passive: true });`,
   'Sticky Shrink':`.header {\n  padding: 24px;\n  transition: padding 250ms ease,\n    font-size 250ms ease;\n}\n.header.shrunk {\n  padding: 12px;\n  font-size: .9em;\n  backdrop-filter: blur(12px);\n  background: rgba(11,11,15,.8);\n}`,
   'Line Reveal':`.line {\n  width: 0;\n  height: 2px;\n  background: var(--accent);\n  transition: width 600ms\n    cubic-bezier(.4, 0, .2, 1);\n}\n.visible .line {\n  width: 100%;\n}`,
@@ -1300,8 +1324,10 @@ const codeSnippets={
   'Range Slider':`.range-track {\n  height: 4px;\n  background: var(--border);\n  border-radius: 2px;\n  position: relative;\n}\n.range-fill {\n  height: 100%;\n  background: var(--accent);\n  border-radius: 2px;\n}\n.range-thumb {\n  width: 16px; height: 16px;\n  background: var(--accent);\n  border: 2px solid #fff;\n  border-radius: 50%;\n  cursor: grab;\n}\n.range-thumb:hover {\n  box-shadow: 0 0 0 6px\n    rgba(99,102,241,.25);\n}`,
   'Step Indicator':`.step-dot {\n  width: 28px; height: 28px;\n  border-radius: 50%;\n  border: 2px solid var(--border);\n  transition: all .3s ease;\n}\n.step-dot.done {\n  background: var(--accent);\n  border-color: var(--accent);\n}\n.step-dot.active {\n  border-color: var(--accent);\n  animation: pulse 1.5s infinite;\n}\n.step-line {\n  width: 32px; height: 2px;\n  background: var(--border);\n  transition: background .3s;\n}\n.step-line.done {\n  background: var(--accent);\n}\n@keyframes pulse {\n  50% { box-shadow: 0 0 0 4px\n    rgba(99,102,241,.25) }\n}`,
   'Gradient Text':`.gradient-text {\n  background: linear-gradient(90deg,\n    #818cf8, #f0abfc,\n    #fbbf24, #818cf8);\n  background-size: 300% 100%;\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  animation: gradText 4s linear infinite;\n}\n@keyframes gradText {\n  0%   { background-position: 0% 50% }\n  100% { background-position: 300% 50% }\n}`,
-  'Scroll Snap':`.scroll-container {\n  overflow-x: auto;\n  scroll-snap-type: x mandatory;\n  display: flex;\n}\n.scroll-container::-webkit-scrollbar {\n  display: none;\n}\n.snap-panel {\n  min-width: 100%;\n  scroll-snap-align: start;\n  flex-shrink: 0;\n}`,
   'Morphing Icon':`/* CSS transition on SVG path d attribute */\n.morph-icon path {\n  transition: d .4s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n\n/* JS: toggle between paths */\nconst play = "M8 5v14l11-7z";\nconst pause = "M6 4h4v16H6zm8 0h4v16h-4z";\nicon.addEventListener("click", () => {\n  const d = path.getAttribute("d");\n  path.setAttribute("d",\n    d === play ? pause : play);\n});`,
+  'Heart Like':`.heart {\n  cursor: pointer;\n  transition: transform .3s\n    cubic-bezier(.34, 1.56, .64, 1);\n  fill: var(--muted);\n}\n.heart.liked {\n  fill: #ef4444;\n  transform: scale(1.25);\n}\n@keyframes heartPop {\n  0%   { transform: scale(1) }\n  15%  { transform: scale(.7) }\n  40%  { transform: scale(1.3) }\n  100% { transform: scale(1.1) }\n}\n.heart.pop {\n  animation: heartPop .45s ease;\n  fill: #ef4444;\n}`,
+  'Copy Check':`.copy-check {\n  position: relative;\n  cursor: pointer;\n}\n.copy-check .icon-copy,\n.copy-check .icon-check {\n  position: absolute;\n  transition: all .2s ease;\n}\n.copy-check .icon-check {\n  opacity: 0;\n  transform: scale(.5);\n  stroke: var(--accent);\n}\n.copy-check.copied .icon-copy {\n  opacity: 0;\n  transform: scale(.5);\n}\n.copy-check.copied .icon-check {\n  opacity: 1;\n  transform: scale(1);\n}`,
+  'Bell Shake':`.bell {\n  cursor: pointer;\n  transform-origin: top center;\n}\n@keyframes bellRing {\n  0%,100% { transform: rotate(0) }\n  10%  { transform: rotate(14deg) }\n  20%  { transform: rotate(-14deg) }\n  30%  { transform: rotate(10deg) }\n  40%  { transform: rotate(-10deg) }\n  50%  { transform: rotate(6deg) }\n  60%  { transform: rotate(-4deg) }\n  70%  { transform: rotate(2deg) }\n  80%  { transform: rotate(0) }\n}\n.bell.ringing {\n  animation: bellRing .8s ease;\n}`,
   'Swipe Action':`.swipe-content {\n  position: relative;\n  z-index: 1;\n  transition: transform .3s\n    cubic-bezier(.32, .72, 0, 1);\n}\n.swipe-actions {\n  position: absolute;\n  right: 0; top: 0; bottom: 0;\n}\n.swiped .swipe-content {\n  transform: translateX(-80px);\n}`,
   'Confetti Celebration':`function celebrate(container) {\n  const colors = ['#818cf8','#f0abfc','#fbbf24'];\n  for (let i = 0; i < 25; i++) {\n    const p = document.createElement('div');\n    const angle = Math.random() * Math.PI * 2;\n    const dist = 50 + Math.random() * 60;\n    p.style.cssText = \`\n      --tx: \${Math.cos(angle)*dist}px;\n      --ty: \${Math.sin(angle)*dist-30}px;\n      --rot: \${Math.random()*720}deg;\n      width: \${4+Math.random()*6}px;\n      height: \${4+Math.random()*6}px;\n      background: \${colors[i%3]};\n    \`;\n    container.appendChild(p);\n  }\n}`,
   'Bar Chart Rise':`.bar-col {\n  border-radius: 3px 3px 0 0;\n  animation: barRise 1s ease\n    forwards;\n}\n@keyframes barRise {\n  from { height: 0 }\n  to   { height: var(--h) }\n}\n\n/* stagger with delay */\n.bar-col:nth-child(2) {\n  animation-delay: .1s;\n}\n.bar-col:nth-child(3) {\n  animation-delay: .2s;\n}`,
