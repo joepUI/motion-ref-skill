@@ -9,7 +9,7 @@
 :root{
   --bg:#0b0b0f;--surface:#151519;--card:#1c1c22;--border:#2a2a32;
   --text:#e4e4e7;--text2:#a1a1aa;--text3:#71717a;
-  --accent:#818cf8;--accent2:#6366f1;--accent-glow:rgba(99,102,241,.25);
+  --accent:#f59e0b;--accent2:#d97706;--accent-glow:rgba(245,158,11,.25);
   --success:#34d399;--error:#f87171;--warn:#fbbf24;
   --radius:12px;--card-radius:16px;
 }
@@ -28,7 +28,7 @@ a{color:var(--accent);text-decoration:none}
 .sidebar nav a .num{font-size:11px;color:var(--text3);font-variant-numeric:tabular-nums;min-width:18px}
 /* hero */
 .hero{margin-bottom:56px;padding:24px 0 32px;border-bottom:1px solid var(--border)}
-.hero h2{font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--accent),#a78bfa,#f0abfc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.hero h2{font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--accent),#fbbf24,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
 .hero p{font-size:14px;color:var(--text3);max-width:480px;line-height:1.6}
 .hero-stats{display:flex;gap:24px;margin-top:16px}
 .hero-stat{display:flex;flex-direction:column}
@@ -59,7 +59,7 @@ a{color:var(--accent);text-decoration:none}
 .card .info{padding:10px 14px}
 .card .info h3{font-size:13px;font-weight:600;margin-bottom:1px}
 .card .info p{font-size:11px;color:var(--text3);line-height:1.4}
-.card .tag{display:inline-block;font-size:10px;padding:2px 6px;border-radius:4px;background:rgba(129,140,248,.12);color:var(--accent);margin-top:4px}
+.card .tag{display:inline-block;font-size:10px;padding:2px 6px;border-radius:4px;background:rgba(245,158,11,.12);color:var(--accent);margin-top:4px}
 
 /* click hint for interactive cards */
 .card[data-click] .preview::after{content:"";position:absolute;bottom:8px;right:8px;width:20px;height:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M15 15l-2 5L9 9l11 4-5 2z'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.5;transition:opacity .2s}
@@ -171,12 +171,12 @@ a{color:var(--accent);text-decoration:none}
 
 .collapse-demo{width:80%;overflow:hidden}
 .collapse-bar{height:28px;background:var(--accent);border-radius:6px 6px 0 0;display:flex;align-items:center;padding:0 10px;font-size:11px;color:#fff}
-.collapse-body{background:rgba(129,140,248,.15);border-radius:0 0 6px 6px;animation:collapseLoop 3s ease-in-out infinite;overflow:hidden}
+.collapse-body{background:rgba(245,158,11,.15);border-radius:0 0 6px 6px;animation:collapseLoop 3s ease-in-out infinite;overflow:hidden}
 .collapse-body-inner{padding:10px;font-size:11px;color:var(--text2)}
 @keyframes collapseLoop{0%,100%{max-height:0;opacity:0}35%,65%{max-height:60px;opacity:1}}
 
 /* ═══ 3. 按钮与反馈 ═══ */
-.demo-btn{padding:8px 20px;border:none;border-radius:8px;background:var(--accent);color:#fff;font-size:13px;font-weight:600;cursor:pointer;outline:none;transition:all .15s}
+.demo-btn{padding:6px 16px;border:none;border-radius:6px;background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer;outline:none;transition:all .15s}
 .press-btn{animation:pressHint 2s ease-in-out infinite}
 .press-btn:active{transform:scale(.94);transition-duration:80ms;animation:none}
 @keyframes pressHint{0%,100%{transform:scale(1)}50%{transform:scale(.97)}}
@@ -200,7 +200,7 @@ a{color:var(--accent);text-decoration:none}
 .submit-btn.loading::after{content:"";position:absolute;inset:6px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
 
 .glow-btn{animation:glowHint 2.5s ease-in-out infinite}
-.glow-btn:hover{box-shadow:0 0 24px var(--accent-glow),0 0 48px rgba(99,102,241,.12);animation:none}
+.glow-btn:hover{box-shadow:0 0 24px var(--accent-glow),0 0 48px rgba(245,158,11,.12);animation:none}
 @keyframes glowHint{0%,100%{box-shadow:none}50%{box-shadow:0 0 16px var(--accent-glow)}}
 .bounce-btn{animation:bounceHint 2.5s ease-in-out infinite}
 .bounce-btn:active{animation:bounceTap .5s cubic-bezier(.34,1.56,.64,1)}
@@ -208,7 +208,7 @@ a{color:var(--accent);text-decoration:none}
 @keyframes bounceTap{0%{transform:scale(1) translateY(0)}30%{transform:scale(.88,.96) translateY(4px)}50%{transform:scale(1.08,1) translateY(-8px)}70%{transform:scale(.98,1.02) translateY(-2px)}100%{transform:scale(1) translateY(0)}}
 
 .fill-btn{position:relative;overflow:hidden}
-.fill-btn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(129,140,248,.3);animation:fillLoop 3s ease infinite}
+.fill-btn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(245,158,11,.3);animation:fillLoop 3s ease infinite}
 @keyframes fillLoop{0%{width:0;left:0}45%{width:100%;left:0}55%{width:100%;left:0}100%{width:0;left:100%}}
 
 /* ═══ 4. 弹层与浮层 ═══ */
@@ -259,21 +259,21 @@ a{color:var(--accent);text-decoration:none}
 .ctx-menu-item:hover{background:rgba(255,255,255,.06)}
 
 /* ═══ 5. 导航与转场 ═══ */
-.page-slide-demo{width:90%;height:80px;position:relative;overflow:hidden;border-radius:8px}
-.page-slide-demo .pg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600;border-radius:8px}
+.page-slide-demo{width:70%;height:60px;position:relative;overflow:hidden;border-radius:8px}
+.page-slide-demo .pg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:600;border-radius:8px}
 .page-slide-demo .pg-a{background:var(--accent2);animation:pgSlideA 3s ease-in-out infinite}
-.page-slide-demo .pg-b{background:#7c3aed;animation:pgSlideB 3s ease-in-out infinite}
+.page-slide-demo .pg-b{background:#ea580c;animation:pgSlideB 3s ease-in-out infinite}
 @keyframes pgSlideA{0%,30%{transform:translateX(0)}50%,80%{transform:translateX(-30%);opacity:.6}100%{transform:translateX(0)}}
 @keyframes pgSlideB{0%,30%{transform:translateX(100%)}50%,80%{transform:translateX(0)}100%{transform:translateX(100%)}}
 
-.fade-switch-demo{width:90%;height:70px;position:relative;border-radius:8px;overflow:hidden}
-.fade-switch-demo .fs{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;border-radius:8px}
+.fade-switch-demo{width:70%;height:50px;position:relative;border-radius:8px;overflow:hidden}
+.fade-switch-demo .fs{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;border-radius:8px}
 .fade-switch-demo .fs-a{background:var(--accent2);animation:fsA 3s ease infinite}
-.fade-switch-demo .fs-b{background:#7c3aed;animation:fsB 3s ease infinite}
+.fade-switch-demo .fs-b{background:#ea580c;animation:fsB 3s ease infinite}
 @keyframes fsA{0%,40%{opacity:1}50%,90%{opacity:0}100%{opacity:1}}
 @keyframes fsB{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
 
-.shared-demo{width:90%;height:90px;position:relative;overflow:hidden;border-radius:8px}
+.shared-demo{width:70%;height:65px;position:relative;overflow:hidden;border-radius:8px}
 .shared-thumb{width:28px;height:28px;background:var(--accent);border-radius:6px;position:absolute;left:16px;top:50%;transform:translateY(-50%);animation:sharedGrow 3s ease-in-out infinite}
 @keyframes sharedGrow{0%,25%{width:28px;height:28px;left:16px;top:50%;transform:translateY(-50%);border-radius:6px}50%,75%{width:90%;height:80%;left:5%;top:10%;transform:translateY(0);border-radius:8px}100%{width:28px;height:28px;left:16px;top:50%;transform:translateY(-50%);border-radius:6px}}
 
@@ -285,7 +285,7 @@ a{color:var(--accent);text-decoration:none}
 .tab-content{height:24px;font-size:11px;color:var(--text2);animation:tabFade 3s ease infinite}
 @keyframes tabFade{0%,15%{opacity:1}20%,35%{opacity:0}40%,55%{opacity:1}60%,75%{opacity:0}80%,95%{opacity:1}}
 
-.sidebar-demo{width:90%;height:80px;position:relative;overflow:hidden;border-radius:8px;background:var(--card)}
+.sidebar-demo{width:70%;height:60px;position:relative;overflow:hidden;border-radius:8px;background:var(--card)}
 .sb-side{position:absolute;left:-60px;top:0;width:60px;height:100%;background:var(--accent2);border-radius:8px 0 0 8px;transition:left .3s ease;display:flex;flex-direction:column;gap:6px;padding:8px;justify-content:center}
 .sb-side span{height:4px;background:rgba(255,255,255,.4);border-radius:2px}
 .sb-main{margin-left:0;height:100%;padding:10px;transition:margin-left .3s ease;display:flex;flex-direction:column;gap:6px;justify-content:center}
@@ -294,20 +294,12 @@ a{color:var(--accent);text-decoration:none}
 .sidebar-demo.show .sb-side{left:0}
 .sidebar-demo.show .sb-main{margin-left:60px}
 
-.vt-demo{width:90%;height:70px;position:relative;overflow:hidden;border-radius:8px}
+.vt-demo{width:70%;height:50px;position:relative;overflow:hidden;border-radius:8px}
 .vt-demo .vt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;border-radius:8px}
 .vt-a{background:var(--accent2)}
-.vt-b{background:#7c3aed;clip-path:circle(0% at 50% 50%);animation:vtCircle 3.5s ease infinite}
+.vt-b{background:#ea580c;clip-path:circle(0% at 50% 50%);animation:vtCircle 3.5s ease infinite}
 @keyframes vtCircle{0%,30%{clip-path:circle(0% at 50% 50%)}50%,80%{clip-path:circle(75% at 50% 50%)}100%{clip-path:circle(0% at 50% 50%)}}
 
-.stack-demo{width:80px;height:100px;position:relative}
-.stack-card{position:absolute;width:70px;height:85px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:600;left:50%;transform:translateX(-50%)}
-.stack-card:nth-child(1){background:#818cf8;z-index:3;top:0;animation:stackTop 4s ease-in-out infinite}
-.stack-card:nth-child(2){background:#6366f1;z-index:2;top:6px;transform:translateX(-50%) scale(.94);animation:stackMid 4s ease-in-out infinite}
-.stack-card:nth-child(3){background:#4f46e5;z-index:1;top:12px;transform:translateX(-50%) scale(.88);animation:stackBot 4s ease-in-out infinite}
-@keyframes stackTop{0%,20%{transform:translateX(-50%) rotate(0) scale(1);opacity:1}40%{transform:translateX(80%) rotate(12deg) scale(.95);opacity:0}41%,75%{transform:translateX(-50%) scale(.88);opacity:0}76%{opacity:0}90%,100%{transform:translateX(-50%) scale(1);opacity:1}}
-@keyframes stackMid{0%,20%{top:6px;transform:translateX(-50%) scale(.94)}40%,75%{top:0;transform:translateX(-50%) scale(1)}90%,100%{top:6px;transform:translateX(-50%) scale(.94)}}
-@keyframes stackBot{0%,20%{top:12px;transform:translateX(-50%) scale(.88)}40%,75%{top:6px;transform:translateX(-50%) scale(.94)}90%,100%{top:12px;transform:translateX(-50%) scale(.88)}}
 
 /* ═══ 6. 表单与输入 ═══ */
 .focus-input{width:75%;padding:8px 12px;background:var(--bg);border:1.5px solid var(--border);border-radius:6px;color:var(--text);font-size:12px;outline:none;transition:border-color .15s,box-shadow .15s}
@@ -423,7 +415,7 @@ a{color:var(--accent);text-decoration:none}
 .icon-swap.swapped .ico-a{opacity:0;transform:scale(.25);filter:blur(4px)}
 .icon-swap.swapped .ico-b{opacity:1;transform:scale(1);filter:blur(0)}
 
-.svg-draw-demo svg{width:60px;height:60px}
+.svg-draw-demo svg{width:36px;height:36px}
 .svg-draw-demo path{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-dasharray:200;stroke-dashoffset:200;animation:svgDraw 2.5s ease infinite}
 @keyframes svgDraw{0%{stroke-dashoffset:200}50%,70%{stroke-dashoffset:0}100%{stroke-dashoffset:200}}
 
@@ -431,7 +423,7 @@ a{color:var(--accent);text-decoration:none}
 .badge-dot{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:var(--error);border-radius:50%;font-size:9px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;animation:badgeBounce 2s ease infinite}
 @keyframes badgeBounce{0%,100%{transform:scale(1)}10%{transform:scale(0)}20%{transform:scale(1.3)}30%{transform:scale(.9)}40%{transform:scale(1)}}
 
-.logo-draw svg{width:60px;height:60px}
+.logo-draw svg{width:36px;height:36px}
 .logo-draw .logo-stroke{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:300;stroke-dashoffset:300;animation:logoDraw 3s ease infinite}
 .logo-draw .logo-fill{fill:var(--accent);opacity:0;animation:logoFill 3s ease infinite}
 @keyframes logoDraw{0%{stroke-dashoffset:300}40%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
@@ -444,17 +436,19 @@ a{color:var(--accent);text-decoration:none}
 .carousel-demo{width:85%;overflow:hidden;border-radius:8px}
 .carousel-track{display:flex;animation:carouselSlide 4s ease-in-out infinite}
 .carousel-slide{min-width:100%;height:70px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600;border-radius:8px}
-.carousel-slide:nth-child(1){background:#4f46e5}
-.carousel-slide:nth-child(2){background:#7c3aed}
-.carousel-slide:nth-child(3){background:#2563eb}
+.carousel-slide:nth-child(1){background:#b45309}
+.carousel-slide:nth-child(2){background:#ea580c}
+.carousel-slide:nth-child(3){background:#fbbf24}
 @keyframes carouselSlide{0%,25%{transform:translateX(0)}35%,60%{transform:translateX(-100%)}70%,100%{transform:translateX(-200%)}}
 
 .card-stack-demo{width:80px;height:100px;position:relative}
 .cs-card{position:absolute;width:80px;height:80px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff}
-.cs-card:nth-child(1){background:#4f46e5;z-index:3;animation:csSwipe 3s ease-in-out infinite}
-.cs-card:nth-child(2){background:#6366f1;z-index:2;top:6px;left:4px;transform:scale(.95)}
-.cs-card:nth-child(3){background:#818cf8;z-index:1;top:12px;left:8px;transform:scale(.9)}
-@keyframes csSwipe{0%,35%{transform:translateX(0) rotate(0);opacity:1}50%{transform:translateX(80px) rotate(12deg);opacity:0}51%{transform:translateX(0) scale(.9);z-index:0;opacity:0}65%,100%{transform:translateX(0) scale(1);opacity:1}}
+.cs-card:nth-child(1){background:#f59e0b;z-index:3;top:0;left:0;animation:csTop 4s ease-in-out infinite}
+.cs-card:nth-child(2){background:#d97706;z-index:2;top:6px;left:4px;transform:scale(.95);animation:csMid 4s ease-in-out infinite}
+.cs-card:nth-child(3){background:#b45309;z-index:1;top:12px;left:8px;transform:scale(.9);animation:csBot 4s ease-in-out infinite}
+@keyframes csTop{0%,20%{top:0;left:0;transform:scale(1) rotate(0);opacity:1}40%{transform:translateX(80px) rotate(12deg) scale(.95);opacity:0}41%,75%{top:12px;left:8px;transform:scale(.9);opacity:0}76%{opacity:0}90%,100%{top:0;left:0;transform:scale(1);opacity:1}}
+@keyframes csMid{0%,20%{top:6px;left:4px;transform:scale(.95)}40%,75%{top:0;left:0;transform:scale(1)}90%,100%{top:6px;left:4px;transform:scale(.95)}}
+@keyframes csBot{0%,20%{top:12px;left:8px;transform:scale(.9)}40%,75%{top:6px;left:4px;transform:scale(.95)}90%,100%{top:12px;left:8px;transform:scale(.9)}}
 
 .list-demo{width:80%;display:flex;flex-direction:column;gap:6px}
 .list-item{height:24px;background:var(--accent2);border-radius:4px;animation:listFadeIn .5s ease both;display:flex;align-items:center;padding:0 10px;font-size:10px;color:#fff}
@@ -466,7 +460,7 @@ a{color:var(--accent);text-decoration:none}
 
 .drag-demo{width:80%;display:flex;flex-direction:column;gap:4px}
 .drag-item{height:26px;background:var(--card);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;padding:0 8px;font-size:10px;color:var(--text2);cursor:grab;transition:all .2s}
-.drag-item:hover{border-color:var(--accent);background:rgba(129,140,248,.08)}
+.drag-item:hover{border-color:var(--accent);background:rgba(245,158,11,.08)}
 .drag-item.dragging{transform:scale(1.03);box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:1}
 .drag-item .grip{margin-right:6px;color:var(--text3);font-size:8px;letter-spacing:1px}
 
@@ -520,18 +514,18 @@ a{color:var(--accent);text-decoration:none}
 .expand-detail-demo.open .ed-detail{max-height:60px;border-color:var(--border)}
 
 /* ═══ 12. 氛围与背景 ═══ */
-.gradient-flow-demo{width:90%;height:80px;border-radius:10px;background:linear-gradient(135deg,#667eea,#764ba2,#f093fb,#667eea);background-size:300% 300%;animation:gradFlow 6s ease infinite}
+.gradient-flow-demo{width:90%;height:80px;border-radius:10px;background:linear-gradient(135deg,#f59e0b,#ea580c,#fcd34d,#f59e0b);background-size:300% 300%;animation:gradFlow 6s ease infinite}
 @keyframes gradFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
 .glow-pulse-demo{width:50px;height:50px;background:var(--accent);border-radius:50%;animation:glowPulse 2.5s ease-in-out infinite alternate}
-@keyframes glowPulse{from{box-shadow:0 0 8px var(--accent-glow)}to{box-shadow:0 0 28px rgba(99,102,241,.5),0 0 56px rgba(99,102,241,.2)}}
+@keyframes glowPulse{from{box-shadow:0 0 8px var(--accent-glow)}to{box-shadow:0 0 28px rgba(245,158,11,.5),0 0 56px rgba(245,158,11,.2)}}
 
 .particle-canvas{width:100%;height:100%;position:absolute;inset:0}
 
 .magnetic-demo{width:50px;height:50px;background:var(--accent);border-radius:10px;transition:transform .15s ease-out;cursor:pointer}
 
 .glow-trace-card{width:70%;height:70px;background:var(--card);border:1px solid var(--border);border-radius:10px;position:relative;overflow:hidden;cursor:pointer}
-.glow-trace-card::before{content:"";position:absolute;width:120px;height:120px;background:radial-gradient(circle,rgba(129,140,248,.2),transparent 70%);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);left:var(--mx,50%);top:var(--my,50%);opacity:0;transition:opacity .2s}
+.glow-trace-card::before{content:"";position:absolute;width:120px;height:120px;background:radial-gradient(circle,rgba(245,158,11,.2),transparent 70%);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);left:var(--mx,50%);top:var(--my,50%);opacity:0;transition:opacity .2s}
 .glow-trace-card:hover::before{opacity:1}
 .glow-trace-inner{position:relative;z-index:1;padding:16px;font-size:11px;color:var(--text2)}
 
@@ -573,9 +567,9 @@ a{color:var(--accent);text-decoration:none}
 .avatar-stack{display:flex}
 .avatar-stack .avatar{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px;transition:all .25s cubic-bezier(.34,1.56,.64,1);cursor:pointer}
 .avatar-stack .avatar:first-child{margin-left:0}
-.avatar-stack .avatar:nth-child(1){background:#818cf8}
-.avatar-stack .avatar:nth-child(2){background:#a78bfa}
-.avatar-stack .avatar:nth-child(3){background:#f0abfc}
+.avatar-stack .avatar:nth-child(1){background:#f59e0b}
+.avatar-stack .avatar:nth-child(2){background:#fbbf24}
+.avatar-stack .avatar:nth-child(3){background:#fcd34d}
 .avatar-stack .avatar:nth-child(4){background:#fbbf24}
 .avatar-stack:hover .avatar{margin-left:4px}
 .avatar-stack:hover .avatar:first-child{margin-left:0}
@@ -583,28 +577,22 @@ a{color:var(--accent);text-decoration:none}
 
 .card3d-demo{width:70%;height:80px;background:linear-gradient(135deg,var(--accent2),var(--accent));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600;transition:transform .15s ease;transform-style:preserve-3d;cursor:pointer}
 
-.meteor-demo{width:100%;height:100%;position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,#080810,#0b0b1a)}
-.meteor{position:absolute;width:2px;height:30px;background:linear-gradient(180deg,transparent,rgba(129,140,248,.8));border-radius:1px;animation:meteorFall 1.5s linear infinite}
-.meteor:nth-child(1){left:20%;top:-30px;animation-delay:0s;animation-duration:1.2s}
-.meteor:nth-child(2){left:55%;top:-30px;animation-delay:.6s;animation-duration:1.6s}
-.meteor:nth-child(3){left:80%;top:-30px;animation-delay:1.1s;animation-duration:1.3s}
-@keyframes meteorFall{0%{transform:translateY(-30px) rotate(-35deg);opacity:1}70%{opacity:1}100%{transform:translateY(180px) rotate(-35deg);opacity:0}}
 
 /* ═══ 13. 数据可视化 ═══ */
 .bar-chart{display:flex;align-items:end;gap:6px;height:80px}
 .bar-col{width:16px;border-radius:3px 3px 0 0;animation:barRise 1.5s ease infinite alternate}
-.bar-col:nth-child(1){background:#818cf8;animation-delay:0s}
-.bar-col:nth-child(2){background:#6366f1;animation-delay:.1s}
-.bar-col:nth-child(3){background:#a78bfa;animation-delay:.2s}
-.bar-col:nth-child(4){background:#818cf8;animation-delay:.3s}
-.bar-col:nth-child(5){background:#6366f1;animation-delay:.4s}
-.bar-col:nth-child(6){background:#a78bfa;animation-delay:.5s}
+.bar-col:nth-child(1){background:#f59e0b;animation-delay:0s}
+.bar-col:nth-child(2){background:#d97706;animation-delay:.1s}
+.bar-col:nth-child(3){background:#fbbf24;animation-delay:.2s}
+.bar-col:nth-child(4){background:#f59e0b;animation-delay:.3s}
+.bar-col:nth-child(5){background:#d97706;animation-delay:.4s}
+.bar-col:nth-child(6){background:#fbbf24;animation-delay:.5s}
 @keyframes barRise{0%{height:10%}100%{height:var(--h,60%)}}
 
 .donut-chart{width:60px;height:60px;transform:rotate(-90deg)}
 .donut-bg{fill:none;stroke:var(--border);stroke-width:5}
 .donut-fg{fill:none;stroke:var(--accent);stroke-width:5;stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:113.1;animation:donutDraw 2s ease-in-out infinite alternate}
-.donut-fg2{fill:none;stroke:#a78bfa;stroke-width:5;stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:113.1;animation:donutDraw2 2s ease-in-out infinite alternate}
+.donut-fg2{fill:none;stroke:#fbbf24;stroke-width:5;stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:113.1;animation:donutDraw2 2s ease-in-out infinite alternate}
 @keyframes donutDraw{0%{stroke-dashoffset:113.1}100%{stroke-dashoffset:40}}
 @keyframes donutDraw2{0%{stroke-dashoffset:113.1}100%{stroke-dashoffset:73}}
 
@@ -644,7 +632,7 @@ a{color:var(--accent);text-decoration:none}
 .cmd-input{width:100%;padding:6px 10px;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-size:10px;outline:none}
 .cmd-items{padding:4px}
 .cmd-item{padding:4px 8px;font-size:10px;color:var(--text2);border-radius:4px;cursor:pointer;transition:background .1s}
-.cmd-item:hover{background:rgba(129,140,248,.1)}
+.cmd-item:hover{background:rgba(245,158,11,.1)}
 
 .otp-demo{display:flex;gap:6px}
 .otp-box{width:28px;height:34px;background:var(--bg);border:1.5px solid var(--border);border-radius:6px;text-align:center;color:var(--accent);font-size:16px;font-weight:700;outline:none;transition:border-color .15s,box-shadow .15s;caret-color:var(--accent)}
@@ -667,7 +655,7 @@ a{color:var(--accent);text-decoration:none}
 .step-line.done{background:var(--accent)}
 @keyframes stepPulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 0 4px var(--accent-glow)}}
 
-.gradient-text{font-size:20px;font-weight:800;background:linear-gradient(90deg,#818cf8,#f0abfc,#fbbf24,#818cf8);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradText 4s linear infinite}
+.gradient-text{font-size:20px;font-weight:800;background:linear-gradient(90deg,#f59e0b,#fcd34d,#fbbf24,#f59e0b);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradText 4s linear infinite}
 @keyframes gradText{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 
 
@@ -757,12 +745,6 @@ a{color:var(--accent);text-decoration:none}
 .sf-icon svg path{stroke-dasharray:20;stroke-dashoffset:20;animation:sfDraw .4s ease forwards}
 @keyframes sfDraw{to{stroke-dashoffset:0}}
 
-/* Lock / Unlock */
-.lock-demo{display:flex;align-items:center;justify-content:center;cursor:pointer}
-.lock-demo svg{stroke:var(--text2);stroke-width:1.5;fill:none;transition:stroke .3s}
-.lock-demo .lock-shackle{transition:transform .3s ease;transform-origin:center bottom}
-.lock-demo.unlocked .lock-shackle{transform:translateY(-3px) rotate(15deg)}
-.lock-demo.unlocked svg{stroke:var(--accent)}
 
 /* Read / Unread */
 .read-demo{display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 10px;border-radius:8px;transition:background .3s}
@@ -791,10 +773,10 @@ a{color:var(--accent);text-decoration:none}
     <nav>
       <a href="#s1"><span class="num">01</span>加载与等待</a>
       <a href="#s2"><span class="num">02</span>按钮与反馈</a>
-      <a href="#s3"><span class="num">03</span>弹层与浮层</a>
-      <a href="#s4"><span class="num">04</span>导航与转场</a>
-      <a href="#s5"><span class="num">05</span>表单与输入</a>
-      <a href="#s6"><span class="num">06</span>文字与数据</a>
+      <a href="#s3"><span class="num">03</span>文字与数据</a>
+      <a href="#s4"><span class="num">04</span>弹层与浮层</a>
+      <a href="#s5"><span class="num">05</span>导航与转场</a>
+      <a href="#s6"><span class="num">06</span>表单与输入</a>
       <a href="#s7"><span class="num">07</span>滚动驱动</a>
       <a href="#s8"><span class="num">08</span>图标与标识</a>
       <a href="#s9"><span class="num">09</span>轮播与列表</a>
@@ -808,7 +790,7 @@ a{color:var(--accent);text-decoration:none}
   <main class="main">
     <div class="hero">
       <h2>Modern UI Motion Reference</h2>
-      <p>112 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
+      <p>109 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
     </div>
     <!-- 1 -->
     <section class="section" id="s1">
@@ -847,7 +829,24 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 3 -->
     <section class="section" id="s3">
-      <div class="section-head"><h2>03 · 弹层与浮层</h2><p>独立于页面的"新层"</p></div>
+      <div class="section-head"><h2>03 · 文字与数据</h2><p>让静态信息动起来</p></div>
+      <div class="grid">
+        <div class="card"><div class="preview"><div class="typewriter">Hello World!</div></div><div class="info"><h3>Typewriter</h3><p>逐字打出 + 光标</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="fade-words"><span>Design</span><span>is</span><span>how</span><span>it</span></div></div><div class="info"><h3>Fade Up Words</h3><p>逐词淡入上升</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="num-counter" data-target="12847">0</div></div><div class="info"><h3>Number Counter</h3><p>数字从 0 滚动到目标</p><span class="tag">JS</span></div></div>
+        <div class="card"><div class="preview"><span class="highlight-text">重点内容高亮</span></div><div class="info"><h3>Text Highlight</h3><p>荧光笔划过文字</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>109 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>109 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="scramble-text">MOTION</div></div><div class="info"><h3>Scramble Text</h3><p>字符打散重组</p><span class="tag">JS</span></div></div>
+        <div class="card"><div class="preview"><div class="flip-counter"><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>3</span></div><div class="flip-digit"><span>:</span></div><div class="flip-digit"><span>4</span></div><div class="flip-digit"><span>2</span></div></div></div><div class="info"><h3>Flip Counter</h3><p>翻牌计数器</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="shimmer-text">Shimmer Effect</div></div><div class="info"><h3>Shimmer Text</h3><p>渐变光扫过文字</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="num-popin" id="numPopin"><span>1</span><span>2</span><span>,</span><span>3</span><span>4</span><span>5</span></div></div><div class="info"><h3>Number Pop-in</h3><p>数字逐位弹入带模糊</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="gradient-text">Colorful</div></div><div class="info"><h3>Gradient Text</h3><p>渐变色流动文字</p><span class="tag">CSS</span></div></div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="section" id="s4">
+      <div class="section-head"><h2>04 · 弹层与浮层</h2><p>独立于页面的"新层"</p></div>
       <div class="grid">
         <div class="card"><div class="preview modal-trigger" onclick="this.classList.toggle('show')"><div class="mini-modal-overlay"><div class="mini-modal-box">确认删除？<br><span style="color:var(--accent);cursor:pointer">OK</span></div></div></div><div class="info"><h3>Modal</h3><p>弹窗 scale + overlay</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview" onclick="this.querySelector('.sheet-area').classList.toggle('show')"><div class="sheet-area"><div class="mini-sheet"><div class="handle"></div><div class="sheet-row"></div><div class="sheet-row"></div><div class="sheet-row"></div></div></div></div><div class="info"><h3>Bottom Sheet</h3><p>从底部滑上来</p><span class="tag">CSS</span></div></div>
@@ -862,9 +861,9 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 4 -->
-    <section class="section" id="s4">
-      <div class="section-head"><h2>04 · 导航与转场</h2><p>页面间的切换动画</p></div>
+    <!-- 5 -->
+    <section class="section" id="s5">
+      <div class="section-head"><h2>05 · 导航与转场</h2><p>页面间的切换动画</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="page-slide-demo"><div class="pg pg-a">Page A</div><div class="pg pg-b">Page B</div></div></div><div class="info"><h3>Page Slide</h3><p>新页面从右推入</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="fade-switch-demo"><div class="fs fs-a">Tab 1</div><div class="fs fs-b">Tab 2</div></div></div><div class="info"><h3>Fade Switch</h3><p>淡入淡出切换</p><span class="tag">CSS</span></div></div>
@@ -872,14 +871,13 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="tab-slide-demo"><div class="tab-bar"><span class="tab-item">Home</span><span class="tab-item">Search</span><span class="tab-item">Profile</span><div class="tab-indicator"></div></div><div class="tab-content">Tab Content</div></div></div><div class="info"><h3>Tab Slide</h3><p>指示条滑动切换</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="sidebar-demo" onclick="this.classList.toggle('show')"><div class="sb-side"><span></span><span></span><span></span></div><div class="sb-main"><span></span><span></span><span></span></div></div></div><div class="info"><h3>Sidebar Push</h3><p>侧栏推入主内容</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="vt-demo"><div class="vt vt-a">Old View</div><div class="vt vt-b">New View</div></div></div><div class="info"><h3>View Transition</h3><p>圆形扩散视图过渡</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="stack-demo"><div class="stack-card">1</div><div class="stack-card">2</div><div class="stack-card">3</div></div></div><div class="info"><h3>Stack Nav</h3><p>堆叠卡片导航</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="dock-demo"><div class="dock-item">A</div><div class="dock-item">B</div><div class="dock-item">C</div><div class="dock-item">D</div><div class="dock-item">E</div></div></div><div class="info"><h3>Dock Nav</h3><p>Mac 风格悬停放大导航</p><span class="tag">CSS</span></div></div>
       </div>
     </section>
 
-    <!-- 5 -->
-    <section class="section" id="s5">
-      <div class="section-head"><h2>05 · 表单与输入</h2><p>引导和确认</p></div>
+    <!-- 6 -->
+    <section class="section" id="s6">
+      <div class="section-head"><h2>06 · 表单与输入</h2><p>引导和确认</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><input class="focus-input" type="text" placeholder="点击聚焦..."></div><div class="info"><h3>Focus Ring</h3><p>聚焦边框高亮</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="float-label-wrap"><input class="float-input" type="text" placeholder=" "><span class="float-label">Email</span></div></div><div class="info"><h3>Label Float</h3><p>标签上浮变小</p><span class="tag">CSS</span></div></div>
@@ -894,22 +892,6 @@ a{color:var(--accent);text-decoration:none}
       </div>
     </section>
 
-    <!-- 6 -->
-    <section class="section" id="s6">
-      <div class="section-head"><h2>06 · 文字与数据</h2><p>让静态信息动起来</p></div>
-      <div class="grid">
-        <div class="card"><div class="preview"><div class="typewriter">Hello World!</div></div><div class="info"><h3>Typewriter</h3><p>逐字打出 + 光标</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="fade-words"><span>Design</span><span>is</span><span>how</span><span>it</span></div></div><div class="info"><h3>Fade Up Words</h3><p>逐词淡入上升</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="num-counter" data-target="12847">0</div></div><div class="info"><h3>Number Counter</h3><p>数字从 0 滚动到目标</p><span class="tag">JS</span></div></div>
-        <div class="card"><div class="preview"><span class="highlight-text">重点内容高亮</span></div><div class="info"><h3>Text Highlight</h3><p>荧光笔划过文字</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>112 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>112 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="scramble-text">MOTION</div></div><div class="info"><h3>Scramble Text</h3><p>字符打散重组</p><span class="tag">JS</span></div></div>
-        <div class="card"><div class="preview"><div class="flip-counter"><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>3</span></div><div class="flip-digit"><span>:</span></div><div class="flip-digit"><span>4</span></div><div class="flip-digit"><span>2</span></div></div></div><div class="info"><h3>Flip Counter</h3><p>翻牌计数器</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="shimmer-text">Shimmer Effect</div></div><div class="info"><h3>Shimmer Text</h3><p>渐变光扫过文字</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="num-popin" id="numPopin"><span>1</span><span>2</span><span>,</span><span>3</span><span>4</span><span>5</span></div></div><div class="info"><h3>Number Pop-in</h3><p>数字逐位弹入带模糊</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="gradient-text">Colorful</div></div><div class="info"><h3>Gradient Text</h3><p>渐变色流动文字</p><span class="tag">CSS</span></div></div>
-      </div>
-    </section>
 
     <!-- 7 -->
     <section class="section" id="s7">
@@ -965,7 +947,6 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="online-demo" onclick="this.classList.toggle('offline')"><div class="status-dot-wrap"><div class="status-dot"></div><div class="status-pulse"></div></div><span class="status-label">Online</span></div></div><div class="info"><h3>Online Status</h3><p>在线离线脉冲指示</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="fav-star-demo" onclick="demoStar(this)"><svg width="28" height="28" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div><div class="info"><h3>Favorite Star</h3><p>收藏星标弹性切换</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="sf-demo" onclick="demoSF(this)"><div class="sf-icon pending"><svg width="18" height="18" viewBox="0 0 24 24"><path class="sf-path" d="M5 13l4 4L19 7"/></svg></div></div></div><div class="info"><h3>Success / Fail</h3><p>成功失败状态切换</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="lock-demo" onclick="this.classList.toggle('unlocked')"><svg width="28" height="28" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path class="lock-shackle" d="M7 11V7a5 5 0 0110 0v4"/></svg></div></div><div class="info"><h3>Lock / Unlock</h3><p>锁定解锁切换</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="read-demo" onclick="this.classList.toggle('read')"><div class="read-dot"></div><span class="read-text">New message arrived</span></div></div><div class="info"><h3>Read / Unread</h3><p>已读未读标记切换</p><span class="tag">CSS</span></div></div>
       </div>
     </section>
@@ -981,7 +962,6 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="glow-trace-card" onmousemove="this.style.setProperty('--mx',((event.clientX-this.getBoundingClientRect().left)/this.offsetWidth*100)+'%');this.style.setProperty('--my',((event.clientY-this.getBoundingClientRect().top)/this.offsetHeight*100)+'%')"><div class="glow-trace-inner">Move cursor here</div></div></div><div class="info"><h3>Glow Trace</h3><p>光标跟随边框高光</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="light-sweep-demo">PREMIUM</div></div><div class="info"><h3>Light Sweep</h3><p>光线扫过表面</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview" style="perspective:400px" onmousemove="demo3d(event,this)" onmouseleave="this.querySelector('.card3d-demo').style.transform='none'"><div class="card3d-demo">3D Card</div></div><div class="info"><h3>3D Card Hover</h3><p>透视跟随光标倾斜</p><span class="tag">JS</span></div></div>
-        <div class="card"><div class="preview" style="position:relative"><div class="meteor-demo"><span class="meteor"></span><span class="meteor"></span><span class="meteor"></span></div></div><div class="info"><h3>Meteor Shower</h3><p>流星划过背景</p><span class="tag">CSS</span></div></div>
       </div>
     </section>
 
@@ -1107,7 +1087,7 @@ function demoAccordion(item){item.classList.toggle('open')}
 (function(){const box=document.getElementById('infDemo');if(!box)return;let c=0;function addItems(n){for(let i=0;i<n;i++){const d=document.createElement('div');d.className='inf-item';d.style.animationDelay=(i*.08)+'s';c++;box.appendChild(d)}}addItems(5);box.addEventListener('scroll',function(){if(box.scrollTop+box.clientHeight>=box.scrollHeight-10){addItems(3)}})})();
 
 // ── 12.3 Particles ──
-(function(){const cv=document.getElementById('particleCanvas');if(!cv)return;const ctx=cv.getContext('2d');function resize(){const r=cv.parentElement.getBoundingClientRect();cv.width=r.width;cv.height=r.height}resize();const ps=[];for(let i=0;i<40;i++)ps.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*2+1,vy:-(Math.random()*.3+.1),vx:(Math.random()-.5)*.2,o:Math.random()*.5+.2});function draw(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{p.y+=p.vy;p.x+=p.vx;if(p.y<-5){p.y=cv.height+5;p.x=Math.random()*cv.width}ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(129,140,248,${p.o})`;ctx.fill()});requestAnimationFrame(draw)}draw()})();
+(function(){const cv=document.getElementById('particleCanvas');if(!cv)return;const ctx=cv.getContext('2d');function resize(){const r=cv.parentElement.getBoundingClientRect();cv.width=r.width;cv.height=r.height}resize();const ps=[];for(let i=0;i<40;i++)ps.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*2+1,vy:-(Math.random()*.3+.1),vx:(Math.random()-.5)*.2,o:Math.random()*.5+.2});function draw(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{p.y+=p.vy;p.x+=p.vx;if(p.y<-5){p.y=cv.height+5;p.x=Math.random()*cv.width}ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(245,158,11,${p.o})`;ctx.fill()});requestAnimationFrame(draw)}draw()})();
 
 // ── 12.4 Magnetic cursor ──
 (function(){const el=document.getElementById('magneticEl');if(!el)return;const preview=el.closest('.preview');preview.addEventListener('mousemove',e=>{const r=preview.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height/2;const dx=(e.clientX-cx)*.12,dy=(e.clientY-cy)*.12;el.style.transform=`translate(${dx}px,${dy}px)`});preview.addEventListener('mouseleave',()=>{el.style.transform='translate(0,0)'})})();
@@ -1134,7 +1114,7 @@ function demo3d(e,preview){
 
 // ── Confetti Button ──
 function demoConfetti(btn){
-  const colors=['#818cf8','#f0abfc','#fbbf24','#34d399','#f87171'];
+  const colors=['#f59e0b','#fcd34d','#fbbf24','#34d399','#f87171'];
   for(let i=0;i<12;i++){
     const p=document.createElement('span');p.className='confetti-particle';
     const angle=Math.random()*Math.PI*2;
@@ -1252,7 +1232,7 @@ function demoSF(el){
 
 // ── Confetti Celebration ──
 function demoCelebrate(container){
-  const colors=['#818cf8','#f0abfc','#fbbf24','#34d399','#f87171','#fb923c'];
+  const colors=['#f59e0b','#fcd34d','#fbbf24','#34d399','#f87171','#fb923c'];
   const shapes=['6px','4px','8px'];
   for(let i=0;i<25;i++){
     const p=document.createElement('div');p.className='celebrate-particle';
@@ -1295,20 +1275,20 @@ document.querySelectorAll('.card').forEach(card=>{
 
 // ── Code viewer ──
 const codeSnippets={
-  'Spinner':`.spinner {\n  width: 36px;\n  height: 36px;\n  border: 3px solid #2a2a32;\n  border-top-color: #818cf8;\n  border-radius: 50%;\n  animation: spin .8s linear infinite;\n}\n@keyframes spin {\n  to { transform: rotate(360deg) }\n}`,
-  'Dots Pulse':`.dots span {\n  width: 10px; height: 10px;\n  background: #818cf8;\n  border-radius: 50%;\n  animation: pulse 1.4s ease-in-out infinite;\n}\n.dots span:nth-child(2) { animation-delay: .15s }\n.dots span:nth-child(3) { animation-delay: .3s }\n@keyframes pulse {\n  0%,80%,100% { transform: scale(.4); opacity: .4 }\n  40% { transform: scale(1); opacity: 1 }\n}`,
+  'Spinner':`.spinner {\n  width: 36px;\n  height: 36px;\n  border: 3px solid #2a2a32;\n  border-top-color: #f59e0b;\n  border-radius: 50%;\n  animation: spin .8s linear infinite;\n}\n@keyframes spin {\n  to { transform: rotate(360deg) }\n}`,
+  'Dots Pulse':`.dots span {\n  width: 10px; height: 10px;\n  background: #f59e0b;\n  border-radius: 50%;\n  animation: pulse 1.4s ease-in-out infinite;\n}\n.dots span:nth-child(2) { animation-delay: .15s }\n.dots span:nth-child(3) { animation-delay: .3s }\n@keyframes pulse {\n  0%,80%,100% { transform: scale(.4); opacity: .4 }\n  40% { transform: scale(1); opacity: 1 }\n}`,
   'Skeleton Shimmer':`.skeleton {\n  background: linear-gradient(90deg,\n    #eee 25%, #f5f5f5 50%, #eee 75%);\n  background-size: 200% 100%;\n  animation: shimmer 1.5s infinite;\n}\n@keyframes shimmer {\n  0%   { background-position: 200% 0 }\n  100% { background-position: -200% 0 }\n}`,
   'Fade In':`.fade-in {\n  animation: fadeIn 300ms ease;\n}\n@keyframes fadeIn {\n  from { opacity: 0 }\n  to   { opacity: 1 }\n}`,
   'Slide Up':`.slide-up {\n  animation: slideUp 400ms ease-out;\n}\n@keyframes slideUp {\n  from { opacity: 0; transform: translateY(20px) }\n  to   { opacity: 1; transform: translateY(0) }\n}`,
   'Spring In':`.spring-in {\n  animation: springIn 500ms\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n@keyframes springIn {\n  from { opacity: 0; transform: scale(.5) }\n  to   { opacity: 1; transform: scale(1) }\n}`,
   'Press Scale':`button:active {\n  transform: scale(.96);\n  transition: transform 80ms ease;\n}`,
   'Ripple':`.ripple {\n  position: relative; overflow: hidden;\n}\n/* JS: on click */\nconst d = Math.max(w, h);\ncircle.style.cssText = \`\n  width:\${d}px; height:\${d}px;\n  left:\${x}px; top:\${y}px;\n  position:absolute; border-radius:50%;\n  background:rgba(255,255,255,.35);\n  transform:scale(0);\n  animation:ripple .6s ease-out forwards;\n\`;\n@keyframes ripple { to { transform:scale(4); opacity:0 } }`,
-  'Toggle Switch':`.track {\n  width: 44px; height: 24px;\n  background: #ccc;\n  border-radius: 12px;\n  transition: background .25s;\n}\n.knob {\n  width: 20px; height: 20px;\n  background: #fff; border-radius: 50%;\n  transition: transform .25s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.track.on { background: #818cf8 }\n.track.on .knob {\n  transform: translateX(20px);\n}`,
-  'Gradient Flow':`.gradient {\n  background: linear-gradient(135deg,\n    #667eea, #764ba2, #f093fb);\n  background-size: 300% 300%;\n  animation: flow 6s ease infinite;\n}\n@keyframes flow {\n  0%   { background-position: 0% 50% }\n  50%  { background-position: 100% 50% }\n  100% { background-position: 0% 50% }\n}`,
+  'Toggle Switch':`.track {\n  width: 44px; height: 24px;\n  background: #ccc;\n  border-radius: 12px;\n  transition: background .25s;\n}\n.knob {\n  width: 20px; height: 20px;\n  background: #fff; border-radius: 50%;\n  transition: transform .25s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.track.on { background: #f59e0b }\n.track.on .knob {\n  transform: translateX(20px);\n}`,
+  'Gradient Flow':`.gradient {\n  background: linear-gradient(135deg,\n    #f59e0b, #ea580c, #fcd34d);\n  background-size: 300% 300%;\n  animation: flow 6s ease infinite;\n}\n@keyframes flow {\n  0%   { background-position: 0% 50% }\n  50%  { background-position: 100% 50% }\n  100% { background-position: 0% 50% }\n}`,
   'Typewriter':`.typewriter {\n  overflow: hidden;\n  white-space: nowrap;\n  border-right: 2px solid;\n  width: 0;\n  animation:\n    type 3s steps(12) infinite,\n    blink .6s step-end infinite alternate;\n}\n@keyframes type {\n  0%,100% { width: 0 }\n  40%,80% { width: 12ch }\n}\n@keyframes blink {\n  50% { border-color: transparent }\n}`,
   'Hamburger / Close':`.hamburger span {\n  display: block; height: 2px;\n  background: #fff; border-radius: 1px;\n  transition: all .3s ease;\n}\n/* open state */\n.open span:nth-child(1) {\n  top: 8px; transform: rotate(45deg);\n}\n.open span:nth-child(2) { opacity: 0 }\n.open span:nth-child(3) {\n  top: 8px; transform: rotate(-45deg);\n}`,
   'Error Shake':`.shake {\n  animation: shake .4s ease;\n}\n@keyframes shake {\n  0%,100% { transform: translateX(0) }\n  20%,60% { transform: translateX(-6px) }\n  40%,80% { transform: translateX(6px) }\n}`,
-  'Hover Glow':`button:hover {\n  box-shadow:\n    0 0 20px rgba(99,102,241,.4),\n    0 0 48px rgba(99,102,241,.12);\n  transition: box-shadow 200ms;\n}`,
+  'Hover Glow':`button:hover {\n  box-shadow:\n    0 0 20px rgba(245,158,11,.4),\n    0 0 48px rgba(245,158,11,.12);\n  transition: box-shadow 200ms;\n}`,
   'Modal':`.overlay {\n  background: rgba(0,0,0,.5);\n  transition: opacity .2s;\n}\n.modal {\n  transform: scale(.95); opacity: 0;\n  transition: all .25s ease-out;\n}\n.show .overlay { opacity: 1 }\n.show .modal {\n  transform: scale(1); opacity: 1;\n}`,
   'View Transition':`/* CSS */\n::view-transition-old(root) {\n  animation: fade-out .25s;\n}\n::view-transition-new(root) {\n  clip-path: circle(0% at 50% 50%);\n  animation: reveal .4s ease forwards;\n}\n\n/* JS */\ndocument.startViewTransition(() => {\n  updateDOM();\n});`,
   'Light Sweep':`.sweep::after {\n  content: "";\n  position: absolute;\n  top: 0; left: -100%;\n  width: 60%; height: 100%;\n  background: linear-gradient(110deg,\n    transparent,\n    rgba(255,255,255,.08),\n    transparent);\n  animation: sweep 3s infinite;\n}\n@keyframes sweep {\n  0%       { left: -100% }\n  50%,100% { left: 150% }\n}`,
@@ -1347,7 +1327,6 @@ const codeSnippets={
   'Shared Element':`.shared {\n  view-transition-name: hero;\n}\n::view-transition-old(hero),\n::view-transition-new(hero) {\n  animation-duration: 350ms;\n  animation-timing-function:\n    cubic-bezier(.2, 0, .13, 1.5);\n}`,
   'Tab Slide':`.tab-indicator {\n  position: absolute;\n  bottom: 0;\n  height: 2px;\n  background: var(--accent);\n  transition: left 250ms ease,\n    width 250ms ease;\n}`,
   'Sidebar Push':`.sidebar {\n  transform: translateX(-100%);\n  transition: transform 300ms\n    cubic-bezier(.32, .72, 0, 1);\n}\n.sidebar.open {\n  transform: translateX(0);\n}\n.content {\n  transition: margin-left 300ms\n    cubic-bezier(.32, .72, 0, 1);\n}\n.sidebar.open ~ .content {\n  margin-left: 260px;\n}`,
-  'Stack Nav':`.stack-enter {\n  animation: stackIn 350ms ease;\n}\n@keyframes stackIn {\n  from {\n    transform: translateX(100%)\n      scale(.92);\n    box-shadow: -8px 0 24px rgba(0,0,0,.2);\n  }\n  to {\n    transform: none;\n    box-shadow: none;\n  }\n}`,
 
   // ── 6. Forms ──
   'Focus Ring':`.input:focus {\n  outline: none;\n  box-shadow:\n    0 0 0 2px var(--bg),\n    0 0 0 4px var(--accent);\n  transition: box-shadow 150ms ease;\n}`,
@@ -1395,14 +1374,13 @@ const codeSnippets={
   'Online Status':`.status-dot {\n  width: 12px; height: 12px;\n  border-radius: 50%;\n  background: #10b981;\n  position: relative;\n}\n.status-dot::after {\n  content: "";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background: inherit;\n  animation: statusPulse 2s\n    ease-out infinite;\n}\n@keyframes statusPulse {\n  0%   { transform: scale(1); opacity: .6 }\n  100% { transform: scale(2.5); opacity: 0 }\n}\n.offline .status-dot {\n  background: #9ca3af;\n}\n.offline .status-dot::after {\n  animation: none;\n}`,
   'Favorite Star':`.star {\n  cursor: pointer;\n  fill: none;\n  stroke: var(--text3);\n  transition: transform .3s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.star.active {\n  fill: #fbbf24;\n  stroke: #fbbf24;\n  transform: scale(1.2);\n}\n@keyframes starPop {\n  0%   { transform: scale(1) }\n  30%  { transform: scale(.7) }\n  60%  { transform: scale(1.3) }\n  100% { transform: scale(1.2) }\n}\n.star.pop {\n  animation: starPop .4s ease;\n}`,
   'Success / Fail':`.icon {\n  width: 36px; height: 36px;\n  border-radius: 50%;\n  transition: background .4s ease;\n}\n.icon.success {\n  background: #10b981;\n}\n.icon.fail {\n  background: var(--error);\n}\n.icon svg path {\n  stroke-dasharray: 20;\n  stroke-dashoffset: 20;\n  animation: sfDraw .4s\n    ease forwards;\n}\n@keyframes sfDraw {\n  to { stroke-dashoffset: 0 }\n}`,
-  'Lock / Unlock':`.lock-shackle {\n  transition: transform .3s ease;\n  transform-origin: center bottom;\n}\n.unlocked .lock-shackle {\n  transform: translateY(-3px)\n    rotate(15deg);\n}\n.unlocked svg {\n  stroke: var(--accent);\n  transition: stroke .3s;\n}`,
   'Read / Unread':`.read-dot {\n  width: 8px; height: 8px;\n  border-radius: 50%;\n  background: var(--accent);\n  transition: all .3s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.read .read-dot {\n  transform: scale(0);\n  opacity: 0;\n}\n.read .text {\n  color: var(--text3);\n}`,
 
   // ── 12. Ambient ──
   'Glow Pulse':`.glow {\n  width: 100px; height: 100px;\n  border-radius: 50%;\n  background: var(--accent);\n  filter: blur(40px);\n  animation: glowPulse 3s\n    ease-in-out infinite;\n}\n@keyframes glowPulse {\n  0%, 100% { opacity: .3; transform: scale(1) }\n  50%      { opacity: .6; transform: scale(1.2) }\n}`,
-  'Particles':`const ps = Array.from({length: 40}, () => ({\n  x: Math.random() * w,\n  y: Math.random() * h,\n  r: Math.random() * 2 + 1,\n  vy: -(Math.random() * .3 + .1),\n}));\nfunction draw() {\n  ctx.clearRect(0, 0, w, h);\n  ps.forEach(p => {\n    p.y += p.vy;\n    if (p.y < -5) p.y = h + 5;\n    ctx.beginPath();\n    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);\n    ctx.fillStyle =\n      \`rgba(129,140,248,\${p.o})\`;\n    ctx.fill();\n  });\n  requestAnimationFrame(draw);\n}`,
+  'Particles':`const ps = Array.from({length: 40}, () => ({\n  x: Math.random() * w,\n  y: Math.random() * h,\n  r: Math.random() * 2 + 1,\n  vy: -(Math.random() * .3 + .1),\n}));\nfunction draw() {\n  ctx.clearRect(0, 0, w, h);\n  ps.forEach(p => {\n    p.y += p.vy;\n    if (p.y < -5) p.y = h + 5;\n    ctx.beginPath();\n    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);\n    ctx.fillStyle =\n      \`rgba(245,158,11,\${p.o})\`;\n    ctx.fill();\n  });\n  requestAnimationFrame(draw);\n}`,
   'Magnetic Cursor':`el.addEventListener("mousemove", e => {\n  const rect = el.getBoundingClientRect();\n  const cx = rect.left + rect.width / 2;\n  const cy = rect.top + rect.height / 2;\n  const dx = (e.clientX - cx) * .12;\n  const dy = (e.clientY - cy) * .12;\n  el.style.transform =\n    \`translate(\${dx}px, \${dy}px)\`;\n});\nel.addEventListener("mouseleave", () => {\n  el.style.transform = "translate(0,0)";\n  el.style.transition = "transform .3s ease";\n});`,
-  'Glow Trace':`.glow-card {\n  --mx: 50%; --my: 50%;\n  position: relative;\n}\n.glow-card::before {\n  content: "";\n  position: absolute;\n  inset: -1px;\n  border-radius: inherit;\n  background: radial-gradient(\n    300px circle at var(--mx) var(--my),\n    rgba(129,140,248,.3),\n    transparent 60%\n  );\n  z-index: -1;\n}\n/* JS: update --mx, --my on mousemove */`,
+  'Glow Trace':`.glow-card {\n  --mx: 50%; --my: 50%;\n  position: relative;\n}\n.glow-card::before {\n  content: "";\n  position: absolute;\n  inset: -1px;\n  border-radius: inherit;\n  background: radial-gradient(\n    300px circle at var(--mx) var(--my),\n    rgba(245,158,11,.3),\n    transparent 60%\n  );\n  z-index: -1;\n}\n/* JS: update --mx, --my on mousemove */`,
 
   // ── New effects ──
   'Wave Bars':`.wave-bars {\n  display: flex;\n  align-items: flex-end;\n  gap: 3px;\n}\n.wave-bars span {\n  width: 4px;\n  background: var(--accent);\n  border-radius: 2px;\n  animation: waveBar 1.2s\n    ease-in-out infinite;\n}\n.wave-bars span:nth-child(2) {\n  animation-delay: .1s;\n}\n@keyframes waveBar {\n  0%, 100% { transform: scaleY(.4) }\n  50% { transform: scaleY(1) }\n}`,
@@ -1416,15 +1394,14 @@ const codeSnippets={
   'Number Pop-in':`.num span {\n  display: inline-block;\n  animation: numPop .5s\n    cubic-bezier(.34, 1.56, .64, 1) both;\n}\n.num span:nth-child(2) { animation-delay: .08s }\n.num span:nth-child(3) { animation-delay: .16s }\n@keyframes numPop {\n  from {\n    opacity: 0;\n    filter: blur(6px);\n    transform: translateY(10px) scale(.5);\n  }\n  to {\n    opacity: 1;\n    filter: blur(0);\n    transform: none;\n  }\n}`,
   'Avatar Stack':`.stack {\n  display: flex;\n}\n.stack .avatar {\n  margin-left: -8px;\n  transition: all .25s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.stack:hover .avatar {\n  margin-left: 4px;\n}\n.stack .avatar:hover {\n  transform: translateY(-6px) scale(1.15);\n  z-index: 2;\n}`,
   '3D Card Hover':`card.addEventListener("mousemove", e => {\n  const r = card.getBoundingClientRect();\n  const x = (e.clientX - r.left) / r.width - .5;\n  const y = (e.clientY - r.top) / r.height - .5;\n  card.style.transform =\n    \`rotateY(\${x*20}deg) rotateX(\${-y*20}deg)\`;\n});\ncard.addEventListener("mouseleave", () => {\n  card.style.transform = "none";\n});\n\n/* parent needs: perspective: 400px */`,
-  'Meteor Shower':`.meteor {\n  position: absolute;\n  width: 2px;\n  height: 30px;\n  background: linear-gradient(180deg,\n    rgba(129,140,248,.8), transparent);\n  animation: fall 1.5s linear infinite;\n}\n@keyframes fall {\n  0% {\n    transform: translateY(-30px) rotate(-35deg);\n    opacity: 1;\n  }\n  100% {\n    transform: translateY(180px) rotate(-35deg);\n    opacity: 0;\n  }\n}`,
 
   // ── New batch ──
-  'Confetti Button':`function confetti(btn) {\n  const colors = ['#818cf8','#f0abfc','#fbbf24'];\n  for (let i = 0; i < 12; i++) {\n    const p = document.createElement('span');\n    const angle = Math.random() * Math.PI * 2;\n    const dist = 40 + Math.random() * 40;\n    p.style.cssText = \`\n      --cx: \${Math.cos(angle)*dist}px;\n      --cy: \${Math.sin(angle)*dist}px;\n      background: \${colors[i%3]};\n    \`;\n    p.className = 'particle';\n    btn.appendChild(p);\n  }\n}\n@keyframes fly {\n  0%   { transform: translate(0,0) scale(1); opacity:1 }\n  100% { transform: translate(var(--cx),var(--cy)) scale(0); opacity:0 }\n}`,
+  'Confetti Button':`function confetti(btn) {\n  const colors = ['#f59e0b','#fcd34d','#fbbf24'];\n  for (let i = 0; i < 12; i++) {\n    const p = document.createElement('span');\n    const angle = Math.random() * Math.PI * 2;\n    const dist = 40 + Math.random() * 40;\n    p.style.cssText = \`\n      --cx: \${Math.cos(angle)*dist}px;\n      --cy: \${Math.sin(angle)*dist}px;\n      background: \${colors[i%3]};\n    \`;\n    p.className = 'particle';\n    btn.appendChild(p);\n  }\n}\n@keyframes fly {\n  0%   { transform: translate(0,0) scale(1); opacity:1 }\n  100% { transform: translate(var(--cx),var(--cy)) scale(0); opacity:0 }\n}`,
   'Command Palette':`.cmd-palette {\n  opacity: 0;\n  transform: scale(.95) translateY(-8px);\n  transition: all .2s\n    cubic-bezier(.32, .72, 0, 1);\n  pointer-events: none;\n}\n.cmd-palette.show {\n  opacity: 1;\n  transform: scale(1) translateY(0);\n  pointer-events: auto;\n}\n\n/* JS: Cmd+K to toggle */\ndocument.addEventListener("keydown", e => {\n  if ((e.metaKey || e.ctrlKey) && e.key === "k") {\n    e.preventDefault();\n    palette.classList.toggle("show");\n  }\n});`,
-  'OTP Input':`.otp-box {\n  width: 40px; height: 48px;\n  text-align: center;\n  border: 2px solid var(--border);\n  border-radius: 8px;\n  font-size: 18px;\n  transition: border-color .15s,\n    box-shadow .15s;\n}\n.otp-box:focus {\n  border-color: var(--accent);\n  box-shadow: 0 0 0 3px\n    rgba(99,102,241,.25);\n}\n\n/* JS: auto-advance */\ninput.addEventListener("input", () => {\n  if (input.value.length === 1)\n    input.nextElementSibling?.focus();\n});`,
-  'Range Slider':`.range-track {\n  height: 4px;\n  background: var(--border);\n  border-radius: 2px;\n  position: relative;\n}\n.range-fill {\n  height: 100%;\n  background: var(--accent);\n  border-radius: 2px;\n}\n.range-thumb {\n  width: 16px; height: 16px;\n  background: var(--accent);\n  border: 2px solid #fff;\n  border-radius: 50%;\n  cursor: grab;\n}\n.range-thumb:hover {\n  box-shadow: 0 0 0 6px\n    rgba(99,102,241,.25);\n}`,
-  'Step Indicator':`.step-dot {\n  width: 28px; height: 28px;\n  border-radius: 50%;\n  border: 2px solid var(--border);\n  transition: all .3s ease;\n}\n.step-dot.done {\n  background: var(--accent);\n  border-color: var(--accent);\n}\n.step-dot.active {\n  border-color: var(--accent);\n  animation: pulse 1.5s infinite;\n}\n.step-line {\n  width: 32px; height: 2px;\n  background: var(--border);\n  transition: background .3s;\n}\n.step-line.done {\n  background: var(--accent);\n}\n@keyframes pulse {\n  50% { box-shadow: 0 0 0 4px\n    rgba(99,102,241,.25) }\n}`,
-  'Gradient Text':`.gradient-text {\n  background: linear-gradient(90deg,\n    #818cf8, #f0abfc,\n    #fbbf24, #818cf8);\n  background-size: 300% 100%;\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  animation: gradText 4s linear infinite;\n}\n@keyframes gradText {\n  0%   { background-position: 0% 50% }\n  100% { background-position: 300% 50% }\n}`,
+  'OTP Input':`.otp-box {\n  width: 40px; height: 48px;\n  text-align: center;\n  border: 2px solid var(--border);\n  border-radius: 8px;\n  font-size: 18px;\n  transition: border-color .15s,\n    box-shadow .15s;\n}\n.otp-box:focus {\n  border-color: var(--accent);\n  box-shadow: 0 0 0 3px\n    rgba(245,158,11,.25);\n}\n\n/* JS: auto-advance */\ninput.addEventListener("input", () => {\n  if (input.value.length === 1)\n    input.nextElementSibling?.focus();\n});`,
+  'Range Slider':`.range-track {\n  height: 4px;\n  background: var(--border);\n  border-radius: 2px;\n  position: relative;\n}\n.range-fill {\n  height: 100%;\n  background: var(--accent);\n  border-radius: 2px;\n}\n.range-thumb {\n  width: 16px; height: 16px;\n  background: var(--accent);\n  border: 2px solid #fff;\n  border-radius: 50%;\n  cursor: grab;\n}\n.range-thumb:hover {\n  box-shadow: 0 0 0 6px\n    rgba(245,158,11,.25);\n}`,
+  'Step Indicator':`.step-dot {\n  width: 28px; height: 28px;\n  border-radius: 50%;\n  border: 2px solid var(--border);\n  transition: all .3s ease;\n}\n.step-dot.done {\n  background: var(--accent);\n  border-color: var(--accent);\n}\n.step-dot.active {\n  border-color: var(--accent);\n  animation: pulse 1.5s infinite;\n}\n.step-line {\n  width: 32px; height: 2px;\n  background: var(--border);\n  transition: background .3s;\n}\n.step-line.done {\n  background: var(--accent);\n}\n@keyframes pulse {\n  50% { box-shadow: 0 0 0 4px\n    rgba(245,158,11,.25) }\n}`,
+  'Gradient Text':`.gradient-text {\n  background: linear-gradient(90deg,\n    #f59e0b, #fcd34d,\n    #fbbf24, #f59e0b);\n  background-size: 300% 100%;\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  animation: gradText 4s linear infinite;\n}\n@keyframes gradText {\n  0%   { background-position: 0% 50% }\n  100% { background-position: 300% 50% }\n}`,
   'Morphing Icon':`/* CSS transition on SVG path d attribute */\n.morph-icon path {\n  transition: d .4s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n\n/* JS: toggle between paths */\nconst play = "M8 5v14l11-7z";\nconst pause = "M6 4h4v16H6zm8 0h4v16h-4z";\nicon.addEventListener("click", () => {\n  const d = path.getAttribute("d");\n  path.setAttribute("d",\n    d === play ? pause : play);\n});`,
   'Heart Like':`.heart {\n  cursor: pointer;\n  transition: transform .3s\n    cubic-bezier(.34, 1.56, .64, 1);\n  fill: var(--muted);\n}\n.heart.liked {\n  fill: #ef4444;\n  transform: scale(1.25);\n}\n@keyframes heartPop {\n  0%   { transform: scale(1) }\n  15%  { transform: scale(.7) }\n  40%  { transform: scale(1.3) }\n  100% { transform: scale(1.1) }\n}\n.heart.pop {\n  animation: heartPop .45s ease;\n  fill: #ef4444;\n}`,
   'Copy Check':`.copy-check {\n  position: relative;\n  cursor: pointer;\n}\n.copy-check .icon-copy,\n.copy-check .icon-check {\n  position: absolute;\n  transition: all .2s ease;\n}\n.copy-check .icon-check {\n  opacity: 0;\n  transform: scale(.5);\n  stroke: var(--accent);\n}\n.copy-check.copied .icon-copy {\n  opacity: 0;\n  transform: scale(.5);\n}\n.copy-check.copied .icon-check {\n  opacity: 1;\n  transform: scale(1);\n}`,
