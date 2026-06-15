@@ -1,7 +1,7 @@
 <h1 align="center">motion-ref-skill</h1>
 
 <p align="center">
-  <strong>Describe what you want. Get production-ready animation code.</strong>
+  <strong>Add motion to your product — no design background needed.</strong>
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 
 ---
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for modern UI motion design. 109 production-ready animation effects across 13 categories — describe the interaction, get CSS/JS code you can ship.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that helps you add animations to your product. 108 effects across 13 categories — describe what your product needs, get CSS/JS code you can ship. No motion design knowledge required.
 
 ## Install
 
@@ -32,27 +32,30 @@ Restart Claude Code after installing.
 
 ## Usage
 
-Describe an interaction scenario in natural language. The skill matches the best effect(s) from its reference library and outputs complete, production-ready code.
+Describe your product scenario. The skill recommends the right animation and gives you production-ready code.
+
+### Enrich your whole site
 
 ```
-/motion-ref I have a dashboard page that loads several stat cards.
-            I want them to appear one by one instead of all at once.
+/motion-ref My website feels static and lifeless.
+            Help me add animations to make it feel polished.
+```
+
+The skill will analyze your pages and suggest a combination of effects: scroll reveals for content sections, stagger animations for card grids, hover feedback for buttons, smooth page transitions, etc.
+
+### Fix a specific problem
+
+```
+/motion-ref Users click the submit button and nothing happens for 3 seconds.
+            They keep clicking because there's no feedback.
 ```
 
 ```
-/motion-ref Users submit a form and wait 2-3 seconds for the server response.
-            The submit button should show a loading state.
+/motion-ref The page loads with a white flash before content appears.
+            It looks broken.
 ```
 
-```
-/motion-ref I'm building a settings panel as a side drawer.
-            It needs to slide in from the right with a backdrop.
-```
-
-```
-/motion-ref My mobile app has a message list.
-            I want swipe-left-to-delete like iOS Mail.
-```
+### Add polish to a feature
 
 ```
 /motion-ref I have a pricing toggle between Monthly and Annual.
@@ -60,14 +63,19 @@ Describe an interaction scenario in natural language. The skill matches the best
 ```
 
 ```
-/motion-ref The landing page hero has a tagline.
-            I want it to have a subtle shimmer effect for a premium feel.
+/motion-ref My landing page needs to feel premium.
+            Something subtle on the hero section.
+```
+
+### Get recommendations
+
+```
+/motion-ref What animations would work well for a SaaS dashboard?
 ```
 
 ```
-/motion-ref I'm building a multi-step checkout flow.
-            I need a progress indicator that shows which step
-            the user is on and animates between steps.
+/motion-ref I'm building a mobile chat app.
+            What motion effects should I consider?
 ```
 
 ## Categories
@@ -90,7 +98,7 @@ Describe an interaction scenario in natural language. The skill matches the best
 
 ## Live Preview
 
-Browse all 109 effects with live demos: **https://joepui.github.io/motion-ref-skill/**
+Browse all 108 effects with live demos: **https://joepui.github.io/motion-ref-skill/**
 
 ## License
 

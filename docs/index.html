@@ -176,7 +176,7 @@ a{color:var(--accent);text-decoration:none}
 @keyframes collapseLoop{0%,100%{max-height:0;opacity:0}35%,65%{max-height:60px;opacity:1}}
 
 /* ═══ 3. 按钮与反馈 ═══ */
-.demo-btn{padding:6px 16px;border:none;border-radius:6px;background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer;outline:none;transition:all .15s}
+.demo-btn{padding:8px 20px;min-width:100px;border:none;border-radius:6px;background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer;outline:none;transition:all .15s}
 .press-btn{animation:pressHint 2s ease-in-out infinite}
 .press-btn:active{transform:scale(.94);transition-duration:80ms;animation:none}
 @keyframes pressHint{0%,100%{transform:scale(1)}50%{transform:scale(.97)}}
@@ -207,9 +207,10 @@ a{color:var(--accent);text-decoration:none}
 @keyframes bounceHint{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 @keyframes bounceTap{0%{transform:scale(1) translateY(0)}30%{transform:scale(.88,.96) translateY(4px)}50%{transform:scale(1.08,1) translateY(-8px)}70%{transform:scale(.98,1.02) translateY(-2px)}100%{transform:scale(1) translateY(0)}}
 
-.fill-btn{position:relative;overflow:hidden}
-.fill-btn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(245,158,11,.3);animation:fillLoop 3s ease infinite}
-@keyframes fillLoop{0%{width:0;left:0}45%{width:100%;left:0}55%{width:100%;left:0}100%{width:0;left:100%}}
+.fill-btn{position:relative;overflow:hidden;user-select:none}
+.fill-btn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--fill,0%);background:rgba(255,255,255,.35);transition:width .05s linear}
+.fill-btn.filled{background:var(--success);color:#fff}
+.fill-btn.filled::before{display:none}
 
 /* ═══ 4. 弹层与浮层 ═══ */
 .modal-trigger{position:relative;font-size:11px;color:var(--text3)}
@@ -263,7 +264,7 @@ a{color:var(--accent);text-decoration:none}
 .page-slide-demo .pg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:600;border-radius:8px}
 .page-slide-demo .pg-a{background:var(--accent2);animation:pgSlideA 3s ease-in-out infinite}
 .page-slide-demo .pg-b{background:#ea580c;animation:pgSlideB 3s ease-in-out infinite}
-@keyframes pgSlideA{0%,30%{transform:translateX(0)}50%,80%{transform:translateX(-30%);opacity:.6}100%{transform:translateX(0)}}
+@keyframes pgSlideA{0%,30%{transform:translateX(0)}50%,80%{transform:translateX(-100%)}100%{transform:translateX(0)}}
 @keyframes pgSlideB{0%,30%{transform:translateX(100%)}50%,80%{transform:translateX(0)}100%{transform:translateX(100%)}}
 
 .fade-switch-demo{width:70%;height:50px;position:relative;border-radius:8px;overflow:hidden}
@@ -273,9 +274,15 @@ a{color:var(--accent);text-decoration:none}
 @keyframes fsA{0%,40%{opacity:1}50%,90%{opacity:0}100%{opacity:1}}
 @keyframes fsB{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
 
-.shared-demo{width:70%;height:65px;position:relative;overflow:hidden;border-radius:8px}
-.shared-thumb{width:28px;height:28px;background:var(--accent);border-radius:6px;position:absolute;left:16px;top:50%;transform:translateY(-50%);animation:sharedGrow 3s ease-in-out infinite}
-@keyframes sharedGrow{0%,25%{width:28px;height:28px;left:16px;top:50%;transform:translateY(-50%);border-radius:6px}50%,75%{width:90%;height:80%;left:5%;top:10%;transform:translateY(0);border-radius:8px}100%{width:28px;height:28px;left:16px;top:50%;transform:translateY(-50%);border-radius:6px}}
+.shared-demo{width:80%;height:70px;position:relative;overflow:hidden;border-radius:8px;background:var(--card);border:1px solid var(--border)}
+.shared-list{position:absolute;inset:0;padding:6px;display:flex;flex-direction:column;gap:3px}
+.shared-row{display:flex;align-items:center;gap:6px}
+.shared-row .s-box{width:16px;height:16px;background:var(--border);border-radius:3px;flex-shrink:0}
+.shared-row:first-child .s-box{background:var(--accent)}
+.shared-row .s-line{height:5px;background:var(--border);border-radius:3px;flex:1}
+.shared-row .s-line:last-child{width:40%;flex:none}
+.shared-el{position:absolute;width:16px;height:16px;background:var(--accent);border-radius:3px;left:6px;top:6px;z-index:2;animation:sharedGrow 4s ease-in-out infinite}
+@keyframes sharedGrow{0%,20%{width:16px;height:16px;left:6px;top:6px;border-radius:3px}40%,65%{width:calc(100% - 12px);height:calc(100% - 12px);left:6px;top:6px;border-radius:6px}85%,100%{width:16px;height:16px;left:6px;top:6px;border-radius:3px}}
 
 .tab-slide-demo{width:85%;text-align:center}
 .tab-bar{display:flex;border-bottom:2px solid var(--border);position:relative;margin-bottom:8px}
@@ -368,7 +375,11 @@ a{color:var(--accent);text-decoration:none}
 
 .flip-counter{display:flex;gap:4px}
 .flip-digit{width:28px;height:38px;background:var(--card);border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:var(--accent);position:relative;overflow:hidden}
-.flip-digit{transition:transform .3s ease}
+.flip-digit span{display:block}
+@keyframes flipOut{from{transform:translateY(0);opacity:1}to{transform:translateY(6px);opacity:0}}
+@keyframes flipIn{from{transform:translateY(-6px);opacity:0}to{transform:translateY(0);opacity:1}}
+.flip-digit.flip-out span{animation:flipOut .15s ease-in forwards}
+.flip-digit.flip-in span{animation:flipIn .25s cubic-bezier(.34,1.56,.64,1) forwards}
 
 /* ═══ 8. 滚动驱动 ═══ */
 .scroll-reveal-demo{width:85%;height:90px;overflow-y:auto;background:var(--bg);border-radius:8px;padding:8px;border:1px solid var(--border)}
@@ -384,7 +395,8 @@ a{color:var(--accent);text-decoration:none}
 .rp-line:last-child{width:60%}
 
 .sticky-demo{width:85%;height:90px;overflow-y:auto;border-radius:8px;border:1px solid var(--border)}
-.sticky-header{position:sticky;top:0;background:var(--card);padding:6px 10px;font-size:11px;color:var(--text);border-bottom:1px solid var(--border);z-index:1;transition:all .2s}
+.sticky-header{position:sticky;top:0;background:var(--card);padding:6px 10px;font-size:11px;color:var(--text);border-bottom:1px solid var(--border);z-index:1;transition:padding .2s,font-size .2s,background .2s}
+.sticky-header.shrunk{padding:3px 10px;font-size:9px;background:var(--surface)}
 .sticky-body{padding:8px 10px}
 .sticky-body p{font-size:10px;color:var(--text3);margin-bottom:4px}
 
@@ -433,9 +445,9 @@ a{color:var(--accent);text-decoration:none}
 .arrow-flip.flipped{transform:rotate(180deg)}
 
 /* ═══ 10. 轮播与列表 ═══ */
-.carousel-demo{width:85%;overflow:hidden;border-radius:8px}
+.carousel-demo{width:70%;overflow:hidden;border-radius:8px}
 .carousel-track{display:flex;animation:carouselSlide 4s ease-in-out infinite}
-.carousel-slide{min-width:100%;height:70px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600;border-radius:8px}
+.carousel-slide{min-width:100%;height:60px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600;border-radius:8px}
 .carousel-slide:nth-child(1){background:#b45309}
 .carousel-slide:nth-child(2){background:#ea580c}
 .carousel-slide:nth-child(3){background:#fbbf24}
@@ -478,15 +490,12 @@ a{color:var(--accent);text-decoration:none}
 .inf-loader{text-align:center;padding:8px;font-size:10px;color:var(--text3)}
 
 /* ═══ 11. 状态切换 ═══ */
-.theme-demo{width:80px;height:80px;border-radius:10px;cursor:pointer;position:relative;overflow:hidden;border:1px solid var(--border)}
+.theme-demo{width:56px;height:56px;border-radius:10px;cursor:pointer;position:relative;overflow:hidden;border:1px solid var(--border)}
 .theme-light{background:#f5f5f5;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:20px;clip-path:circle(0% at 50% 50%);transition:clip-path .5s ease}
 .theme-dark{background:var(--card);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:20px}
 .theme-demo.light .theme-light{clip-path:circle(100% at 50% 50%)}
 
-.empty-demo{text-align:center}
-.empty-icon{font-size:28px;animation:emptyFloat 3s ease-in-out infinite}
-@keyframes emptyFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.empty-text{font-size:11px;color:var(--text3);margin-top:4px}
+
 
 .skel-content-demo{width:80%;position:relative;height:60px}
 .skel-layer,.content-layer{position:absolute;inset:0;display:flex;flex-direction:column;gap:6px;justify-content:center}
@@ -501,8 +510,11 @@ a{color:var(--accent);text-decoration:none}
 .skel-content-demo.loaded .content-layer{opacity:1;transition:opacity .3s}
 
 .err-recovery-demo{width:70%;display:flex;flex-direction:column;gap:6px;align-items:center}
-.err-recovery-bar{width:100%;height:32px;border:2px solid var(--error);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--error);transition:all .4s ease;cursor:pointer}
+.err-recovery-bar{width:100%;height:32px;border:2px solid var(--error);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--error);transition:all .4s ease;cursor:pointer;gap:6px}
+.err-recovery-bar.recovering{border-color:var(--accent);color:var(--accent)}
 .err-recovery-bar.ok{border-color:var(--success);color:var(--success)}
+.er-spinner{width:12px;height:12px;border:2px solid transparent;border-top-color:currentColor;border-radius:50%;animation:spin .6s linear infinite;display:none}
+.err-recovery-bar.recovering .er-spinner{display:block}
 
 .expand-detail-demo{width:80%;cursor:pointer}
 .ed-summary{display:flex;align-items:center;gap:8px;padding:8px;background:var(--card);border:1px solid var(--border);border-radius:8px;transition:all .3s}
@@ -514,7 +526,7 @@ a{color:var(--accent);text-decoration:none}
 .expand-detail-demo.open .ed-detail{max-height:60px;border-color:var(--border)}
 
 /* ═══ 12. 氛围与背景 ═══ */
-.gradient-flow-demo{width:90%;height:80px;border-radius:10px;background:linear-gradient(135deg,#f59e0b,#ea580c,#fcd34d,#f59e0b);background-size:300% 300%;animation:gradFlow 6s ease infinite}
+.gradient-flow-demo{width:70%;height:60px;border-radius:8px;background:linear-gradient(135deg,#f59e0b,#ea580c,#fcd34d,#f59e0b);background-size:300% 300%;animation:gradFlow 6s ease infinite}
 @keyframes gradFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
 .glow-pulse-demo{width:50px;height:50px;background:var(--accent);border-radius:50%;animation:glowPulse 2.5s ease-in-out infinite alternate}
@@ -542,11 +554,12 @@ a{color:var(--accent);text-decoration:none}
 .shimmer-text{font-size:18px;font-weight:700;background:linear-gradient(90deg,var(--text) 40%,var(--accent) 50%,var(--text) 60%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerText 2.5s linear infinite}
 @keyframes shimmerText{0%{background-position:100% 0}100%{background-position:-100% 0}}
 
-.num-popin span{display:inline-block;animation:numPop .5s cubic-bezier(.34,1.56,.64,1) both}
-.num-popin span:nth-child(2){animation-delay:.08s}
-.num-popin span:nth-child(3){animation-delay:.16s}
-.num-popin span:nth-child(4){animation-delay:.24s}
-.num-popin span:nth-child(5){animation-delay:.32s}
+.num-popin span{display:inline-block;opacity:0;filter:blur(6px);transform:translateY(10px) scale(.5)}
+.num-popin.active span{animation:numPop .5s cubic-bezier(.34,1.56,.64,1) forwards}
+.num-popin.active span:nth-child(2){animation-delay:.08s}
+.num-popin.active span:nth-child(3){animation-delay:.16s}
+.num-popin.active span:nth-child(4){animation-delay:.24s}
+.num-popin.active span:nth-child(5){animation-delay:.32s}
 @keyframes numPop{from{opacity:0;filter:blur(6px);transform:translateY(10px) scale(.5)}to{opacity:1;filter:blur(0);transform:none}}
 
 .tooltip-demo{position:relative;cursor:pointer;padding:6px 14px;background:var(--card);border:1px solid var(--border);border-radius:6px;font-size:11px;color:var(--text2)}
@@ -575,7 +588,7 @@ a{color:var(--accent);text-decoration:none}
 .avatar-stack:hover .avatar:first-child{margin-left:0}
 .avatar-stack .avatar:hover{transform:translateY(-6px) scale(1.15);z-index:2}
 
-.card3d-demo{width:70%;height:80px;background:linear-gradient(135deg,var(--accent2),var(--accent));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600;transition:transform .15s ease;transform-style:preserve-3d;cursor:pointer}
+.card3d-demo{width:70%;height:60px;background:linear-gradient(135deg,var(--accent2),var(--accent));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600;transition:transform .15s ease;transform-style:preserve-3d;cursor:pointer}
 
 
 /* ═══ 13. 数据可视化 ═══ */
@@ -790,7 +803,7 @@ a{color:var(--accent);text-decoration:none}
   <main class="main">
     <div class="hero">
       <h2>Modern UI Motion Reference</h2>
-      <p>109 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
+      <p>108 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
     </div>
     <!-- 1 -->
     <section class="section" id="s1">
@@ -822,7 +835,7 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><button class="demo-btn submit-btn" onclick="demoSubmit(this)">Send</button></div><div class="info"><h3>Submit Loading</h3><p>缩圆 + spinner</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><button class="demo-btn glow-btn">Hover Me</button></div><div class="info"><h3>Hover Glow</h3><p>悬浮边缘发光</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><button class="demo-btn bounce-btn">Like <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button></div><div class="info"><h3>Bounce Tap</h3><p>弹跳点击反馈</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><button class="demo-btn fill-btn">Hold Me</button></div><div class="info"><h3>Fill Progress</h3><p>长按填充确认</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><button class="demo-btn fill-btn">Hold Me</button></div><div class="info"><h3>Fill Progress</h3><p>长按填充确认</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><button class="demo-btn confetti-btn" onclick="demoConfetti(this)">Celebrate</button></div><div class="info"><h3>Confetti Button</h3><p>点击庆祝粒子爆发</p><span class="tag">JS</span></div></div>
       </div>
     </section>
@@ -835,9 +848,9 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="fade-words"><span>Design</span><span>is</span><span>how</span><span>it</span></div></div><div class="info"><h3>Fade Up Words</h3><p>逐词淡入上升</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="num-counter" data-target="12847">0</div></div><div class="info"><h3>Number Counter</h3><p>数字从 0 滚动到目标</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><span class="highlight-text">重点内容高亮</span></div><div class="info"><h3>Text Highlight</h3><p>荧光笔划过文字</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>109 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>109 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>108 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>108 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="scramble-text">MOTION</div></div><div class="info"><h3>Scramble Text</h3><p>字符打散重组</p><span class="tag">JS</span></div></div>
-        <div class="card"><div class="preview"><div class="flip-counter"><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>3</span></div><div class="flip-digit"><span>:</span></div><div class="flip-digit"><span>4</span></div><div class="flip-digit"><span>2</span></div></div></div><div class="info"><h3>Flip Counter</h3><p>翻牌计数器</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="flip-counter"><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>5</span></div><div class="flip-digit"><span>:</span></div><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>0</span></div></div></div><div class="info"><h3>Flip Counter</h3><p>翻牌计数器</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="shimmer-text">Shimmer Effect</div></div><div class="info"><h3>Shimmer Text</h3><p>渐变光扫过文字</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="num-popin" id="numPopin"><span>1</span><span>2</span><span>,</span><span>3</span><span>4</span><span>5</span></div></div><div class="info"><h3>Number Pop-in</h3><p>数字逐位弹入带模糊</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="gradient-text">Colorful</div></div><div class="info"><h3>Gradient Text</h3><p>渐变色流动文字</p><span class="tag">CSS</span></div></div>
@@ -857,7 +870,7 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview ctx-area" onclick="demoCtxClick(event,this)"><span>点击触发菜单</span><div class="ctx-menu"><div class="ctx-menu-item">编辑</div><div class="ctx-menu-item">复制</div><div class="ctx-menu-item" style="color:var(--error)">删除</div></div></div><div class="info"><h3>Context Menu</h3><p>右键菜单弹出</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="tooltip-demo" id="tooltipDemo">Hover me<div class="tooltip-bubble">Delayed tooltip</div></div></div><div class="info"><h3>Tooltip</h3><p>悬停延迟显示，离开即隐</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="drawer-demo" id="drawerDemo"><button class="drawer-toggle" onclick="this.parentElement.classList.toggle('open')">Open</button><div class="drawer-panel">Drawer Content<br>Settings / Filters</div></div></div><div class="info"><h3>Drawer</h3><p>侧滑抽屉面板</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="cmd-palette-demo" id="cmdPalette" onclick="if(event.target===this||event.target.classList.contains('cmd-overlay'))this.classList.toggle('show')"><div class="cmd-trigger" onclick="event.stopPropagation();this.parentElement.classList.add('show')">Search... <kbd>Cmd+K</kbd></div><div class="cmd-overlay"><div class="cmd-box"><input class="cmd-input" placeholder="Type a command..." onclick="event.stopPropagation()"><div class="cmd-items"><div class="cmd-item">Open File</div><div class="cmd-item">Run Build</div><div class="cmd-item">Settings</div></div></div></div></div></div><div class="info"><h3>Command Palette</h3><p>Cmd+K 命令面板弹窗</p><span class="tag">JS</span></div></div>
+        <div class="card"><div class="preview"><div class="cmd-palette-demo" id="cmdPalette"><div class="cmd-trigger">Search... <kbd>Cmd+K</kbd></div><div class="cmd-overlay"><div class="cmd-box"><input class="cmd-input" placeholder="Type a command..."><div class="cmd-items"><div class="cmd-item">Open File</div><div class="cmd-item">Run Build</div><div class="cmd-item">Settings</div></div></div></div></div></div><div class="info"><h3>Command Palette</h3><p>Cmd+K 命令面板弹窗</p><span class="tag">JS</span></div></div>
       </div>
     </section>
 
@@ -867,7 +880,7 @@ a{color:var(--accent);text-decoration:none}
       <div class="grid">
         <div class="card"><div class="preview"><div class="page-slide-demo"><div class="pg pg-a">Page A</div><div class="pg pg-b">Page B</div></div></div><div class="info"><h3>Page Slide</h3><p>新页面从右推入</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="fade-switch-demo"><div class="fs fs-a">Tab 1</div><div class="fs fs-b">Tab 2</div></div></div><div class="info"><h3>Fade Switch</h3><p>淡入淡出切换</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="shared-demo"><div class="shared-thumb"></div></div></div><div class="info"><h3>Shared Element</h3><p>缩略图无缝放大</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="shared-demo"><div class="shared-list"><div class="shared-row"><div class="s-box"></div><div class="s-line"></div><div class="s-line"></div></div><div class="shared-row"><div class="s-box"></div><div class="s-line"></div><div class="s-line"></div></div><div class="shared-row"><div class="s-box"></div><div class="s-line"></div><div class="s-line"></div></div></div><div class="shared-el"></div></div></div><div class="info"><h3>Shared Element</h3><p>列表项展开为详情</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="tab-slide-demo"><div class="tab-bar"><span class="tab-item">Home</span><span class="tab-item">Search</span><span class="tab-item">Profile</span><div class="tab-indicator"></div></div><div class="tab-content">Tab Content</div></div></div><div class="info"><h3>Tab Slide</h3><p>指示条滑动切换</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="sidebar-demo" onclick="this.classList.toggle('show')"><div class="sb-side"><span></span><span></span><span></span></div><div class="sb-main"><span></span><span></span><span></span></div></div></div><div class="info"><h3>Sidebar Push</h3><p>侧栏推入主内容</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="vt-demo"><div class="vt vt-a">Old View</div><div class="vt vt-b">New View</div></div></div><div class="info"><h3>View Transition</h3><p>圆形扩散视图过渡</p><span class="tag">CSS</span></div></div>
@@ -941,8 +954,8 @@ a{color:var(--accent);text-decoration:none}
       <div class="section-head"><h2>10 · 状态切换</h2><p>全局状态变化过渡</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="theme-demo" onclick="this.classList.toggle('light')"><div class="theme-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div><div class="theme-light"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div></div></div><div class="info"><h3>Theme Toggle</h3><p>圆形扩散主题切换</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="empty-demo"><div class="empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></div><div class="empty-text">暂无数据</div></div></div><div class="info"><h3>Empty State</h3><p>空状态淡入动画</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="err-recovery-demo"><div class="err-recovery-bar" onclick="this.classList.toggle('ok')">Error -- click to recover</div></div></div><div class="info"><h3>Error → Recovery</h3><p>错误到恢复过渡</p><span class="tag">CSS</span></div></div>
+
+        <div class="card"><div class="preview"><div class="err-recovery-demo"><div class="err-recovery-bar" onclick="demoRecover(this)"><span class="er-spinner"></span><span>Error — click to fix</span></div></div></div><div class="info"><h3>Error → Recovery</h3><p>错误到恢复过渡</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="expand-detail-demo" onclick="this.classList.toggle('open')"><div class="ed-summary"><div class="ed-avatar"></div><div class="ed-text">User Name</div></div><div class="ed-detail"><div class="ed-detail-inner">展开后的详细信息内容区域</div></div></div></div><div class="info"><h3>Expand Detail</h3><p>摘要展开为详情</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="online-demo" onclick="this.classList.toggle('offline')"><div class="status-dot-wrap"><div class="status-dot"></div><div class="status-pulse"></div></div><span class="status-label">Online</span></div></div><div class="info"><h3>Online Status</h3><p>在线离线脉冲指示</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="fav-star-demo" onclick="demoStar(this)"><svg width="28" height="28" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div><div class="info"><h3>Favorite Star</h3><p>收藏星标弹性切换</p><span class="tag">CSS</span></div></div>
@@ -1009,7 +1022,7 @@ const backTop=document.getElementById('backTop');
 window.addEventListener('scroll',()=>{backTop.classList.toggle('show',window.scrollY>400)},{passive:true});
 
 const links=document.querySelectorAll('.sidebar nav a'),sects=document.querySelectorAll('.section');
-new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.sidebar nav a[href="#${e.target.id}"]`);if(a)a.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'}).observe&&sects.forEach(s=>new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.sidebar nav a[href="#${e.target.id}"]`);if(a)a.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'}).observe(s));
+const sideObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.sidebar nav a[href="#${e.target.id}"]`);if(a)a.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'});sects.forEach(s=>sideObs.observe(s));
 
 function createRipple(e){const b=e.currentTarget,r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),c=document.createElement('span');c.className='ripple-circle';c.style.width=c.style.height=d+'px';c.style.left=(e.clientX-r.left-d/2)+'px';c.style.top=(e.clientY-r.top-d/2)+'px';b.appendChild(c);c.addEventListener('animationend',()=>c.remove())}
 function demoCheck(b){b.classList.add('done');setTimeout(()=>b.classList.remove('done'),1800)}
@@ -1017,6 +1030,15 @@ function demoShake(b){b.classList.add('shaking');setTimeout(()=>b.classList.remo
 function demoSubmit(b){b.classList.add('loading');setTimeout(()=>b.classList.remove('loading'),2000)}
 function demoCtxClick(e,a){e.preventDefault();const m=a.querySelector('.ctx-menu'),r=a.getBoundingClientRect();m.style.left=Math.min(e.clientX-r.left,r.width-100)+'px';m.style.top=Math.min(e.clientY-r.top,r.height-80)+'px';a.classList.add('show');setTimeout(()=>a.classList.remove('show'),1500)}
 document.addEventListener('click',e=>{document.querySelectorAll('.dd-area.show').forEach(el=>{if(!el.contains(e.target))el.classList.remove('show')})});
+
+// ── Command Palette ──
+(function(){
+  const cp=document.getElementById('cmdPalette');if(!cp)return;
+  const trigger=cp.querySelector('.cmd-trigger');
+  trigger.addEventListener('click',e=>{e.stopPropagation();cp.classList.add('show')});
+  cp.addEventListener('click',e=>{if(e.target===cp||e.target.classList.contains('cmd-overlay'))cp.classList.remove('show')});
+  cp.querySelector('.cmd-input').addEventListener('click',e=>e.stopPropagation());
+})();
 
 // ── 6.6 Radio ──
 function demoRadio(item){item.parentElement.querySelectorAll('.radio-item').forEach(r=>r.classList.remove('selected'));item.classList.add('selected')}
@@ -1028,7 +1050,7 @@ function demoRadio(item){item.parentElement.querySelectorAll('.radio-item').forE
 (function(){const el=document.querySelector('.scramble-text');if(!el)return;const final=el.textContent;const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';function scramble(){let iter=0;const id=setInterval(()=>{el.textContent=final.split('').map((c,i)=>i<iter?c:chars[Math.floor(Math.random()*chars.length)]).join('');iter+=1/3;if(iter>=final.length){clearInterval(id);el.textContent=final;setTimeout(scramble,2000)}},40)}scramble()})();
 
 // ── 8.1 Scroll Reveal (within container) ──
-(function(){const box=document.getElementById('srDemo');if(!box)return;const items=box.querySelectorAll('.sr-item');const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{root:box,threshold:.3});items.forEach(i=>obs.observe(i))})();
+(function(){const box=document.getElementById('srDemo');if(!box)return;const items=box.querySelectorAll('.sr-item');let obs;function setup(){obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{root:box,threshold:.3});items.forEach(i=>obs.observe(i))}setup();box.addEventListener('scroll',()=>{if(box.scrollTop<5){items.forEach(i=>i.classList.remove('visible'));obs.disconnect();setup()}},{passive:true})})();
 
 // ── 10.3 List Add/Remove ──
 let listCount=3;
@@ -1084,7 +1106,7 @@ function demoListToggle(preview){
 function demoAccordion(item){item.classList.toggle('open')}
 
 // ── 10.6 Infinite scroll demo ──
-(function(){const box=document.getElementById('infDemo');if(!box)return;let c=0;function addItems(n){for(let i=0;i<n;i++){const d=document.createElement('div');d.className='inf-item';d.style.animationDelay=(i*.08)+'s';c++;box.appendChild(d)}}addItems(5);box.addEventListener('scroll',function(){if(box.scrollTop+box.clientHeight>=box.scrollHeight-10){addItems(3)}})})();
+(function(){const box=document.getElementById('infDemo');if(!box)return;let c=0,loading=false;const loader=document.createElement('div');loader.className='inf-loader';loader.textContent='Loading...';function addItems(n){if(loader.parentNode)box.removeChild(loader);for(let i=0;i<n;i++){c++;const d=document.createElement('div');d.className='inf-item';d.style.animationDelay=(i*.08)+'s';box.appendChild(d)}loading=false}addItems(5);box.addEventListener('scroll',function(){if(!loading&&box.scrollTop+box.clientHeight>=box.scrollHeight-10){loading=true;box.appendChild(loader);setTimeout(()=>addItems(3),500)}})})();
 
 // ── 12.3 Particles ──
 (function(){const cv=document.getElementById('particleCanvas');if(!cv)return;const ctx=cv.getContext('2d');function resize(){const r=cv.parentElement.getBoundingClientRect();cv.width=r.width;cv.height=r.height}resize();const ps=[];for(let i=0;i<40;i++)ps.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*2+1,vy:-(Math.random()*.3+.1),vx:(Math.random()-.5)*.2,o:Math.random()*.5+.2});function draw(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{p.y+=p.vy;p.x+=p.vx;if(p.y<-5){p.y=cv.height+5;p.x=Math.random()*cv.width}ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(245,158,11,${p.o})`;ctx.fill()});requestAnimationFrame(draw)}draw()})();
@@ -1106,10 +1128,11 @@ function demo3d(e,preview){
   const el=document.getElementById('numPopin');
   if(!el)return;
   function replay(){
-    const spans=el.querySelectorAll('span');
-    spans.forEach(s=>{s.style.animation='none';s.offsetHeight;s.style.animation=''});
+    el.classList.remove('active');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('active')));
   }
-  setInterval(replay,3000);
+  replay();
+  setInterval(replay,3500);
 })();
 
 // ── Confetti Button ──
@@ -1245,6 +1268,55 @@ function demoCelebrate(container){
   }
 }
 
+// ── Flip Counter (countdown) ──
+(function(){
+  const digits=document.querySelectorAll('.flip-digit');
+  if(!digits.length)return;
+  let sec=300;
+  function tick(){
+    sec--;
+    if(sec<0)sec=300;
+    const m=Math.floor(sec/60),s=sec%60;
+    const vals=[Math.floor(m/10),m%10,':',Math.floor(s/10),s%10];
+    digits.forEach((d,i)=>{
+      const span=d.querySelector('span');
+      const nv=String(vals[i]);
+      if(span.textContent!==nv){
+        d.classList.add('flip-out');
+        setTimeout(()=>{
+          span.textContent=nv;
+          d.classList.remove('flip-out');
+          d.classList.add('flip-in');
+          setTimeout(()=>d.classList.remove('flip-in'),250);
+        },150);
+      }
+    });
+  }
+  setInterval(tick,1000);
+})();
+
+// ── Sticky Shrink ──
+(function(){const box=document.querySelector('.sticky-demo');if(!box)return;const h=box.querySelector('.sticky-header');box.addEventListener('scroll',()=>{h.classList.toggle('shrunk',box.scrollTop>10)},{passive:true})})();
+
+// ── Error Recovery ──
+function demoRecover(el){
+  if(el.classList.contains('ok')){el.classList.remove('ok');el.querySelector('span:last-child').textContent='Error — click to fix';return}
+  if(el.classList.contains('recovering'))return;
+  el.classList.add('recovering');el.querySelector('span:last-child').textContent='Recovering...';
+  setTimeout(()=>{el.classList.remove('recovering');el.classList.add('ok');el.querySelector('span:last-child').textContent='Recovered!'},1500);
+}
+
+// ── Fill Progress (long press) ──
+(function(){
+  const btn=document.querySelector('.fill-btn');
+  if(!btn)return;
+  let iv,pct=0;
+  function start(){pct=0;btn.classList.remove('filled');btn.textContent='Hold Me';iv=setInterval(()=>{pct=Math.min(pct+2,100);btn.style.setProperty('--fill',pct+'%');if(pct>=100){clearInterval(iv);btn.classList.add('filled');btn.textContent='Done!';setTimeout(reset,1500)}},30)}
+  function stop(){clearInterval(iv);if(pct<100){pct=0;btn.style.setProperty('--fill','0%')}}
+  function reset(){btn.classList.remove('filled');btn.textContent='Hold Me';pct=0;btn.style.setProperty('--fill','0%')}
+  btn.addEventListener('mousedown',start);btn.addEventListener('mouseup',stop);btn.addEventListener('mouseleave',stop);
+})();
+
 // ── Counter Card ──
 (function(){
   const el=document.getElementById('counterCard');
@@ -1368,7 +1440,7 @@ const codeSnippets={
 
   // ── 11. State ──
   'Theme Toggle':`.theme-toggle {\n  position: relative;\n  overflow: hidden;\n}\n.icon-dark, .icon-light {\n  transition: all 350ms ease;\n}\n[data-theme="light"] .icon-dark {\n  opacity: 0;\n  transform: rotate(90deg) scale(0);\n}\n[data-theme="dark"] .icon-light {\n  opacity: 0;\n  transform: rotate(-90deg) scale(0);\n}`,
-  'Empty State':`.empty {\n  animation: emptyFade 500ms ease;\n}\n@keyframes emptyFade {\n  from {\n    opacity: 0;\n    transform: translateY(8px);\n  }\n  to {\n    opacity: 1;\n    transform: none;\n  }\n}\n.empty svg {\n  animation: emptyFloat 3s\n    ease-in-out infinite;\n}\n@keyframes emptyFloat {\n  0%, 100% { transform: translateY(0) }\n  50% { transform: translateY(-6px) }\n}`,
+
   'Error → Recovery':`.status-bar {\n  transition: all 350ms ease;\n  background: var(--error);\n}\n.status-bar.ok {\n  background: var(--success);\n}\n.status-bar .icon {\n  transition: transform 300ms\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.status-bar.ok .icon {\n  transform: rotate(360deg);\n}`,
   'Expand Detail':`.detail {\n  display: grid;\n  grid-template-rows: 0fr;\n  transition: grid-template-rows\n    400ms cubic-bezier(.32, .72, 0, 1);\n}\n.detail > div {\n  overflow: hidden;\n}\n.open .detail {\n  grid-template-rows: 1fr;\n}\n.summary {\n  cursor: pointer;\n  transition: padding 300ms ease;\n}\n.open .summary {\n  padding-bottom: 12px;\n}`,
   'Online Status':`.status-dot {\n  width: 12px; height: 12px;\n  border-radius: 50%;\n  background: #10b981;\n  position: relative;\n}\n.status-dot::after {\n  content: "";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background: inherit;\n  animation: statusPulse 2s\n    ease-out infinite;\n}\n@keyframes statusPulse {\n  0%   { transform: scale(1); opacity: .6 }\n  100% { transform: scale(2.5); opacity: 0 }\n}\n.offline .status-dot {\n  background: #9ca3af;\n}\n.offline .status-dot::after {\n  animation: none;\n}`,
@@ -1452,34 +1524,6 @@ document.addEventListener('click',e=>{
   }else{fallbackCopy(code)}
 });
 
-// ── Flip Counter real animation ──
-(function(){
-  const digits=document.querySelectorAll('.flip-digit');
-  if(!digits.length)return;
-  let sec=0;
-  setInterval(()=>{
-    sec++;
-    const m=String(Math.floor(sec/60)).padStart(2,'0');
-    const s=String(sec%60).padStart(2,'0');
-    const vals=[m[0],m[1],':',s[0],s[1]];
-    digits.forEach((d,i)=>{
-      const span=d.querySelector('span');
-      if(span.textContent!==vals[i]){
-        d.style.transition='none';
-        d.style.transform='translateY(0)';
-        requestAnimationFrame(()=>{
-          d.style.transition='transform .3s ease-in';
-          d.style.transform='translateY(-2px)';
-          setTimeout(()=>{
-            span.textContent=vals[i];
-            d.style.transition='transform .3s cubic-bezier(.34,1.56,.64,1)';
-            d.style.transform='translateY(0)';
-          },150);
-        });
-      }
-    });
-  },1000);
-})();
 </script>
 </body>
 </html>

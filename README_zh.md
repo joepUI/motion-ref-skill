@@ -1,7 +1,7 @@
 <h1 align="center">motion-ref</h1>
 
 <p align="center">
-  <strong>描述你想要的效果，AI 帮你匹配动效方案</strong>
+  <strong>给你的产品加动效 — 不需要设计背景</strong>
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 
 ---
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code) 技能 — 现代 UI 动效参考库。109 种可直接使用的动画效果，13 个分类。用自然语言描述交互场景，匹配最合适的动效，输出 CSS/JS 代码。
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) 技能 — 帮你给产品加动效。108 种效果，13 个分类。描述产品场景就能推荐方案 + 输出 CSS/JS 代码，不需要设计背景。
 
 ## 安装
 
@@ -32,42 +32,50 @@ git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion
 
 ## 使用
 
-用自然语言描述一个交互场景。技能会从参考库中匹配最合适的动效，输出完整的、可直接使用的代码。
+描述你的产品场景，技能会推荐合适的动效并给出可直接使用的代码。
+
+### 整体丰富产品动效
 
 ```
-/motion-ref 我有一个数据面板页面，上面有几个统计卡片。
-            希望它们逐个出现，而不是一下子全冒出来。
+/motion-ref 我的网站感觉很静态，没有活力。
+            帮我加一些动效让它看起来更专业。
 ```
 
-```
-/motion-ref 用户提交表单后需要等 2-3 秒才有响应。
-            提交按钮需要显示一个加载状态。
-```
+技能会分析你的页面，推荐动效组合：内容区滚动渐现、卡片网格依次入场、按钮悬浮反馈、页面平滑转场等。
+
+### 解决具体问题
 
 ```
-/motion-ref 我在做一个设置面板，是从右边滑出的抽屉。
-            需要滑入动画和遮罩层。
-```
-
-```
-/motion-ref 移动端的消息列表，
-            我想做左滑删除的效果，类似 iOS 邮件那种。
+/motion-ref 用户点了提交按钮后要等 3 秒，没有任何反馈，
+            他们会反复点击。
 ```
 
 ```
-/motion-ref 定价页有月付/年付的切换。
-            切换时价格数字要有动画过渡，不要生硬地跳变。
+/motion-ref 页面加载时先白屏再突然出现内容，
+            看起来像坏了一样。
+```
+
+### 给功能加细节
+
+```
+/motion-ref 定价页有月付/年付的切换，
+            切换时价格数字不要生硬跳变，要有过渡。
 ```
 
 ```
-/motion-ref 落地页的标题大字需要一种高级感。
-            想加一个光泽扫过的效果。
+/motion-ref 落地页想要高级感，
+            首屏加点什么效果。
+```
+
+### 获取推荐
+
+```
+/motion-ref SaaS 后台适合加哪些动效？
 ```
 
 ```
-/motion-ref 我在做一个多步骤结账流程。
-            需要一个步骤指示器，能显示当前在第几步，
-            切换步骤时有动画。
+/motion-ref 我在做一个移动端聊天 App，
+            有哪些动效可以考虑？
 ```
 
 ## 动效分类
@@ -90,7 +98,7 @@ git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion
 
 ## 在线预览
 
-浏览全部 109 种动效的在线演示：**https://joepui.github.io/motion-ref-skill/**
+浏览全部 108 种动效的在线演示：**https://joepui.github.io/motion-ref-skill/**
 
 ## License
 
