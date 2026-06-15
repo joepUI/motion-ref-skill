@@ -1,13 +1,20 @@
-<h1 align="center">motion-ref</h1>
+<h1 align="center">motion-ref-skill</h1>
 
 <p align="center">
   <strong>给你的产品加动效 — 不需要设计背景</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/joepUI/motion-ref-skill/stargazers"><img src="https://img.shields.io/github/stars/joepUI/motion-ref-skill?style=flat&color=yellow" alt="Stars"></a>
-  <a href="https://github.com/joepUI/motion-ref-skill/commits/main"><img src="https://img.shields.io/github/last-commit/joepUI/motion-ref-skill?style=flat" alt="Last Commit"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/joepUI/motion-ref-skill?style=flat" alt="License"></a>
+  <img src="https://img.shields.io/badge/Agent-Skill-111111?style=flat-square" alt="Agent Skill">
+  <img src="https://img.shields.io/badge/Claude%20Code-Supported-f59e0b?style=flat-square" alt="Claude Code">
+  <img src="https://img.shields.io/badge/Codex-Supported-10a37f?style=flat-square" alt="Codex">
+  <img src="https://img.shields.io/badge/OpenClaw-Supported-3b82f6?style=flat-square" alt="OpenClaw">
+</p>
+
+<p align="center">
+  <a href="https://github.com/joepUI/motion-ref-skill/stargazers"><img src="https://img.shields.io/github/stars/joepUI/motion-ref-skill?style=flat-square&color=yellow" alt="Stars"></a>
+  <a href="https://github.com/joepUI/motion-ref-skill/commits/main"><img src="https://img.shields.io/github/last-commit/joepUI/motion-ref-skill?style=flat-square" alt="Last Commit"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/joepUI/motion-ref-skill?style=flat-square" alt="License"></a>
 </p>
 
 <p align="center">
@@ -20,15 +27,23 @@
 
 ---
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code) 技能 — 帮你给产品加动效。108 种效果，13 个分类。描述产品场景就能推荐方案 + 输出 CSS/JS 代码，不需要设计背景。
+AI agent 技能，帮你给产品加动效。108 种效果，13 个分类 — 描述产品场景就能推荐方案 + 输出 CSS/JS 代码，不需要设计背景。
+
+适配 Claude Code、Codex、OpenClaw 及任何支持 SKILL.md 的 agent。
 
 ## 安装
+
+```bash
+npx skills add https://github.com/joepUI/motion-ref-skill
+```
+
+或手动安装：
 
 ```bash
 git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion-ref-skill
 ```
 
-安装后重启 Claude Code 即可使用。
+安装后重启 agent 即可使用。
 
 ## 使用
 
@@ -91,7 +106,7 @@ git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion
 | 7 | 滚动驱动 | 5 | 滚动揭示、阅读进度条、滚动文字揭示 |
 | 8 | 图标与标识 | 10 | 汉堡菜单、SVG 描边、角标弹跳、爱心点赞、铃铛抖动、复制打勾 |
 | 9 | 轮播与列表 | 8 | 轮播、卡片堆叠、拖拽排序、手风琴、头像堆叠、滑动操作 |
-| 10 | 状态切换 | 8 | 主题切换、空状态、在线状态、收藏星标、已读未读 |
+| 10 | 状态切换 | 7 | 主题切换、错误恢复、在线状态、收藏星标、已读未读 |
 | 11 | 氛围与背景 | 7 | 渐变流动、粒子、磁性光标、3D 卡片悬浮、光线扫过 |
 | 12 | 数据可视化 | 5 | 柱状图升起、环形图、仪表盘、折线描绘、统计卡片 |
 | 13 | 入场与退场 | 8 | 淡入、上滑入场、弹性入场、序列入场、模糊入场、折叠展开 |

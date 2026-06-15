@@ -5,9 +5,16 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/joepUI/motion-ref-skill/stargazers"><img src="https://img.shields.io/github/stars/joepUI/motion-ref-skill?style=flat&color=yellow" alt="Stars"></a>
-  <a href="https://github.com/joepUI/motion-ref-skill/commits/main"><img src="https://img.shields.io/github/last-commit/joepUI/motion-ref-skill?style=flat" alt="Last Commit"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/joepUI/motion-ref-skill?style=flat" alt="License"></a>
+  <img src="https://img.shields.io/badge/Agent-Skill-111111?style=flat-square" alt="Agent Skill">
+  <img src="https://img.shields.io/badge/Claude%20Code-Supported-f59e0b?style=flat-square" alt="Claude Code">
+  <img src="https://img.shields.io/badge/Codex-Supported-10a37f?style=flat-square" alt="Codex">
+  <img src="https://img.shields.io/badge/OpenClaw-Supported-3b82f6?style=flat-square" alt="OpenClaw">
+</p>
+
+<p align="center">
+  <a href="https://github.com/joepUI/motion-ref-skill/stargazers"><img src="https://img.shields.io/github/stars/joepUI/motion-ref-skill?style=flat-square&color=yellow" alt="Stars"></a>
+  <a href="https://github.com/joepUI/motion-ref-skill/commits/main"><img src="https://img.shields.io/github/last-commit/joepUI/motion-ref-skill?style=flat-square" alt="Last Commit"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/joepUI/motion-ref-skill?style=flat-square" alt="License"></a>
 </p>
 
 <p align="center">
@@ -20,15 +27,23 @@
 
 ---
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that helps you add animations to your product. 108 effects across 13 categories — describe what your product needs, get CSS/JS code you can ship. No motion design knowledge required.
+AI agent skill for UI motion design. 108 production-ready effects across 13 categories — describe your product scenario, get CSS/JS code you can ship. No motion design knowledge required.
+
+Works with Claude Code, Codex, OpenClaw, and any SKILL.md-compatible agent.
 
 ## Install
+
+```bash
+npx skills add https://github.com/joepUI/motion-ref-skill
+```
+
+Or install manually:
 
 ```bash
 git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion-ref-skill
 ```
 
-Restart Claude Code after installing.
+Restart your agent after installing.
 
 ## Usage
 
@@ -91,7 +106,7 @@ The skill will analyze your pages and suggest a combination of effects: scroll r
 | 7 | Scroll-driven | 5 | Scroll Reveal, Progress Indicator, Scroll Text Reveal |
 | 8 | Icon & Badge | 10 | Hamburger/Close, SVG Draw, Badge Bounce, Heart Like, Bell Shake, Copy Check |
 | 9 | Carousel & List | 8 | Carousel, Card Stack, Drag Reorder, Accordion, Avatar Stack, Swipe Action |
-| 10 | State Change | 8 | Theme Toggle, Empty State, Online Status, Favorite Star, Read/Unread |
+| 10 | State Change | 7 | Theme Toggle, Error Recovery, Online Status, Favorite Star, Read/Unread |
 | 11 | Atmosphere & Background | 7 | Gradient Flow, Particles, Magnetic Cursor, 3D Card Hover, Light Sweep |
 | 12 | Data Visualization | 5 | Bar Chart Rise, Donut Chart, Gauge Meter, Sparkline Draw, Counter Card |
 | 13 | Enter & Exit | 8 | Fade In, Slide Up, Spring In, Stagger, Blur In, Collapse |
