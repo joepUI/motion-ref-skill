@@ -29,3 +29,9 @@
 #### 11.7 3D Card Hover 3D 卡片悬浮
 - **视觉**：卡片根据鼠标位置 3D 倾斜
 - **实现**：JS `mousemove` → `rotateY(x*20deg) rotateX(-y*20deg)`；父容器需 `perspective: 400px`
+
+#### 11.8 Scan Line 扫描线
+- **视觉**：一条发光线从上到下扫过内容区域，类似扫码/检测效果
+- **场景**：扫码动画、安全检测、数据扫描
+- **CSS**：伪元素 + `box-shadow` 发光 + `animation: scanLine 3s ease-in-out infinite`
+- **要点**：线宽 1-2px，box-shadow 做发光扩散效果，扫到边缘时 opacity 渐隐

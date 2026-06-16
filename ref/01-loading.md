@@ -56,25 +56,43 @@
 - **CSS**：8-12 个 span 绝对定位成圆 + 依次 `animation-delay`
 - **要点**：比单圆环更精致，适合品牌感强的 App
 
-#### 1.9 Lissajous Loader 数学曲线加载
-- **视觉**：数学曲线路径描边动画
-- **场景**：品牌化加载、科技感产品
-- **CSS**：SVG path + `stroke-dasharray` + `stroke-dashoffset` 双向动画
-- **要点**：用 Lissajous 或其他数学曲线生成 SVG path
+#### 1.9 Rose Two 双瓣玫瑰曲线
+- **视觉**：r=a·cos(2θ) 玫瑰曲线，粒子拖尾沿路径运动 + 呼吸脉冲 + 旋转
+- **场景**：品牌化加载、科技感产品、数学/数据类应用
+- **JS**：SVG + requestAnimationFrame，粒子沿曲线分布，透明度衰减形成拖尾
+- **要点**：粒子数 50-80，拖尾比例 0.3，呼吸周期 4-5s
 
-#### 1.10 Wave Bars 音频波形
+#### 1.10 Rose Three 三瓣玫瑰曲线
+- **视觉**：r=a·cos(3θ) 三瓣结构，旋转 + 呼吸
+- **场景**：同 Rose Two，三瓣更具辨识度
+- **JS**：同 Rose Two，k 参数改为 3
+- **要点**：k 值决定花瓣数，奇数 k 产生 k 瓣，偶数 k 产生 2k 瓣
+
+#### 1.11 Lemniscate 伯努利双纽线
+- **视觉**：无限符号(∞)形状，粒子拖尾 + 呼吸缩放
+- **场景**：无限循环概念、持续处理中
+- **JS**：x = a·cos(t)/(1+sin²t)，y = a·sin(t)·cos(t)/(1+sin²t)
+- **要点**：不需要旋转，双纽线自身形态已经足够动态
+
+#### 1.12 Four-Petal Spiral 四瓣内旋轮线
+- **视觉**：R=4,r=1,d=3 的内旋轮线，四瓣花形 + 旋转 + 呼吸
+- **场景**：复杂运算加载、高端品牌
+- **JS**：x=(R-r)·cos(t)+d·cos((R-r)/r·t)，hypotrochoid 公式
+- **要点**：R 值决定花瓣数，d 值影响花瓣大小
+
+#### 1.13 Wave Bars 音频波形
 - **视觉**：竖条高低交替跳动，像音频波形/均衡器
 - **场景**：音频播放中、语音识别中
 - **CSS**：`animation: waveBar 1.2s ease-in-out infinite` + 每条不同 `animation-delay`
 - **要点**：4-5 条即可，高度用 `scaleY` 变化
 
-#### 1.11 Typing Indicator 输入提示
+#### 1.14 Typing Indicator 输入提示
 - **视觉**：三个圆点依次上下跳动
 - **场景**：聊天对话"对方正在输入"
 - **CSS**：`animation: typingDot 1.4s ease-in-out infinite` + 每点延迟 0.2s
 - **要点**：背景加圆角气泡框效果更好
 
-#### 1.12 Hourglass Rotate 沙漏翻转
+#### 1.15 Hourglass Rotate 沙漏翻转
 - **视觉**：沙漏 SVG 每隔一段时间翻转 180°
 - **场景**：等待处理、排队中
 - **CSS**：`animation: hourglassFlip 2s ease-in-out infinite`

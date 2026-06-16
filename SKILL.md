@@ -144,7 +144,7 @@ description: "UI 动效参考库，帮你给产品加上合适的动画。不需
 
 | 分类 | 文件 | 包含效果 |
 |-----|------|---------|
-| 1. 加载与等待 | `ref/01-loading.md` | Spinner、Dots Pulse、Skeleton、Progress Bar、Breath Pulse 等 12 个 |
+| 1. 加载与等待 | `ref/01-loading.md` | Spinner、Dots Pulse、Skeleton、Rose Curve、Lemniscate、Four-Petal Spiral 等 15 个 |
 | 2. 按钮与点击反馈 | `ref/02-button-feedback.md` | Press Scale、Ripple、Success Check、Error Shake、Confetti 等 9 个 |
 | 3. 文字与数据 | `ref/03-text-data.md` | Typewriter、Number Counter、Flip Counter、Shimmer Text 等 10 个 |
 | 4. 弹层与浮层 | `ref/04-overlay.md` | Modal、Bottom Sheet、Dropdown、Toast、Command Palette 等 10 个 |
@@ -154,7 +154,7 @@ description: "UI 动效参考库，帮你给产品加上合适的动画。不需
 | 8. 图标与标识 | `ref/08-icon.md` | Hamburger、SVG Draw、Heart Like、Bell Shake 等 10 个 |
 | 9. 轮播与列表 | `ref/09-carousel-list.md` | Carousel、Card Stack、Drag Reorder、Swipe Action 等 8 个 |
 | 10. 状态切换 | `ref/10-state.md` | Theme Toggle、Error→Recovery、Online Status、Favorite Star 等 8 个 |
-| 11. 氛围与背景 | `ref/11-ambient.md` | Gradient Flow、Particles、Glow Trace、3D Card Hover 等 7 个 |
+| 11. 氛围与背景 | `ref/11-ambient.md` | Gradient Flow、Particles、Glow Trace、3D Card Hover、Scan Line 等 8 个 |
 | 12. 数据可视化 | `ref/12-data-viz.md` | Bar Chart、Donut Chart、Gauge Meter、Sparkline 等 5 个 |
 | 13. 入场与退场 | `ref/13-enter-exit.md` | Fade In、Slide Up、Spring In、Stagger、Blur In 等 8 个 |
 

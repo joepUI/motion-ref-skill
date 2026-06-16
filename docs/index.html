@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Motion Ref v2 — 现代 UI 动效参考</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23ea580c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%230a0a0a'/%3E%3Cpath d='M8 20 Q10 8 16 16 Q22 24 24 12' stroke='url(%23g)' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='24' cy='12' r='2.5' fill='%23f59e0b'/%3E%3C/svg%3E">
+<title>Motion Ref — UI 动效参考</title>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0b0b0f;--surface:#151519;--card:#1c1c22;--border:#2a2a32;
+  --bg:#0a0a0a;--surface:#141414;--card:#1a1a1a;--border:#282828;
   --text:#e4e4e7;--text2:#a1a1aa;--text3:#71717a;
   --accent:#f59e0b;--accent2:#d97706;--accent-glow:rgba(245,158,11,.25);
   --success:#34d399;--error:#f87171;--warn:#fbbf24;
@@ -171,9 +172,11 @@ a{color:var(--accent);text-decoration:none}
 
 .collapse-demo{width:80%;overflow:hidden}
 .collapse-bar{height:28px;background:var(--accent);border-radius:6px 6px 0 0;display:flex;align-items:center;padding:0 10px;font-size:11px;color:#fff}
+.collapse-bar svg{margin-left:4px;transition:transform .3s ease;animation:collapseArrow 3s ease-in-out infinite}
 .collapse-body{background:rgba(245,158,11,.15);border-radius:0 0 6px 6px;animation:collapseLoop 3s ease-in-out infinite;overflow:hidden}
 .collapse-body-inner{padding:10px;font-size:11px;color:var(--text2)}
 @keyframes collapseLoop{0%,100%{max-height:0;opacity:0}35%,65%{max-height:60px;opacity:1}}
+@keyframes collapseArrow{0%,100%{transform:rotate(0deg)}35%,65%{transform:rotate(180deg)}}
 
 /* ═══ 3. 按钮与反馈 ═══ */
 .demo-btn{padding:8px 20px;min-width:100px;border:none;border-radius:6px;background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer;outline:none;transition:all .15s}
@@ -545,11 +548,15 @@ a{color:var(--accent);text-decoration:none}
 .light-sweep-demo::after{content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.08),transparent);animation:lightSweep 3s infinite}
 @keyframes lightSweep{0%{left:-100%}50%,100%{left:150%}}
 
-/* new effects */
-.lissajous-loader{width:60px;height:60px;position:relative}
-.lissajous-loader svg{width:100%;height:100%}
-.lissajous-path{fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-dasharray:336;stroke-dashoffset:336;animation:lissaDraw 3s ease-in-out infinite}
-@keyframes lissaDraw{0%{stroke-dashoffset:336}50%{stroke-dashoffset:0}100%{stroke-dashoffset:-336}}
+.scan-demo{width:70%;height:80px;position:relative;overflow:hidden;border-radius:0;background:#0a0a0a;display:flex;align-items:center;justify-content:center}
+.scan-grid{display:grid;grid-template-columns:repeat(5,6px);gap:3px;opacity:.4}
+.scan-grid span{width:6px;height:6px;background:var(--text3);border-radius:1px}
+.scan-demo::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--accent);box-shadow:0 0 12px 4px rgba(245,158,11,.5),0 0 30px 8px rgba(245,158,11,.2);animation:scanLine 3s ease-in-out infinite}
+@keyframes scanLine{0%,100%{top:-2px;opacity:0}10%{opacity:1}50%{top:calc(100% + 2px);opacity:1}60%,100%{opacity:0}}
+
+/* math curve loaders */
+.math-loader{width:70px;height:70px}
+.math-loader svg{width:100%;height:100%}
 
 .shimmer-text{font-size:18px;font-weight:700;background:linear-gradient(90deg,var(--text) 40%,var(--accent) 50%,var(--text) 60%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmerText 2.5s linear infinite}
 @keyframes shimmerText{0%{background-position:100% 0}100%{background-position:-100% 0}}
@@ -781,7 +788,6 @@ a{color:var(--accent);text-decoration:none}
   <aside class="sidebar">
     <div class="logo">
       <h1>Motion Ref</h1>
-      <p class="ver">v2.0</p>
     </div>
     <nav>
       <a href="#s1"><span class="num">01</span>加载与等待</a>
@@ -803,11 +809,11 @@ a{color:var(--accent);text-decoration:none}
   <main class="main">
     <div class="hero">
       <h2>Modern UI Motion Reference</h2>
-      <p>108 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
+      <p>112 production-ready animation effects across 13 categories. Each card is a live, interactive demo with implementation code.</p>
     </div>
     <!-- 1 -->
     <section class="section" id="s1">
-      <div class="section-head"><h2>01 · 加载与等待</h2><p>告诉用户"系统在跑，别走"</p></div>
+      <div class="section-head"><h2>01 · 加载与等待</h2><p>用户等待时，让界面替你说"马上好"</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="spinner"></div></div><div class="info"><h3>Spinner</h3><p>圆环缺口旋转</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="dots-pulse"><span></span><span></span><span></span></div></div><div class="info"><h3>Dots Pulse</h3><p>三点依次脉冲</p><span class="tag">CSS</span></div></div>
@@ -820,13 +826,16 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="wave-bars"><span></span><span></span><span></span><span></span><span></span></div></div><div class="info"><h3>Wave Bars</h3><p>音频波形跳动</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="typing-demo"><span></span><span></span><span></span></div></div><div class="info"><h3>Typing Indicator</h3><p>聊天输入中提示</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="hourglass-demo"><svg class="hourglass-svg" width="28" height="36" viewBox="0 0 28 36" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><path d="M4 2h20M4 34h20"/><path d="M6 2v8l8 8-8 8v8M22 2v8l-8 8 8 8v8"/></svg></div></div><div class="info"><h3>Hourglass Rotate</h3><p>沙漏翻转等待</p><span class="tag">SVG</span></div></div>
-        <div class="card"><div class="preview"><div class="lissajous-loader"><svg viewBox="0 0 60 60"><path class="lissajous-path" d="M30 30 L34.1 32.8 L38.1 35.5 L41.8 38.1 L45.1 40.6 L47.8 42.9 L49.9 45.1 L51.3 47 L52 48.6 L51.8 49.9 L50.9 50.9 L49.3 51.6 L47 52 L44 52 L40.6 51.6 L36.8 50.9 L32.8 49.9 L28.6 48.6 L24.5 47 L20.6 45.1 L17.1 42.9 L14 40.6 L11.4 38.1 L9.5 35.5 L8.4 32.8 L8 30 L8.4 27.2 L9.5 24.5 L11.4 21.9 L14 19.4 L17.1 17.1 L20.6 14.9 L24.5 13 L28.6 11.4 L32.8 10.1 L36.8 9.1 L40.6 8.4 L44 8 L47 8 L49.3 8.4 L50.9 9.1 L51.8 10.1 L52 11.4 L51.3 13 L49.9 14.9 L47.8 17.1 L45.1 19.4 L41.8 21.9 L38.1 24.5 L34.1 27.2 L30 30 L25.9 32.8 L21.9 35.5 L18.2 38.1 L14.9 40.6 L12.2 42.9 L10.1 45.1 L8.7 47 L8 48.6 L8.2 49.9 L9.1 50.9 L10.7 51.6 L13 52 L16 52 L19.4 51.6 L23.2 50.9 L27.2 49.9 L31.4 48.6 L35.5 47 L39.4 45.1 L42.9 42.9 L46 40.6 L48.6 38.1 L50.5 35.5 L51.6 32.8 L52 30 L51.6 27.2 L50.5 24.5 L48.6 21.9 L46 19.4 L42.9 17.1 L39.4 14.9 L35.5 13 L31.4 11.4 L27.2 10.1 L23.2 9.1 L19.4 8.4 L16 8 L13 8 L10.7 8.4 L9.1 9.1 L8.2 10.1 L8 11.4 L8.7 13 L10.1 14.9 L12.2 17.1 L14.9 19.4 L18.2 21.9 L21.9 24.5 L25.9 27.2 L30 30"/></svg></div></div><div class="info"><h3>Lissajous Loader</h3><p>数学曲线描边加载</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="math-loader" id="mlRose2"><svg viewBox="0 0 100 100"></svg></div></div><div class="info"><h3>Rose Two</h3><p>双瓣玫瑰曲线</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="math-loader" id="mlRose3"><svg viewBox="0 0 100 100"></svg></div></div><div class="info"><h3>Rose Three</h3><p>三瓣玫瑰曲线</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="math-loader" id="mlLemniscate"><svg viewBox="0 0 100 100"></svg></div></div><div class="info"><h3>Lemniscate</h3><p>伯努利双纽线</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="math-loader" id="mlFourPetal"><svg viewBox="0 0 100 100"></svg></div></div><div class="info"><h3>Four-Petal Spiral</h3><p>四瓣内旋轮线</p><span class="tag">SVG</span></div></div>
       </div>
     </section>
 
     <!-- 2 -->
     <section class="section" id="s2">
-      <div class="section-head"><h2>02 · 按钮与点击反馈</h2><p>点击要"应一声"</p></div>
+      <div class="section-head"><h2>02 · 按钮与点击反馈</h2><p>每次点击都值得一个回应</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><button class="demo-btn press-btn">Press Me</button></div><div class="info"><h3>Press Scale</h3><p>按下缩小松开回弹</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><button class="demo-btn ripple-btn" onclick="createRipple(event)">Ripple</button></div><div class="info"><h3>Ripple</h3><p>点击处扩散波纹</p><span class="tag">JS</span></div></div>
@@ -842,13 +851,13 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 3 -->
     <section class="section" id="s3">
-      <div class="section-head"><h2>03 · 文字与数据</h2><p>让静态信息动起来</p></div>
+      <div class="section-head"><h2>03 · 文字与数据</h2><p>数字会跑，文字会打，信息不再干巴巴</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="typewriter">Hello World!</div></div><div class="info"><h3>Typewriter</h3><p>逐字打出 + 光标</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="fade-words"><span>Design</span><span>is</span><span>how</span><span>it</span></div></div><div class="info"><h3>Fade Up Words</h3><p>逐词淡入上升</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="num-counter" data-target="12847">0</div></div><div class="info"><h3>Number Counter</h3><p>数字从 0 滚动到目标</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><span class="highlight-text">重点内容高亮</span></div><div class="info"><h3>Text Highlight</h3><p>荧光笔划过文字</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>108 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>108 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>112 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref v2.0 Released</span><span>·</span><span>112 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="scramble-text">MOTION</div></div><div class="info"><h3>Scramble Text</h3><p>字符打散重组</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="flip-counter"><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>5</span></div><div class="flip-digit"><span>:</span></div><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>0</span></div></div></div><div class="info"><h3>Flip Counter</h3><p>翻牌计数器</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="shimmer-text">Shimmer Effect</div></div><div class="info"><h3>Shimmer Text</h3><p>渐变光扫过文字</p><span class="tag">CSS</span></div></div>
@@ -859,7 +868,7 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 4 -->
     <section class="section" id="s4">
-      <div class="section-head"><h2>04 · 弹层与浮层</h2><p>独立于页面的"新层"</p></div>
+      <div class="section-head"><h2>04 · 弹层与浮层</h2><p>弹窗、菜单、提示 — 浮在页面之上的交互层</p></div>
       <div class="grid">
         <div class="card"><div class="preview modal-trigger" onclick="this.classList.toggle('show')"><div class="mini-modal-overlay"><div class="mini-modal-box">确认删除？<br><span style="color:var(--accent);cursor:pointer">OK</span></div></div></div><div class="info"><h3>Modal</h3><p>弹窗 scale + overlay</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview" onclick="this.querySelector('.sheet-area').classList.toggle('show')"><div class="sheet-area"><div class="mini-sheet"><div class="handle"></div><div class="sheet-row"></div><div class="sheet-row"></div><div class="sheet-row"></div></div></div></div><div class="info"><h3>Bottom Sheet</h3><p>从底部滑上来</p><span class="tag">CSS</span></div></div>
@@ -876,7 +885,7 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 5 -->
     <section class="section" id="s5">
-      <div class="section-head"><h2>05 · 导航与转场</h2><p>页面间的切换动画</p></div>
+      <div class="section-head"><h2>05 · 导航与转场</h2><p>页面之间不再生硬跳转，而是自然过渡</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="page-slide-demo"><div class="pg pg-a">Page A</div><div class="pg pg-b">Page B</div></div></div><div class="info"><h3>Page Slide</h3><p>新页面从右推入</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="fade-switch-demo"><div class="fs fs-a">Tab 1</div><div class="fs fs-b">Tab 2</div></div></div><div class="info"><h3>Fade Switch</h3><p>淡入淡出切换</p><span class="tag">CSS</span></div></div>
@@ -890,7 +899,7 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 6 -->
     <section class="section" id="s6">
-      <div class="section-head"><h2>06 · 表单与输入</h2><p>引导和确认</p></div>
+      <div class="section-head"><h2>06 · 表单与输入</h2><p>让填表单不再枯燥，每一步都有引导感</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><input class="focus-input" type="text" placeholder="点击聚焦..."></div><div class="info"><h3>Focus Ring</h3><p>聚焦边框高亮</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="float-label-wrap"><input class="float-input" type="text" placeholder=" "><span class="float-label">Email</span></div></div><div class="info"><h3>Label Float</h3><p>标签上浮变小</p><span class="tag">CSS</span></div></div>
@@ -908,7 +917,7 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 7 -->
     <section class="section" id="s7">
-      <div class="section-head"><h2>07 · 滚动驱动</h2><p>滚动变成讲故事工具</p></div>
+      <div class="section-head"><h2>07 · 滚动驱动</h2><p>滚动不只是翻页，是讲故事的节奏</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="scroll-reveal-demo" id="srDemo"><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div><div class="sr-item"></div></div></div><div class="info"><h3>Scroll Reveal</h3><p>滚入视口时淡入</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="read-progress-demo"><div class="rp-bar"></div><div class="rp-lines"><div class="rp-line"></div><div class="rp-line"></div><div class="rp-line"></div></div></div></div><div class="info"><h3>Progress Indicator</h3><p>阅读进度条</p><span class="tag">CSS</span></div></div>
@@ -919,7 +928,7 @@ a{color:var(--accent);text-decoration:none}
     </section>
     <!-- 8 -->
     <section class="section" id="s8">
-      <div class="section-head"><h2>08 · 图标与标识</h2><p>小图标的微动效</p></div>
+      <div class="section-head"><h2>08 · 图标与标识</h2><p>小图标也能传递大信息</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="hamburger" onclick="this.classList.toggle('open')"><span></span><span></span><span></span></div></div><div class="info"><h3>Hamburger / Close</h3><p>三线变叉号</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="icon-swap" onclick="this.classList.toggle('swapped')"><div class="ico ico-a"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="12" r="5"/><g stroke="var(--accent)" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg></div><div class="ico ico-b"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div></div></div><div class="info"><h3>Icon Swap</h3><p>图标交叉切换</p><span class="tag">CSS</span></div></div>
@@ -936,7 +945,7 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 9 -->
     <section class="section" id="s9">
-      <div class="section-head"><h2>09 · 轮播与列表</h2><p>内容容器级动画</p></div>
+      <div class="section-head"><h2>09 · 轮播与列表</h2><p>滑动、翻页、拖拽 — 内容流转的方式</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="carousel-demo"><div class="carousel-track"><div class="carousel-slide">Slide 1</div><div class="carousel-slide">Slide 2</div><div class="carousel-slide">Slide 3</div></div></div></div><div class="info"><h3>Carousel Slide</h3><p>轮播横向滑动</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="card-stack-demo"><div class="cs-card">A</div><div class="cs-card">B</div><div class="cs-card">C</div></div></div><div class="info"><h3>Card Stack</h3><p>卡片堆叠翻页</p><span class="tag">CSS</span></div></div>
@@ -951,7 +960,7 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 10 -->
     <section class="section" id="s10">
-      <div class="section-head"><h2>10 · 状态切换</h2><p>全局状态变化过渡</p></div>
+      <div class="section-head"><h2>10 · 状态切换</h2><p>开关、收藏、在线离线 — 状态变了要让用户看到</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="theme-demo" onclick="this.classList.toggle('light')"><div class="theme-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div><div class="theme-light"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div></div></div><div class="info"><h3>Theme Toggle</h3><p>圆形扩散主题切换</p><span class="tag">CSS</span></div></div>
 
@@ -966,21 +975,22 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 11 -->
     <section class="section" id="s11">
-      <div class="section-head"><h2>11 · 氛围与背景</h2><p>提升调性的装饰动效</p></div>
+      <div class="section-head"><h2>11 · 氛围与背景</h2><p>不解决功能问题，但让产品看起来贵了一档</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="gradient-flow-demo"></div></div><div class="info"><h3>Gradient Flow</h3><p>渐变背景缓慢流动</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="glow-pulse-demo"></div></div><div class="info"><h3>Glow Pulse</h3><p>呼吸发光效果</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview" style="position:relative"><canvas class="particle-canvas" id="particleCanvas"></canvas></div><div class="info"><h3>Particles</h3><p>粒子缓慢上升</p><span class="tag">Canvas</span></div></div>
+        <div class="card"><div class="preview" style="position:relative"><canvas class="particle-canvas" id="particleCanvas"></canvas></div><div class="info"><h3>Particles</h3><p>粒子缓慢上升</p><span class="tag">SVG</span></div></div>
         <div class="card"><div class="preview"><div class="magnetic-demo" id="magneticEl"></div></div><div class="info"><h3>Magnetic Cursor</h3><p>元素被光标吸引</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="glow-trace-card" onmousemove="this.style.setProperty('--mx',((event.clientX-this.getBoundingClientRect().left)/this.offsetWidth*100)+'%');this.style.setProperty('--my',((event.clientY-this.getBoundingClientRect().top)/this.offsetHeight*100)+'%')"><div class="glow-trace-inner">Move cursor here</div></div></div><div class="info"><h3>Glow Trace</h3><p>光标跟随边框高光</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="light-sweep-demo">PREMIUM</div></div><div class="info"><h3>Light Sweep</h3><p>光线扫过表面</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview" style="perspective:400px" onmousemove="demo3d(event,this)" onmouseleave="this.querySelector('.card3d-demo').style.transform='none'"><div class="card3d-demo">3D Card</div></div><div class="info"><h3>3D Card Hover</h3><p>透视跟随光标倾斜</p><span class="tag">JS</span></div></div>
+        <div class="card"><div class="preview"><div class="scan-demo"><div class="scan-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div class="info"><h3>Scan Line</h3><p>扫描线从上到下扫过内容</p><span class="tag">CSS</span></div></div>
       </div>
     </section>
 
     <!-- 12 -->
     <section class="section" id="s12">
-      <div class="section-head"><h2>12 · 数据可视化</h2><p>图表与数据展示动效</p></div>
+      <div class="section-head"><h2>12 · 数据可视化</h2><p>图表动起来，数据才有说服力</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="bar-chart"><div class="bar-col" style="--h:70%"></div><div class="bar-col" style="--h:45%"></div><div class="bar-col" style="--h:85%"></div><div class="bar-col" style="--h:55%"></div><div class="bar-col" style="--h:90%"></div><div class="bar-col" style="--h:40%"></div></div></div><div class="info"><h3>Bar Chart Rise</h3><p>柱状图从底部升起</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><svg class="donut-chart" viewBox="0 0 48 48"><circle class="donut-bg" cx="24" cy="24" r="18"/><circle class="donut-fg" cx="24" cy="24" r="18"/><circle class="donut-fg2" cx="24" cy="24" r="18" stroke-dashoffset="73"/></svg></div><div class="info"><h3>Donut Chart</h3><p>环形图弧线绘制</p><span class="tag">SVG</span></div></div>
@@ -992,7 +1002,7 @@ a{color:var(--accent);text-decoration:none}
 
     <!-- 13 -->
     <section class="section" id="s13">
-      <div class="section-head"><h2>13 · 入场与退场</h2><p>元素如何出现和消失</p></div>
+      <div class="section-head"><h2>13 · 入场与退场</h2><p>好的出现让人注意到，好的消失让人不觉得突兀</p></div>
       <div class="grid">
         <div class="card"><div class="preview"><div class="fade-demo"></div></div><div class="info"><h3>Fade In</h3><p>透明到不透明</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="slide-up-demo"></div></div><div class="info"><h3>Slide Up</h3><p>从下方滑入淡入</p><span class="tag">CSS</span></div></div>
@@ -1006,7 +1016,7 @@ a{color:var(--accent);text-decoration:none}
     </section>
 
     <footer class="footer">
-      <p>Motion Ref v2.0 — Built for Claude Code Skill</p>
+      <p>Motion Ref — AI Agent Skill for UI Motion Design</p>
       <p class="footer-sub">MIT License / <a href="https://github.com/joepUI/motion-ref-skill" target="_blank">GitHub</a></p>
     </footer>
   </main>
@@ -1023,6 +1033,52 @@ window.addEventListener('scroll',()=>{backTop.classList.toggle('show',window.scr
 
 const links=document.querySelectorAll('.sidebar nav a'),sects=document.querySelectorAll('.section');
 const sideObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.sidebar nav a[href="#${e.target.id}"]`);if(a)a.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'});sects.forEach(s=>sideObs.observe(s));
+
+// ── Math Curve Loaders ──
+(function(){
+const NS='http://www.w3.org/2000/svg';
+const curves=[
+{id:'mlRose2',k:2,pc:50,trail:.3,dur:5200,rot:28000,pulse:4300,sw:3.5,
+ pt(p,s){const t=p*Math.PI*2,a=9.2+s*.6,r=a*(.72+s*.28)*Math.cos(2*t);return{x:50+Math.cos(t)*r*3.25,y:50+Math.sin(t)*r*3.25}},rotate:true},
+{id:'mlRose3',k:3,pc:50,trail:.31,dur:5300,rot:28000,pulse:4400,sw:3.5,
+ pt(p,s){const t=p*Math.PI*2,a=9.2+s*.6,r=a*(.72+s*.28)*Math.cos(3*t);return{x:50+Math.cos(t)*r*3.25,y:50+Math.sin(t)*r*3.25}},rotate:true},
+{id:'mlLemniscate',pc:50,trail:.4,dur:5600,rot:34000,pulse:5000,sw:3.8,
+ pt(p,s){const t=p*Math.PI*2,sc=20+s*7,d=1+Math.sin(t)**2;return{x:50+sc*Math.cos(t)/d,y:50+sc*Math.sin(t)*Math.cos(t)/d}},rotate:false},
+{id:'mlFourPetal',pc:55,trail:.34,dur:4600,rot:28000,pulse:4200,sw:3.2,
+ pt(p,s){const t=p*Math.PI*2,d=3+s*.25,R=4,r=1,bx=(R-r)*Math.cos(t)+d*Math.cos((R-r)/r*t),by=(R-r)*Math.sin(t)-d*Math.sin((R-r)/r*t),sc=2.2+s*.45;return{x:50+bx*sc,y:50+by*sc}},rotate:true}
+];
+function buildPath(c,s){let d='';for(let i=0;i<=300;i++){const p=c.pt(i/300,s);d+=(i===0?'M':'L')+p.x.toFixed(1)+' '+p.y.toFixed(1)}return d}
+curves.forEach(c=>{
+const el=document.getElementById(c.id);if(!el)return;
+const svg=el.querySelector('svg');
+const g=document.createElementNS(NS,'g');
+const path=document.createElementNS(NS,'path');
+path.setAttribute('fill','none');path.setAttribute('stroke','rgba(245,158,11,.12)');path.setAttribute('stroke-width',String(c.sw*.6));
+g.appendChild(path);
+const dots=[];
+for(let i=0;i<c.pc;i++){const ci=document.createElementNS(NS,'circle');ci.setAttribute('fill','#f59e0b');g.appendChild(ci);dots.push(ci)}
+svg.appendChild(g);
+const start=performance.now(),phase=Math.random();
+function tick(now){
+const time=now-start;
+const prog=((time+phase*c.dur)%c.dur)/c.dur;
+const pa=((time+phase*c.pulse)%c.pulse)/c.pulse;
+const s=.52+((Math.sin(pa*Math.PI*2+.55)+1)/2)*.48;
+const rot=c.rotate?-((time+phase*c.rot)%c.rot)/c.rot*360:0;
+g.setAttribute('transform','rotate('+rot.toFixed(1)+' 50 50)');
+path.setAttribute('d',buildPath(c,s));
+dots.forEach((d,i)=>{
+const off=i/(c.pc-1);
+let pp=prog-off*c.trail;pp=pp-Math.floor(pp);
+const pt=c.pt(pp,s);
+const fade=Math.pow(1-off,.56);
+d.setAttribute('cx',pt.x.toFixed(1));d.setAttribute('cy',pt.y.toFixed(1));
+d.setAttribute('r',(0.6+fade*2).toFixed(1));d.setAttribute('opacity',(0.04+fade*.96).toFixed(2));
+});
+requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+});
+})();
 
 function createRipple(e){const b=e.currentTarget,r=b.getBoundingClientRect(),d=Math.max(r.width,r.height),c=document.createElement('span');c.className='ripple-circle';c.style.width=c.style.height=d+'px';c.style.left=(e.clientX-r.left-d/2)+'px';c.style.top=(e.clientY-r.top-d/2)+'px';b.appendChild(c);c.addEventListener('animationend',()=>c.remove())}
 function demoCheck(b){b.classList.add('done');setTimeout(()=>b.classList.remove('done'),1800)}
@@ -1458,7 +1514,11 @@ const codeSnippets={
   'Wave Bars':`.wave-bars {\n  display: flex;\n  align-items: flex-end;\n  gap: 3px;\n}\n.wave-bars span {\n  width: 4px;\n  background: var(--accent);\n  border-radius: 2px;\n  animation: waveBar 1.2s\n    ease-in-out infinite;\n}\n.wave-bars span:nth-child(2) {\n  animation-delay: .1s;\n}\n@keyframes waveBar {\n  0%, 100% { transform: scaleY(.4) }\n  50% { transform: scaleY(1) }\n}`,
   'Typing Indicator':`.typing span {\n  width: 6px; height: 6px;\n  border-radius: 50%;\n  background: var(--text3);\n  animation: typingDot 1.4s\n    ease-in-out infinite;\n}\n.typing span:nth-child(2) {\n  animation-delay: .2s;\n}\n.typing span:nth-child(3) {\n  animation-delay: .4s;\n}\n@keyframes typingDot {\n  0%, 60%, 100% {\n    transform: translateY(0);\n    opacity: .4;\n  }\n  30% {\n    transform: translateY(-6px);\n    opacity: 1;\n  }\n}`,
   'Hourglass Rotate':`.hourglass {\n  animation: hourglassFlip 2s\n    ease-in-out infinite;\n}\n@keyframes hourglassFlip {\n  0%    { transform: rotate(0deg) }\n  50%   { transform: rotate(180deg) }\n  100%  { transform: rotate(360deg) }\n}`,
-  'Lissajous Loader':`svg .path {\n  fill: none;\n  stroke: var(--accent);\n  stroke-width: 2;\n  stroke-linecap: round;\n  stroke-dasharray: 120;\n  stroke-dashoffset: 120;\n  animation: draw 2.5s ease-in-out infinite;\n}\n@keyframes draw {\n  0%   { stroke-dashoffset: 120 }\n  50%  { stroke-dashoffset: 0 }\n  100% { stroke-dashoffset: -120 }\n}`,
+  'Rose Two':`/* r = a · cos(2θ) */\nconst k = 2, a = 9.2, scale = 3.25;\nfunction point(t, breath) {\n  const r = a * breath * Math.cos(k * t);\n  return {\n    x: 50 + Math.cos(t) * r * scale,\n    y: 50 + Math.sin(t) * r * scale\n  };\n}\n/* Animate particles along the curve\n   with trail opacity falloff */`,
+  'Rose Three':`/* r = a · cos(3θ) */\nconst k = 3, a = 9.2, scale = 3.25;\nfunction point(t, breath) {\n  const r = a * breath * Math.cos(k * t);\n  return {\n    x: 50 + Math.cos(t) * r * scale,\n    y: 50 + Math.sin(t) * r * scale\n  };\n}`,
+  'Lemniscate':`/* Bernoulli Lemniscate */\nfunction point(t, a) {\n  const d = 1 + Math.sin(t) ** 2;\n  return {\n    x: 50 + a * Math.cos(t) / d,\n    y: 50 + a * Math.sin(t)\n             * Math.cos(t) / d\n  };\n}\n/* a pulses between 20 and 27 */`,
+  'Four-Petal Spiral':`/* Hypotrochoid: R=4, r=1, d=3 */\nfunction point(t, scale) {\n  const R=4, r=1, d=3;\n  const x = (R-r)*Math.cos(t)\n          + d*Math.cos((R-r)/r * t);\n  const y = (R-r)*Math.sin(t)\n          - d*Math.sin((R-r)/r * t);\n  return {\n    x: 50 + x * scale,\n    y: 50 + y * scale\n  };\n}`,
+
   'Tooltip':`.tooltip {\n  position: relative;\n}\n.tooltip .bubble {\n  opacity: 0;\n  transform: translateY(4px);\n  transition:\n    opacity .2s ease,\n    transform .2s ease;\n  /* show delay, no hide delay */\n}\n.tooltip:hover .bubble {\n  opacity: 1;\n  transform: translateY(0);\n  transition-delay: .4s;\n}\n.tooltip:not(:hover) .bubble {\n  transition-delay: 0s;\n}`,
   'Drawer':`.drawer {\n  position: fixed;\n  right: 0; top: 0;\n  height: 100%;\n  width: 320px;\n  transform: translateX(100%);\n  transition: transform 300ms\n    cubic-bezier(.32, .72, 0, 1);\n}\n.drawer.open {\n  transform: translateX(0);\n}`,
   'Dock Nav':`.dock {\n  display: flex;\n  align-items: end;\n  gap: 4px;\n}\n.dock-item {\n  transition: all .2s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.dock-item:hover {\n  transform: scale(1.5) translateY(-6px);\n}\n/* neighbor magnification */\n.dock-item:hover + .dock-item,\n.dock-item:has(+ .dock-item:hover) {\n  transform: scale(1.25) translateY(-3px);\n}`,
@@ -1466,6 +1526,7 @@ const codeSnippets={
   'Number Pop-in':`.num span {\n  display: inline-block;\n  animation: numPop .5s\n    cubic-bezier(.34, 1.56, .64, 1) both;\n}\n.num span:nth-child(2) { animation-delay: .08s }\n.num span:nth-child(3) { animation-delay: .16s }\n@keyframes numPop {\n  from {\n    opacity: 0;\n    filter: blur(6px);\n    transform: translateY(10px) scale(.5);\n  }\n  to {\n    opacity: 1;\n    filter: blur(0);\n    transform: none;\n  }\n}`,
   'Avatar Stack':`.stack {\n  display: flex;\n}\n.stack .avatar {\n  margin-left: -8px;\n  transition: all .25s\n    cubic-bezier(.34, 1.56, .64, 1);\n}\n.stack:hover .avatar {\n  margin-left: 4px;\n}\n.stack .avatar:hover {\n  transform: translateY(-6px) scale(1.15);\n  z-index: 2;\n}`,
   '3D Card Hover':`card.addEventListener("mousemove", e => {\n  const r = card.getBoundingClientRect();\n  const x = (e.clientX - r.left) / r.width - .5;\n  const y = (e.clientY - r.top) / r.height - .5;\n  card.style.transform =\n    \`rotateY(\${x*20}deg) rotateX(\${-y*20}deg)\`;\n});\ncard.addEventListener("mouseleave", () => {\n  card.style.transform = "none";\n});\n\n/* parent needs: perspective: 400px */`,
+  'Scan Line':`.scan {\n  position: relative;\n  overflow: hidden;\n}\n.scan::after {\n  content: "";\n  position: absolute;\n  left: 0; right: 0;\n  height: 2px;\n  background: var(--accent);\n  box-shadow:\n    0 0 12px 4px rgba(245,158,11,.5),\n    0 0 30px 8px rgba(245,158,11,.2);\n  animation: scanLine 3s\n    ease-in-out infinite;\n}\n@keyframes scanLine {\n  0%, 100% { top: -2px; opacity: 0 }\n  10%      { opacity: 1 }\n  50%      { top: 100%; opacity: 1 }\n  60%,100% { opacity: 0 }\n}`,
 
   // ── New batch ──
   'Confetti Button':`function confetti(btn) {\n  const colors = ['#f59e0b','#fcd34d','#fbbf24'];\n  for (let i = 0; i < 12; i++) {\n    const p = document.createElement('span');\n    const angle = Math.random() * Math.PI * 2;\n    const dist = 40 + Math.random() * 40;\n    p.style.cssText = \`\n      --cx: \${Math.cos(angle)*dist}px;\n      --cy: \${Math.sin(angle)*dist}px;\n      background: \${colors[i%3]};\n    \`;\n    p.className = 'particle';\n    btn.appendChild(p);\n  }\n}\n@keyframes fly {\n  0%   { transform: translate(0,0) scale(1); opacity:1 }\n  100% { transform: translate(var(--cx),var(--cy)) scale(0); opacity:0 }\n}`,

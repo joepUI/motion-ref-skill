@@ -27,7 +27,7 @@
 
 ---
 
-AI agent skill for UI motion design. 108 production-ready effects across 13 categories — describe your product scenario, get CSS/JS code you can ship. No motion design knowledge required.
+AI agent skill for UI motion design. 112 production-ready effects across 13 categories — describe your product scenario, get CSS/JS code you can ship. No motion design knowledge required.
 
 Works with Claude Code, Codex, OpenClaw, and any SKILL.md-compatible agent.
 
@@ -97,7 +97,7 @@ The skill will analyze your pages and suggest a combination of effects: scroll r
 
 | # | Category | Count | Highlights |
 |---|----------|-------|------------|
-| 1 | Loading & Waiting | 12 | Spinner, Skeleton Shimmer, Wave Bars, Typing Indicator, Hourglass, Lissajous |
+| 1 | Loading & Waiting | 15 | Spinner, Skeleton Shimmer, Wave Bars, Typing Indicator, Rose Curve, Lemniscate |
 | 2 | Button & Click Feedback | 9 | Press Scale, Ripple, Success Check, Error Shake, Confetti |
 | 3 | Text & Data | 10 | Typewriter, Number Counter, Flip Counter, Shimmer Text, Gradient Text |
 | 4 | Overlay & Popup | 10 | Modal, Bottom Sheet, Toast, Tooltip, Drawer, Command Palette |
@@ -107,13 +107,13 @@ The skill will analyze your pages and suggest a combination of effects: scroll r
 | 8 | Icon & Badge | 10 | Hamburger/Close, SVG Draw, Badge Bounce, Heart Like, Bell Shake, Copy Check |
 | 9 | Carousel & List | 8 | Carousel, Card Stack, Drag Reorder, Accordion, Avatar Stack, Swipe Action |
 | 10 | State Change | 7 | Theme Toggle, Error Recovery, Online Status, Favorite Star, Read/Unread |
-| 11 | Atmosphere & Background | 7 | Gradient Flow, Particles, Magnetic Cursor, 3D Card Hover, Light Sweep |
+| 11 | Atmosphere & Background | 8 | Gradient Flow, Particles, Magnetic Cursor, 3D Card Hover, Light Sweep, Scan Line |
 | 12 | Data Visualization | 5 | Bar Chart Rise, Donut Chart, Gauge Meter, Sparkline Draw, Counter Card |
 | 13 | Enter & Exit | 8 | Fade In, Slide Up, Spring In, Stagger, Blur In, Collapse |
 
 ## Live Preview
 
-Browse all 108 effects with live demos: **https://joepui.github.io/motion-ref-skill/**
+Browse all 112 effects with live demos: **https://joepui.github.io/motion-ref-skill/**
 
 ## License
 
