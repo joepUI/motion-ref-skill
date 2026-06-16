@@ -74,25 +74,19 @@
 - **JS**：x = a·cos(t)/(1+sin²t)，y = a·sin(t)·cos(t)/(1+sin²t)
 - **要点**：不需要旋转，双纽线自身形态已经足够动态
 
-#### 1.12 Four-Petal Spiral 四瓣内旋轮线
-- **视觉**：R=4,r=1,d=3 的内旋轮线，四瓣花形 + 旋转 + 呼吸
-- **场景**：复杂运算加载、高端品牌
-- **JS**：x=(R-r)·cos(t)+d·cos((R-r)/r·t)，hypotrochoid 公式
-- **要点**：R 值决定花瓣数，d 值影响花瓣大小
-
-#### 1.13 Wave Bars 音频波形
+#### 1.12 Wave Bars 音频波形
 - **视觉**：竖条高低交替跳动，像音频波形/均衡器
 - **场景**：音频播放中、语音识别中
 - **CSS**：`animation: waveBar 1.2s ease-in-out infinite` + 每条不同 `animation-delay`
 - **要点**：4-5 条即可，高度用 `scaleY` 变化
 
-#### 1.14 Typing Indicator 输入提示
+#### 1.13 Typing Indicator 输入提示
 - **视觉**：三个圆点依次上下跳动
 - **场景**：聊天对话"对方正在输入"
 - **CSS**：`animation: typingDot 1.4s ease-in-out infinite` + 每点延迟 0.2s
 - **要点**：背景加圆角气泡框效果更好
 
-#### 1.15 Hourglass Rotate 沙漏翻转
+#### 1.14 Hourglass Rotate 沙漏翻转
 - **视觉**：沙漏 SVG 每隔一段时间翻转 180°
 - **场景**：等待处理、排队中
 - **CSS**：`animation: hourglassFlip 2s ease-in-out infinite`

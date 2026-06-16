@@ -27,7 +27,7 @@
 
 ---
 
-AI agent 技能，帮你给产品加动效。112 种效果，13 个分类 — 描述产品场景就能推荐方案 + 输出 CSS/JS 代码，不需要设计背景。
+AI agent 技能，帮你给产品加动效。111 种效果，13 个分类 — 描述产品场景就能推荐可落地的实现方案，不需要设计背景。
 
 适配 Claude Code、Codex、OpenClaw 及任何支持 SKILL.md 的 agent。
 
@@ -97,7 +97,7 @@ git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion
 
 | # | 分类 | 数量 | 代表效果 |
 |---|------|------|---------|
-| 1 | 加载与等待 | 15 | Spinner、骨架屏、波形跳动、玫瑰曲线、双纽线、四瓣螺线 |
+| 1 | 加载与等待 | 14 | Spinner、骨架屏、波形跳动、玫瑰曲线、双纽线 |
 | 2 | 按钮与点击反馈 | 9 | 按压缩小、涟漪、成功打勾、错误抖动、庆祝粒子 |
 | 3 | 文字与数据 | 10 | 打字机、数字滚动、翻牌计数、光泽文字、渐变文字 |
 | 4 | 弹层与浮层 | 10 | 弹窗、底部面板、Toast、Tooltip、抽屉、命令面板 |
@@ -113,7 +113,7 @@ git clone https://github.com/joepUI/motion-ref-skill.git ~/.claude/skills/motion
 
 ## 在线预览
 
-浏览全部 112 种动效的在线演示：**https://joepui.github.io/motion-ref-skill/**
+浏览全部 111 种动效的在线演示：**https://joepui.github.io/motion-ref-skill/**
 
 ## License
 
