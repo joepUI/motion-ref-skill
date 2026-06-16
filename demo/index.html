@@ -19,27 +19,6 @@ html{scroll-behavior:smooth;background:var(--bg);color:var(--text);font-family:s
 body{min-height:100vh}
 a{color:var(--accent);text-decoration:none}
 
-.gate-lock{overflow:hidden}
-.site-gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#000;touch-action:none;user-select:none;opacity:1;transition:opacity .4s ease}
-.site-gate.opening{pointer-events:none;opacity:0}
-.gate-card{position:relative;z-index:1}
-.gate-track{position:relative;width:min(520px,86vw);height:89px;padding:0;border:4px dashed rgb(196,196,196);border-radius:100px;background:#fff;cursor:pointer;overflow:visible;color:#000;touch-action:manipulation;-webkit-tap-highlight-color:transparent;outline:none}
-.gate-track:focus-visible{outline:0}
-.gate-shell{position:absolute;inset:1px;border-radius:201px;background:#fff;overflow:visible}
-.gate-green-mask{position:absolute;inset:0;border-radius:200px;overflow:hidden;z-index:1}
-.gate-arrow{position:absolute;right:440px;top:50%;width:56px;height:56px;border-radius:100px;background:linear-gradient(270deg,rgb(170,219,63) 0%,#AADB3F 100%);display:flex;align-items:center;justify-content:center;transform:translateY(-50%);transition:width 1s cubic-bezier(.42,0,.95,.84),background .2s cubic-bezier(.42,0,.95,.84)}
-.gate-arrow svg{width:34px;height:34px;stroke:#fff;stroke-width:3;fill:none}
-.gate-tear{position:absolute;left:0;top:0;bottom:0;width:1018px;border-radius:120px;overflow:hidden;z-index:2}
-.gate-tear-core{position:absolute;left:-2px;top:0;bottom:0;width:2px;background:rgb(225,225,225);overflow:hidden;transition:width 1s cubic-bezier(.42,0,.95,.84)}
-.gate-edge{position:absolute;right:0;top:0;bottom:0;width:30px;border-radius:0 100px 100px 0;background:rgb(241,241,241);overflow:hidden;z-index:1}
-.gate-edge::after{content:"";position:absolute;left:0;top:1px;bottom:1px;width:30px;background:linear-gradient(90deg,#D7D7D7 0%,#fff 49.099%,#f1f1f1 100%)}
-.gate-logo{position:absolute;left:200px;top:26px;width:103px;height:34px;display:block;opacity:0;transition:opacity .2s ease .35s}
-.gate-logo svg{width:100%;height:100%;display:block}
-.gate-label{position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);font-size:20px;font-weight:600;color:rgb(174,174,174);white-space:pre;z-index:3;pointer-events:none}
-.gate-track.opened .gate-arrow{width:48px;background:linear-gradient(270deg,rgb(170,219,63) 0%,hsl(79,55%,37%) 100%)}
-.gate-track.opened .gate-tear-core{width:500px}
-.gate-track.opened .gate-logo{opacity:1}
-.gate-track.opened .gate-label{opacity:0;transition:opacity .15s ease}
 
 .page{display:flex;min-height:100vh}
 .sidebar{position:fixed;top:0;left:0;width:220px;height:100vh;background:var(--surface);border-right:1px solid var(--border);padding:24px 0;overflow-y:auto;z-index:100}
@@ -815,27 +794,7 @@ a{color:var(--accent);text-decoration:none}
 }
 </style>
 </head>
-<body class="gate-lock">
-<div class="site-gate" id="siteGate" aria-label="Open site">
-  <div class="gate-card">
-    <button class="gate-track" id="gateTrack" type="button">
-      <span class="gate-shell" aria-hidden="true">
-        <span class="gate-green-mask">
-          <span class="gate-arrow">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </span>
-        <span class="gate-tear">
-          <span class="gate-tear-core">
-            <span class="gate-edge"></span>
-            <span class="gate-logo"><svg width="1212" height="401" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M231.169 2.02c29.48 6.058 46.386 35.56 42.219 72.763-5.108 45.607-20.802 83.195-37.579 111.76 13.055.685 26.033 5.431 36.334 15.684 10.429 10.38 16.62 24.905 18.728 42.399 1.519 12.614.475 26.036-1.064 38.386-.78 6.261-1.732 12.56-2.64 18.556l-.039.257c-.907 5.985-1.766 11.657-2.457 17.142-1.433 11.372-1.919 20.408-.947 27.335.932 6.644 2.891 9.289 4.7 10.671 3.14 2.397 8.826 4.601 17.806 5.4 8.767.781 19.218.088 30.314-1.88 15.775-2.798 31.287-7.879 43.261-13.427-12.342-17.763-17.441-39.329-17.492-59.787-.072-28.479 9.529-58.133 27.114-78.322 23.432-26.903 57.282-33.983 83.929-22.145 13.297 5.907 24.417 16.459 30.614 30.806 6.205 14.365 6.964 31.298 1.844 49.305-11.047 38.852-38.433 66.922-64.396 84.813 33.463 14.488 87.322 15.407 138.759-38.047-3.566-17.357-4.45-34.006-4.172-46.315.004-.199.012-.396.022-.593a18.505 18.505 0 0 1-.027-1.002c0-45.213 2.5-77.059 14.35-136.309 8.569-42.845 22.787-76.636 40.365-98.281C648.023 9.875 673.211-4.004 699.309 8.56c23.573 11.35 29.448 37.321 29.316 61.878-.139 25.674-6.686 58.066-16.79 94.189-17.093 61.107-67.51 128.81-89.731 156.835a18.163 18.163 0 0 1-1.987 2.131c.915 2.61 1.922 5.174 3.026 7.667 8.805 19.865 22.467 32.953 45.307 33.524 31.253.781 58.799-13.315 82.167-33.105 5.798-4.911 11.251-10.1 16.346-15.383a150.594 150.594 0 0 1-2.129-8.154 129.202 129.202 0 0 1-2.8-15.089c-3.255-22.76-2.783-47.554-.511-71.845 3.343-35.744 10.804-72.41 17.934-103.458 8.11-35.319 20.848-64.7 36.601-84.432 15.313-19.18 37.728-33.663 62.784-25.065 7.959 2.73 15.661 7.142 21.915 14.25 6.249 7.103 10.121 15.84 12.098 25.763 3.793 19.035.986 44.476-7.395 77.892-14.925 59.502-50.032 129.635-70.834 161.879-.157.243-.32.482-.486.716a18.283 18.283 0 0 1-1.196 2.06c-6.024 8.971-14.13 20.49-24.203 32.67 2.768 5.458 5.977 10.71 9.568 15.551 11.939 16.097 25.755 24.733 38.438 25.26 21.328.885 39.405-6.529 55.37-22.569 16.481-16.557 30.968-42.657 42.762-79.003.208-.642.45-1.265.721-1.867a18.05 18.05 0 0 1 .593-3.022c3.611-12.64 11.921-30.927 25.721-46.407 14.004-15.71 34.796-29.648 62.586-29.648.9 0 1.78.007 2.65.02.28-.013.56-.02.85-.02 5.37 0 10.46.386 15.27 1.118 6.37.82 12.03 2.066 17.16 3.656 9.73 3.011 16.84 7.031 22.48 10.433.89.535 1.72 1.035 2.49 1.503l.02.012v.001c4.36 2.651 7.06 4.285 10.42 5.591 3.4 1.318 7.88 2.385 15.19 2.192 23.02-.605 42.47-17.102 48.85-25.167 6.16-7.799 17.48-9.125 25.28-2.961 7.8 6.164 9.13 17.484 2.96 25.283-9.96 12.602-38.37 37.839-76.15 38.833-1.15.03-2.29.041-3.4.032 4.76 16.114 5.5 32.318 4.41 44.528-.5 17.789-5.53 44.039-19.61 66.898-14.72 23.902-39.66 44.318-78.07 46.03-18.81.839-35.17-3.221-48.554-11.922-13.323-8.665-22.372-21.072-28.092-34.755a98.054 98.054 0 0 1-2.928-7.975c-5.597 8.147-11.618 15.508-18.093 22.014-22.535 22.64-50.208 34.476-82.38 33.141-27.879-1.158-50.563-19.161-65.859-39.783a140.068 140.068 0 0 1-6.413-9.438 245.627 245.627 0 0 1-9.098 8.108c-27.216 23.05-63.086 42.704-106.333 41.623-38.424-.961-61.68-23.606-74.693-49.38-68.422 60.619-143.84 51.005-186.155 22.265-17.008 9.818-40.795 18.188-63.871 22.281-13.217 2.344-26.985 3.432-39.795 2.292-12.599-1.123-25.85-4.544-36.46-12.647-11.941-9.118-16.794-22.097-18.503-34.282-1.669-11.901-.624-24.896.881-36.837.748-5.935 1.665-11.992 2.549-17.826v-.004l.07-.46c.918-6.061 1.798-11.899 2.51-17.615 1.446-11.602 2.026-21.493 1.046-29.629-1.402-11.642-5.07-17.893-8.382-21.19-3.212-3.196-7.508-5.045-13.199-5.266-12.296-.475-29.18 7.057-41.291 21.411-10.833 12.839-20.803 37.094-28.892 65.293-7.872 27.439-13.227 55.884-16.065 74.773-1.476 9.831-10.643 16.603-20.474 15.127-9.831-1.477-16.603-10.644-15.126-20.475 2.476-16.484 6.761-39.876 12.928-64.069-10.187 7.64-21.361 15.434-32.37 22.825-24.304 16.317-49.396 31.712-65.157 40.948-8.577 5.026-19.605 2.148-24.63-6.429-5.027-8.577-2.149-19.604 6.428-24.631 15.239-8.93 39.697-23.935 63.293-39.777 24.045-16.143 45.665-32.152 56.376-43.214a18.04 18.04 0 0 1 3.661-2.913c1.315-12.472 2.64-25.838 4.009-39.653v-.001c1.66-16.755 3.386-34.171 5.24-51.456 2.634-24.569 5.515-48.698 8.804-69.584 3.233-20.538 7.042-39.186 11.841-52.13 12.384-33.4 40.506-52.365 69.046-46.5Zm827.081 216.53c-3.88-.48-8.41-.77-13.75-.77-14.61 0-26.32 7.063-35.71 17.603-9.604 10.769-15.594 23.982-17.983 32.342-.094.331-.197.656-.308.977a18.13 18.13 0 0 1-.471 3.674c-5.76 24.653-5.388 49.53 1.841 66.825 3.493 8.355 8.361 14.465 14.501 18.46 6.09 3.958 14.74 6.698 27.33 6.137 24.38-1.087 39.36-13.255 49.02-28.944 10.13-16.447 14-36.425 14.28-49.463l.02-.667.06-.665c1.19-12.357-.53-29.996-7.99-43.764-5.65-10.413-14.71-19.167-30.84-21.745Zm-255.193 52.196a449.083 449.083 0 0 1-6.343 9.204c-1.604-16.625-1.217-35.397.652-55.388 3.12-33.353 10.159-68.187 17.177-98.753 7.39-32.181 18.402-55.94 29.649-70.028 11.687-14.64 19.522-14.657 22.966-13.475 3.394 1.164 5.306 2.54 6.571 3.98 1.27 1.443 2.823 4.01 3.82 9.016 2.156 10.822 1.11 29.736-7.008 62.099-13.756 54.841-46.968 121.364-66.166 151.121a18.203 18.203 0 0 0-1.013 1.783c-.104.145-.205.292-.305.441Zm-191.061 4.528c23.443-32.178 53.617-79.044 65.169-120.343 9.896-35.376 15.349-63.985 15.46-84.685.118-21.819-5.507-27.598-8.934-29.248-3.902-1.879-12.214-2.897-25.03 12.886-12.548 15.45-25.079 42.992-33.01 82.647C614.254 193.511 612 222.993 612 265.779c0 .335-.009.668-.027.998.025.465.033.934.022 1.408-.05 2.23-.052 4.603.001 7.088ZM173.47 211.099c20.109-22.267 56.353-70.779 64.142-140.323 2.833-25.298-8.283-32.381-13.688-33.492-6.346-1.304-19.974 1.98-28.047 23.753-3.451 9.307-6.83 24.867-10.034 45.214-3.149 20-5.955 43.433-8.571 67.822-1.306 12.181-2.568 24.649-3.802 37.026Zm237.403 117.435c-8.278-10.732-12.52-25.23-12.561-41.346-.053-21.303 7.346-42.055 18.261-54.586 14.011-16.086 31.255-17.738 42.168-12.89 5.484 2.436 9.762 6.582 12.18 12.182 2.412 5.583 3.489 13.847.265 25.183-9.436 33.186-36.273 57.455-60.313 71.457Z" fill="#8E8E8E"/></svg></span>
-          </span>
-        </span>
-      </span>
-      <span class="gate-label">Tear open</span>
-    </button>
-  </div>
-</div>
+<body>
 <div class="page">
   <aside class="sidebar">
     <div class="logo">
@@ -1086,32 +1045,6 @@ a{color:var(--accent);text-decoration:none}
 </div>
 
 <script>
-// ── Site Gate ──
-(function(){
-  const gate=document.getElementById('siteGate');
-  const track=document.getElementById('gateTrack');
-  if(!gate||!track)return;
-  let opened=false;
-  function enterSite(){
-    if(gate.classList.contains('opening'))return;
-    gate.classList.add('opening');
-    document.body.classList.remove('gate-lock');
-    window.setTimeout(()=>gate.remove(),420);
-  }
-  function openSite(){
-    if(opened)return;
-    opened=true;
-    track.classList.add('opened');
-    window.setTimeout(enterSite,2500);
-  }
-  track.addEventListener('click',openSite);
-  window.addEventListener('keydown',e=>{
-    if(e.key==='Enter'||e.key===' '){
-      const active=document.activeElement;
-      if(active===track||active===document.body)openSite();
-    }
-  });
-})();
 
 // ── Back to top ──
 const backTop=document.getElementById('backTop');
