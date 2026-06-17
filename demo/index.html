@@ -745,7 +745,7 @@ a{color:var(--accent);text-decoration:none}
 
 /* Hourglass Rotate */
 .hourglass-demo{display:flex;align-items:center;justify-content:center}
-.hourglass-svg{animation:hourglassFlip 2s ease-in-out infinite}
+.hourglass-svg{width:32px;height:32px;color:var(--accent);animation:hourglassFlip 2s ease-in-out infinite;transform-origin:center}
 @keyframes hourglassFlip{0%{transform:rotate(0deg)}50%{transform:rotate(180deg)}50.01%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}
 
 /* Online Status */
@@ -844,7 +844,7 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="spin-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="info"><h3>Spinner Dots</h3><p>圆点围环依次高亮</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="wave-bars"><span></span><span></span><span></span><span></span><span></span></div></div><div class="info"><h3>Wave Bars</h3><p>音频波形跳动</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="typing-demo"><span></span><span></span><span></span></div></div><div class="info"><h3>Typing Indicator</h3><p>聊天输入中提示</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="hourglass-demo"><svg class="hourglass-svg" width="28" height="36" viewBox="0 0 28 36" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round"><path d="M4 2h20M4 34h20"/><path d="M6 2v8l8 8-8 8v8M22 2v8l-8 8 8 8v8"/></svg></div></div><div class="info"><h3>Hourglass Rotate</h3><p>沙漏翻转等待</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="hourglass-demo"><svg class="hourglass-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 2h12v6h-.01L14 12l3.99 4H18v6H6v-6h.01L10 12 6.01 8H6V2Zm2 2v3.17l4 4 4-4V4H8Zm4 8.83-4 4V20h8v-3.17l-4-4Z"/></svg></div></div><div class="info"><h3>Hourglass Rotate</h3><p>沙漏翻转等待</p><span class="tag">SVG</span></div></div>
         <div class="card"><div class="preview"><div class="math-loader" id="mlRose2"><svg viewBox="0 0 100 100"></svg></div></div><div class="info"><h3>Rose Two</h3><p>双瓣玫瑰曲线</p><span class="tag">SVG</span></div></div>
         <div class="card"><div class="preview"><div class="math-loader" id="mlRose3"><svg viewBox="0 0 100 100"></svg></div></div><div class="info"><h3>Rose Three</h3><p>三瓣玫瑰曲线</p><span class="tag">SVG</span></div></div>
         <div class="card"><div class="preview"><div class="math-loader" id="mlLemniscate"><svg viewBox="0 0 100 100"></svg></div></div><div class="info"><h3>Lemniscate</h3><p>伯努利双纽线</p><span class="tag">SVG</span></div></div>
