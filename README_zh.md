@@ -12,12 +12,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/joepUI/motion-ref-skill/stargazers"><img src="https://img.shields.io/github/stars/joepUI/motion-ref-skill?style=flat-square&color=yellow" alt="Stars"></a>
-  <a href="https://github.com/joepUI/motion-ref-skill/commits/main"><img src="https://img.shields.io/github/last-commit/joepUI/motion-ref-skill?style=flat-square" alt="Last Commit"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/joepUI/motion-ref-skill?style=flat-square" alt="License"></a>
-</p>
-
-<p align="center">
   <a href="#安装">安装</a> •
   <a href="#使用">使用</a> •
   <a href="#动效分类">分类</a> •
