@@ -21,7 +21,7 @@
 
 ---
 
-AI agent skill for UI motion design. 111 production-ready effects across 13 categories — describe your product scenario, get implementation guidance you can ship. No motion design knowledge required.
+AI agent skill for UI motion design. 119 production-ready effects across 13 categories — describe your product scenario, get implementation guidance you can ship. No motion design knowledge required.
 
 Works with Claude Code, Codex, OpenClaw, and any SKILL.md-compatible agent.
 
@@ -102,12 +102,12 @@ The skill will analyze your pages and suggest a combination of effects: scroll r
 | 9 | Carousel & List | 8 | Carousel, Card Stack, Drag Reorder, Accordion, Avatar Stack, Swipe Action |
 | 10 | State Change | 7 | Theme Toggle, Error Recovery, Online Status, Favorite Star, Read/Unread |
 | 11 | Atmosphere & Background | 8 | Gradient Flow, Particles, Magnetic Cursor, 3D Card Hover, Light Sweep, Scan Line |
-| 12 | Data Visualization | 5 | Bar Chart Rise, Donut Chart, Gauge Meter, Sparkline Draw, Counter Card |
+| 12 | Data Visualization | 12 | Bar Chart Rise, Radial Bars, Scatter Pop, Density Curve, Pie Slice Reveal, Radar Sweep |
 | 13 | Enter & Exit | 8 | Fade In, Slide Up, Spring In, Stagger, Blur In, Collapse |
 
 ## Live Preview
 
-Browse all 111 effects with live demos: **https://joepui.github.io/motion-ref-skill/**
+Browse all 119 effects with live demos: **https://joepui.github.io/motion-ref-skill/**
 
 ## License
 

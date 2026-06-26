@@ -608,7 +608,7 @@ a{color:var(--accent);text-decoration:none}
 .card3d-demo{width:70%;height:60px;background:linear-gradient(135deg,var(--accent2),var(--accent));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600;transition:transform .15s ease;transform-style:preserve-3d;cursor:pointer}
 
 
-/* ═══ 13. 数据可视化 ═══ */
+/* ═══ 12. 数据可视化 ═══ */
 .bar-chart{display:flex;align-items:end;gap:6px;height:80px}
 .bar-col{width:16px;border-radius:3px 3px 0 0;animation:barRise 1.5s ease infinite alternate}
 .bar-col:nth-child(1){background:#f4f4f5;animation-delay:0s}
@@ -635,17 +635,59 @@ a{color:var(--accent);text-decoration:none}
 @keyframes gaugeArc{from{stroke-dashoffset:100.5}to{stroke-dashoffset:20}}
 @keyframes needleRot{from{transform:rotate(-90deg)}to{transform:rotate(54deg)}}
 
-.sparkline-demo{width:80%;height:40px}
+.sparkline-demo{width:80%;height:58px}
 .sparkline-demo svg{width:100%;height:100%}
-.sparkline-path{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-linecap:round;stroke-dasharray:200;stroke-dashoffset:200;animation:sparkDraw 2s ease forwards infinite}
-.sparkline-area{fill:url(#sparkGrad);opacity:0;animation:sparkFade 2s ease forwards infinite}
-@keyframes sparkDraw{0%{stroke-dashoffset:200}60%,100%{stroke-dashoffset:0}}
-@keyframes sparkFade{0%,40%{opacity:0}60%,100%{opacity:.3}}
+.sparkline-path{fill:none;stroke:var(--accent);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.sparkline-area{fill:url(#sparkGrad);opacity:.28}
 
 .counter-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;text-align:center;min-width:90px}
 .counter-card .counter-val{font-size:24px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
 .counter-card .counter-lbl{font-size:10px;color:var(--text3);margin-top:2px}
 .counter-card .counter-trend{font-size:10px;color:var(--success);margin-top:4px}
+
+.hbar-chart{width:78%;height:82px;display:flex;flex-direction:column;justify-content:center;gap:8px;border-left:1px solid #383941;padding-left:0}
+.hbar{height:9px;border-radius:0 4px 4px 0;background:linear-gradient(90deg,#73747c,#d7d7dc);transform-origin:left;transform:scaleX(.05);animation:hbarReveal 2.4s ease-in-out infinite}
+.hbar:nth-child(2){animation-delay:.08s;opacity:.82}.hbar:nth-child(3){animation-delay:.16s;opacity:.68}.hbar:nth-child(4){animation-delay:.24s;opacity:.56}.hbar:nth-child(5){animation-delay:.32s;opacity:.44}
+@keyframes hbarReveal{0%,8%{transform:scaleX(.05)}55%,86%{transform:scaleX(1)}100%{transform:scaleX(.05)}}
+
+.scrubber-demo{width:82%;height:92px;position:relative}
+.scrubber-demo svg{width:100%;height:100%;overflow:visible}
+.scrub-base{fill:none;stroke:#3a3b42;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.scrub-active{fill:none;stroke:#f4f4f5;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;animation:scrubDraw 2.8s linear infinite}
+.scrub-guide{stroke:#73747c;stroke-width:1.1;opacity:.75}
+.scrub-dot{fill:#f4f4f5;filter:drop-shadow(0 0 8px rgba(244,244,245,.28))}
+.scrub-value{fill:#f4f4f5;font-size:10px;font-weight:700;font-variant-numeric:tabular-nums}
+@keyframes scrubDraw{0%{stroke-dashoffset:100}68%,100%{stroke-dashoffset:0}}
+
+.radial-bars{width:76px;height:76px;transform:rotate(-90deg)}
+.radial-bars .track{fill:none;stroke:#25262b;stroke-width:7}
+.radial-bars .ring{fill:none;stroke-linecap:round;stroke-width:7;stroke-dasharray:100;stroke-dashoffset:100;animation:radialDraw 2.4s ease-in-out infinite}
+.radial-bars .r1{stroke:#f4f4f5;animation-delay:0s}.radial-bars .r2{stroke:#b7b7bf;animation-delay:.12s}.radial-bars .r3{stroke:#777982;animation-delay:.24s}
+@keyframes radialDraw{0%,8%{stroke-dashoffset:100}58%,86%{stroke-dashoffset:var(--off)}100%{stroke-dashoffset:100}}
+
+.scatter-chart{width:82%;height:88px}
+.scatter-chart svg{width:100%;height:100%;overflow:visible}
+.scatter-axis{stroke:#383941;stroke-width:1.2}
+.scatter-point{fill:#d7d7dc;opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2);animation:scatterPop 2.4s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes scatterPop{0%,10%{opacity:0;transform:scale(.2)}38%,82%{opacity:.92;transform:scale(1)}100%{opacity:0;transform:scale(.2)}}
+
+.density-chart{width:82%;height:76px}
+.density-chart svg{width:100%;height:100%}
+.density-path{fill:none;stroke-width:2.3;stroke-linecap:round}
+.density-fill{opacity:.18}
+
+.pie-demo{width:76px;height:76px;border-radius:50%;background:conic-gradient(#f4f4f5 0 var(--a1),#b7b7bf var(--a1) var(--a2),#71717a var(--a2) var(--a3),#3f4047 var(--a3) var(--a4),transparent var(--a4) 360deg);animation:pieReveal 2.6s ease-in-out infinite}
+@property --a1{syntax:"<angle>";inherits:false;initial-value:0deg}
+@property --a2{syntax:"<angle>";inherits:false;initial-value:0deg}
+@property --a3{syntax:"<angle>";inherits:false;initial-value:0deg}
+@property --a4{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes pieReveal{0%{--a1:0deg;--a2:0deg;--a3:0deg;--a4:0deg}30%{--a1:122deg;--a2:122deg;--a3:122deg;--a4:122deg}48%{--a1:122deg;--a2:223deg;--a3:223deg;--a4:223deg}64%{--a1:122deg;--a2:223deg;--a3:295deg;--a4:295deg}80%,100%{--a1:122deg;--a2:223deg;--a3:295deg;--a4:360deg}}
+
+.radar-demo{width:86px;height:86px}
+.radar-demo svg{width:100%;height:100%}
+.radar-grid{fill:none;stroke:#2f3037;stroke-width:1}
+.radar-shape{fill:#d7d7dc;fill-opacity:.18;stroke:#f4f4f5;stroke-width:2;transform-origin:50px 50px;transform-box:view-box;animation:radarSweep 2.2s ease-in-out infinite alternate}
+@keyframes radarSweep{from{transform:scale(.1);opacity:.2}to{transform:scale(1);opacity:1}}
 
 /* new effects for existing categories */
 .confetti-btn{position:relative;overflow:visible}
@@ -821,7 +863,7 @@ a{color:var(--accent);text-decoration:none}
     <div class="hero">
       <div class="hero-copy">
         <h2>Modern UI Motion Reference</h2>
-        <p>111 production-ready animation effects across 13 categories.</p>
+        <p>119 production-ready animation effects across 13 categories.</p>
       </div>
       <a class="github-link" href="https://github.com/joepUI/motion-ref-skill" target="_blank" rel="noopener" aria-label="Open motion-ref-skill on GitHub">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -875,7 +917,7 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="fade-words"><span>Design</span><span>is</span><span>how</span><span>it</span></div></div><div class="info"><h3>Fade Up Words</h3><p>逐词淡入上升</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="num-counter" data-target="12847">0</div></div><div class="info"><h3>Number Counter</h3><p>数字从 0 滚动到目标</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><span class="highlight-text">重点内容高亮</span></div><div class="info"><h3>Text Highlight</h3><p>荧光笔划过文字</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref Updated</span><span>·</span><span>111 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref Updated</span><span>·</span><span>111 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="ticker-wrap"><div class="ticker-track"><span>Breaking News</span><span>·</span><span>Motion Ref Updated</span><span>·</span><span>119 Modern Effects</span><span>·</span><span>Breaking News</span><span>·</span><span>Motion Ref Updated</span><span>·</span><span>119 Modern Effects</span><span>·</span></div></div></div><div class="info"><h3>Ticker</h3><p>无限循环滚动字幕</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="scramble-text">MOTION</div></div><div class="info"><h3>Scramble Text</h3><p>字符打散重组</p><span class="tag">JS</span></div></div>
         <div class="card"><div class="preview"><div class="flip-counter"><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>5</span></div><div class="flip-digit"><span>:</span></div><div class="flip-digit"><span>0</span></div><div class="flip-digit"><span>0</span></div></div></div><div class="info"><h3>Flip Counter</h3><p>翻牌计数器</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><div class="shimmer-text">Shimmer Effect</div></div><div class="info"><h3>Shimmer Text</h3><p>渐变光扫过文字</p><span class="tag">CSS</span></div></div>
@@ -1013,8 +1055,15 @@ a{color:var(--accent);text-decoration:none}
         <div class="card"><div class="preview"><div class="bar-chart"><div class="bar-col" style="--h:70%"></div><div class="bar-col" style="--h:45%"></div><div class="bar-col" style="--h:85%"></div><div class="bar-col" style="--h:55%"></div><div class="bar-col" style="--h:90%"></div><div class="bar-col" style="--h:40%"></div></div></div><div class="info"><h3>Bar Chart Rise</h3><p>柱状图从底部升起</p><span class="tag">CSS</span></div></div>
         <div class="card"><div class="preview"><svg class="donut-chart" viewBox="0 0 48 48"><circle class="donut-bg" cx="24" cy="24" r="18"/><circle class="donut-fg" cx="24" cy="24" r="18"/><circle class="donut-fg2" cx="24" cy="24" r="18" stroke-dashoffset="73"/></svg></div><div class="info"><h3>Donut Chart</h3><p>环形图弧线绘制</p><span class="tag">SVG</span></div></div>
         <div class="card"><div class="preview"><div class="gauge-demo"><svg viewBox="0 0 80 50"><path class="gauge-arc-bg" d="M8 40 A32 32 0 0 1 72 40"/><path class="gauge-arc-fg" d="M8 40 A32 32 0 0 1 72 40"/><line class="gauge-needle-line" x1="40" y1="40" x2="40" y2="10"/><circle class="gauge-needle-dot" cx="40" cy="40" r="3"/></svg></div></div><div class="info"><h3>Gauge Meter</h3><p>仪表盘指针旋转</p><span class="tag">CSS</span></div></div>
-        <div class="card"><div class="preview"><div class="sparkline-demo"><svg viewBox="0 0 120 40" preserveAspectRatio="none"><defs><linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent)" stop-opacity=".4"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs><path class="sparkline-area" d="M0 40 L0 28 L15 22 L30 30 L45 12 L60 18 L75 8 L90 14 L105 6 L120 10 L120 40 Z"/><path class="sparkline-path" d="M0 28 L15 22 L30 30 L45 12 L60 18 L75 8 L90 14 L105 6 L120 10"/></svg></div></div><div class="info"><h3>Sparkline Draw</h3><p>迷你折线图描边</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="sparkline-demo"><svg viewBox="0 0 120 58" preserveAspectRatio="none"><defs><linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent)" stop-opacity=".34"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/></linearGradient><clipPath id="sparkClip"><rect x="0" y="0" width="0" height="58"><animate attributeName="width" values="0;120;120" keyTimes="0;.7;1" dur="2.2s" repeatCount="indefinite"/></rect></clipPath></defs><g clip-path="url(#sparkClip)"><path class="sparkline-area" d="M0 58 L0 38 L15 32 L30 39 L45 20 L60 27 L75 14 L90 22 L105 11 L120 16 L120 58 Z"/><path class="sparkline-path" d="M0 38 L15 32 L30 39 L45 20 L60 27 L75 14 L90 22 L105 11 L120 16"/></g></svg></div></div><div class="info"><h3>Sparkline Draw</h3><p>迷你折线图描边</p><span class="tag">SVG</span></div></div>
         <div class="card"><div class="preview"><div class="counter-card"><div class="counter-val" id="counterCard">0</div><div class="counter-lbl">Active Users</div><div class="counter-trend">+12.5%</div></div></div><div class="info"><h3>Counter Card</h3><p>统计卡片数字滚动</p><span class="tag">JS</span></div></div>
+        <div class="card"><div class="preview"><div class="hbar-chart"><div class="hbar" style="width:92%"></div><div class="hbar" style="width:74%"></div><div class="hbar" style="width:58%"></div><div class="hbar" style="width:46%"></div><div class="hbar" style="width:34%"></div></div></div><div class="info"><h3>Horizontal Bar Reveal</h3><p>横向条形依次展开</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="scrubber-demo"><svg viewBox="0 0 180 92"><path class="scrub-base" pathLength="100" d="M4 66 L23 55 L42 61 L61 42 L80 49 L99 31 L118 38 L137 24 L156 34 L176 18"/><path class="scrub-active" pathLength="100" d="M4 66 L23 55 L42 61 L61 42 L80 49 L99 31 L118 38 L137 24 L156 34 L176 18"/><g><line class="scrub-guide" x1="0" y1="0" x2="0" y2="64"/><circle class="scrub-dot" cx="0" cy="0" r="5.5"/><text class="scrub-value" x="-6" y="-10">70</text><animateMotion dur="2.8s" repeatCount="indefinite" path="M4 66 L23 55 L42 61 L61 42 L80 49 L99 31 L118 38 L137 24 L156 34 L176 18" keyPoints="0;1;1" keyTimes="0;.68;1" calcMode="linear"/></g></svg></div></div><div class="info"><h3>Scrubber Line</h3><p>拖动播放头取值</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><svg class="radial-bars" viewBox="0 0 80 80"><circle class="track" cx="40" cy="40" r="31"/><circle class="track" cx="40" cy="40" r="23"/><circle class="track" cx="40" cy="40" r="15"/><circle class="ring r1" pathLength="100" style="--off:26" cx="40" cy="40" r="31"/><circle class="ring r2" pathLength="100" style="--off:38" cx="40" cy="40" r="23"/><circle class="ring r3" pathLength="100" style="--off:54" cx="40" cy="40" r="15"/></svg></div><div class="info"><h3>Radial Bars</h3><p>多条进度环叠加</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="scatter-chart"><svg viewBox="0 0 160 88"><line class="scatter-axis" x1="14" y1="8" x2="14" y2="74"/><line class="scatter-axis" x1="14" y1="74" x2="146" y2="74"/><circle class="scatter-point" style="--d:0s" cx="24" cy="68" r="2.1"/><circle class="scatter-point" style="--d:.04s" cx="34" cy="60" r="2.2"/><circle class="scatter-point" style="--d:.08s" cx="44" cy="63" r="2"/><circle class="scatter-point" style="--d:.12s" cx="54" cy="52" r="2.4"/><circle class="scatter-point" style="--d:.16s" cx="65" cy="48" r="2.2"/><circle class="scatter-point" style="--d:.2s" cx="76" cy="55" r="2.1"/><circle class="scatter-point" style="--d:.24s" cx="85" cy="40" r="2.5"/><circle class="scatter-point" style="--d:.28s" cx="94" cy="35" r="2.2"/><circle class="scatter-point" style="--d:.32s" cx="103" cy="43" r="2.3"/><circle class="scatter-point" style="--d:.36s" cx="112" cy="31" r="2.4"/><circle class="scatter-point" style="--d:.4s" cx="121" cy="38" r="2.1"/><circle class="scatter-point" style="--d:.44s" cx="132" cy="26" r="2.4"/><circle class="scatter-point" style="--d:.48s" cx="140" cy="34" r="2.2"/></svg></div></div><div class="info"><h3>Scatter Pop</h3><p>散点按分布弹入</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="density-chart"><svg viewBox="0 0 160 76"><defs><clipPath id="densityClip"><rect x="0" y="0" width="0" height="76"><animate attributeName="width" values="0;160;160" keyTimes="0;.68;1" dur="2.5s" repeatCount="indefinite"/></rect></clipPath></defs><g clip-path="url(#densityClip)"><path class="density-fill" fill="#d7d7dc" d="M4 66 C28 66 36 62 46 34 C56 6 76 6 86 34 C96 62 110 66 156 66 L156 72 L4 72 Z"/><path class="density-fill" fill="#8a8a94" d="M4 66 C40 66 56 62 68 42 C82 18 104 18 118 42 C130 62 140 66 156 66 L156 72 L4 72 Z"/><path class="density-path" stroke="#f4f4f5" d="M4 66 C28 66 36 62 46 34 C56 6 76 6 86 34 C96 62 110 66 156 66"/><path class="density-path" stroke="#8a8a94" d="M4 66 C40 66 56 62 68 42 C82 18 104 18 118 42 C130 62 140 66 156 66"/></g></svg></div></div><div class="info"><h3>Density Curve</h3><p>平滑分布曲线对比</p><span class="tag">SVG</span></div></div>
+        <div class="card"><div class="preview"><div class="pie-demo"></div></div><div class="info"><h3>Pie Slice Reveal</h3><p>少量占比扇区展开</p><span class="tag">CSS</span></div></div>
+        <div class="card"><div class="preview"><div class="radar-demo"><svg viewBox="0 0 100 100"><polygon class="radar-grid" points="50,8 87,29 87,71 50,92 13,71 13,29"/><polygon class="radar-grid" points="50,22 75,36 75,64 50,78 25,64 25,36"/><line class="radar-grid" x1="50" y1="8" x2="50" y2="92"/><line class="radar-grid" x1="13" y1="29" x2="87" y2="71"/><line class="radar-grid" x1="87" y1="29" x2="13" y2="71"/><polygon class="radar-shape" points="50,18 72,38 78,68 50,72 28,64 31,39"/></svg></div></div><div class="info"><h3>Radar Sweep</h3><p>多维评分多边形扩展</p><span class="tag">SVG</span></div></div>
       </div>
     </section>
 
@@ -1561,8 +1610,15 @@ const codeSnippets={
   'Bar Chart Rise':`.bar-col {\n  border-radius: 3px 3px 0 0;\n  animation: barRise 1s ease\n    forwards;\n}\n@keyframes barRise {\n  from { height: 0 }\n  to   { height: var(--h) }\n}\n\n/* stagger with delay */\n.bar-col:nth-child(2) {\n  animation-delay: .1s;\n}\n.bar-col:nth-child(3) {\n  animation-delay: .2s;\n}`,
   'Donut Chart':`<svg viewBox="0 0 48 48">\n  <circle cx="24" cy="24" r="22"\n    fill="none" stroke="#2a2a32"\n    stroke-width="6"/>\n  <circle cx="24" cy="24" r="22"\n    fill="none" stroke="var(--accent)"\n    stroke-width="6"\n    stroke-linecap="round"\n    stroke-dasharray="138.2"\n    stroke-dashoffset="138.2"\n    transform="rotate(-90 24 24)">\n    <animate attributeName="stroke-dashoffset"\n      to="48" dur="1.5s" fill="freeze"/>\n  </circle>\n</svg>`,
   'Gauge Meter':`.gauge-needle {\n  transform-origin: bottom center;\n  animation: needle 2.5s\n    ease-in-out infinite alternate;\n}\n@keyframes needle {\n  from { transform: rotate(-60deg) }\n  to   { transform: rotate(60deg) }\n}\n\n/* JS: set rotation based on value */\nconst deg = -60 + (value / max) * 120;\nneedle.style.transform =\n  \`rotate(\${deg}deg)\`;`,
-  'Sparkline Draw':`svg .line {\n  fill: none;\n  stroke: var(--accent);\n  stroke-width: 1.5;\n  stroke-dasharray: var(--len);\n  stroke-dashoffset: var(--len);\n  animation: draw 2s ease forwards;\n}\n@keyframes draw {\n  to { stroke-dashoffset: 0 }\n}\n\n/* JS: set --len */\npath.style.setProperty(\n  "--len", path.getTotalLength()\n);`,
+  'Sparkline Draw':`<clipPath id="sparkClip">\n  <rect x="0" y="0" width="0" height="58">\n    <animate attributeName="width"\n      values="0;120;120"\n      keyTimes="0;.7;1"\n      dur="2.2s"\n      repeatCount="indefinite"/>\n  </rect>\n</clipPath>\n<g clip-path="url(#sparkClip)">\n  <path class="sparkline-area" d="..."/>\n  <path class="sparkline-path" d="..."/>\n</g>`,
   'Counter Card':`function animateCounter(el, target) {\n  const dur = 2000;\n  const start = performance.now();\n  (function tick(now) {\n    const t = Math.min(\n      (now - start) / dur, 1\n    );\n    const ease = 1 - Math.pow(1 - t, 3);\n    el.textContent = Math.floor(\n      ease * target\n    ).toLocaleString();\n    if (t < 1) requestAnimationFrame(tick);\n  })(start);\n}`,
+  'Horizontal Bar Reveal':`.hbar {\n  transform-origin: left;\n  transform: scaleX(.05);\n  animation: hbarReveal 2.4s ease-in-out infinite;\n}\n.hbar:nth-child(2) { animation-delay: 80ms }\n.hbar:nth-child(3) { animation-delay: 160ms }\n@keyframes hbarReveal {\n  0%, 8%   { transform: scaleX(.05) }\n  55%, 86% { transform: scaleX(1) }\n  100%     { transform: scaleX(.05) }\n}`,
+  'Scrubber Line':`<path class="scrub-base" pathLength="100" d="M4 66 L23 55 ..."/>\n<path class="scrub-active" pathLength="100" d="M4 66 L23 55 ..."/>\n<g>\n  <line class="scrub-guide" x1="0" y1="0" x2="0" y2="64"/>\n  <circle class="scrub-dot" cx="0" cy="0" r="5.5"/>\n  <text class="scrub-value" x="-6" y="-10">70</text>\n  <animateMotion dur="2.8s" repeatCount="indefinite"\n    path="M4 66 L23 55 ..."\n    keyPoints="0;1;1" keyTimes="0;.68;1"/>\n</g>\n\n.scrub-active {\n  stroke-dasharray: 100;\n  stroke-dashoffset: 100;\n  animation: scrubDraw 2.8s linear infinite;\n}\n@keyframes scrubDraw {\n  0% { stroke-dashoffset: 100 }\n  68%, 100% { stroke-dashoffset: 0 }\n}`,
+  'Radial Bars':`<circle class="ring" pathLength="100"\n  style="--off:26" cx="40" cy="40" r="31"/>\n\n.ring {\n  fill: none;\n  stroke-linecap: round;\n  stroke-dasharray: 100;\n  stroke-dashoffset: 100;\n  animation: radialDraw 2.4s ease-in-out infinite;\n}\n@keyframes radialDraw {\n  0%, 8%   { stroke-dashoffset: 100 }\n  58%, 86% { stroke-dashoffset: var(--off) }\n  100%     { stroke-dashoffset: 100 }\n}`,
+  'Scatter Pop':`<svg viewBox="0 0 160 88">\n  <line class="axis" x1="14" y1="8" x2="14" y2="74"/>\n  <line class="axis" x1="14" y1="74" x2="146" y2="74"/>\n  <circle class="point" style="--d:0s" cx="24" cy="68" r="2.1"/>\n  <circle class="point" style="--d:.04s" cx="34" cy="60" r="2.2"/>\n  <!-- more points follow the distribution -->\n</svg>\n\n.point {\n  opacity: 0;\n  transform-box: fill-box;\n  transform-origin: center;\n  transform: scale(.2);\n  animation: scatterPop 2.4s ease-in-out infinite;\n  animation-delay: var(--d);\n}\n@keyframes scatterPop {\n  0%, 10% { opacity: 0; transform: scale(.2) }\n  38%, 82% { opacity: .92; transform: scale(1) }\n  100% { opacity: 0; transform: scale(.2) }\n}`,
+  'Density Curve':`<clipPath id="densityClip">\n  <rect x="0" y="0" width="0" height="76">\n    <animate attributeName="width"\n      values="0;160;160"\n      keyTimes="0;.68;1"\n      dur="2.5s"\n      repeatCount="indefinite"/>\n  </rect>\n</clipPath>\n<g clip-path="url(#densityClip)">\n  <path class="density-fill" d="..."/>\n  <path class="density-fill" d="..."/>\n  <path class="density-path" d="..."/>\n  <path class="density-path" d="..."/>\n</g>`,
+  'Pie Slice Reveal':`.pie {\n  border-radius: 50%;\n  background: conic-gradient(\n    #f4f4f5 0 var(--a1),\n    #b7b7bf var(--a1) var(--a2),\n    #71717a var(--a2) var(--a3),\n    #3f4047 var(--a3) var(--a4),\n    transparent var(--a4) 360deg\n  );\n  animation: pieReveal 2.6s ease-in-out infinite;\n}\n@property --a1 { syntax: "<angle>"; inherits: false; initial-value: 0deg }\n@property --a2 { syntax: "<angle>"; inherits: false; initial-value: 0deg }\n@property --a3 { syntax: "<angle>"; inherits: false; initial-value: 0deg }\n@property --a4 { syntax: "<angle>"; inherits: false; initial-value: 0deg }\n@keyframes pieReveal {\n  0% { --a1:0deg; --a2:0deg; --a3:0deg; --a4:0deg }\n  30% { --a1:122deg; --a2:122deg; --a3:122deg; --a4:122deg }\n  48% { --a1:122deg; --a2:223deg; --a3:223deg; --a4:223deg }\n  64% { --a1:122deg; --a2:223deg; --a3:295deg; --a4:295deg }\n  80%,100% { --a1:122deg; --a2:223deg; --a3:295deg; --a4:360deg }\n}`,
+  'Radar Sweep':`.radar-grid {\n  opacity: 0;\n  animation: fadeIn 300ms ease forwards;\n}\n.radar-shape {\n  transform-origin: center;\n  transform-box: fill-box;\n  transform: scale(.1);\n  opacity: .2;\n  animation: radarIn 700ms ease forwards 120ms;\n}\n@keyframes radarIn {\n  to { transform: scale(1); opacity: 1 }\n}`,
 };
 document.querySelectorAll('.card').forEach(card=>{
   const title=card.querySelector('h3');
